@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View.OnClickListener"/>
+        <variable
+            name="clickListener"
+            type="OnClickListener"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F0F0F0"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:layout_width="132dp"
+                android:layout_height="132dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:id="@+id/tv_need_repair"
+                android:onClick="@{clickListener}"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/shape_circle_yellow"
+                android:textColor="#FF9800"
+                android:text="我要报修"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_below="@id/tv_need_repair"
+                android:layout_marginTop="10dp"
+                android:textColor="#8F8F8F"
+                android:text="用户进 用户端口"
+                />
+        </RelativeLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="#CECECE"
+                />
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="@drawable/shape_circle_white"
+                android:text="logo"
+                />
+        </FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:layout_width="132dp"
+                android:layout_height="132dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:onClick="@{clickListener}"
+                android:id="@+id/tv_repair"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/shape_circle_juice"
+                android:textColor="#FFFFFF"
+                android:text="我来维修"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_below="@id/tv_repair"
+                android:layout_marginTop="10dp"
+                android:textColor="#8F8F8F"
+                android:text="维修师傅进 接活端口"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>

@@ -6,23 +6,22 @@ import android.view.View;
 
 import com.repair.proj.R;
 import com.repair.proj.base.BaseActivity;
-import com.repair.proj.databinding.ActivitySureOrderBinding;
+import com.repair.proj.databinding.ActivitySelectTypeBinding;
+import com.repair.proj.utils.ActivityUtils;
 
 /**
- * 确定订单
- * Created by HX·罗 on 2017/10/18.
+ * Created by HX·罗 on 2017/10/20.
  */
 
-public class SureOrderActivity extends BaseActivity<ActivitySureOrderBinding> {
+public class SelectTypeActivity extends BaseActivity<ActivitySelectTypeBinding> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         color = Color.parseColor("#555555");
         super.onCreate(savedInstanceState);
     }
-
     @Override
     public int setContentView() {
-        return R.layout.activity_sure_order;
+        return R.layout.activity_select_type;
     }
 
     @Override
@@ -32,19 +31,21 @@ public class SureOrderActivity extends BaseActivity<ActivitySureOrderBinding> {
 
     @Override
     public void initData() {
-        viewBinding.layoutTitle.setTitle("确认订单");
+
     }
 
     @Override
     public void initListener() {
-        viewBinding.layoutTitle.setClickListener(this);
+        viewBinding.setClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.iv_back:
-                finish();
+            case R.id.tv_repair://维修工人
+                break;
+            case R.id.tv_need_repair://用户
+                ActivityUtils.startActivityIntent(context,SureOrderActivity.class);
                 break;
         }
     }
