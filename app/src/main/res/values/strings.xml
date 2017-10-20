@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MyRepair</string>
     <string name="str_protocol"><u>《维修人工服务协议》</u></string>
+    <string name="md_repair">修一修</string>
 </resources>
