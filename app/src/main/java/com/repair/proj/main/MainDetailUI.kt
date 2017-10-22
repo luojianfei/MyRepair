@@ -1,6 +1,7 @@
 package com.repair.proj.main
 
 import android.graphics.Color
+import android.graphics.Typeface
 import android.support.design.widget.TabLayout
 import android.view.Gravity
 import android.view.View
@@ -29,6 +30,13 @@ class MainDetailUI : AnkoComponent<MainDetailActivity> {
         const val MDUI_ll_project_select = 12
         const val MDUI_ll_tv_image = 13
         const val MDUI_divier3 = 14
+        const val MDUI_divier4 = 15
+        const val MDUI_rl_location = 16
+        const val MDUI_location_auto = 17
+        const val MDUI_location_input = 18
+        const val MDUI_money = 19
+        const val MDUI_order = 20
+        const val MDUI_location_add = 21
     }
 
     override fun createView(ui: AnkoContext<MainDetailActivity>): View = with(ui) {
@@ -59,7 +67,7 @@ class MainDetailUI : AnkoComponent<MainDetailActivity> {
                     centerVertically()
                 }
 
-            }.lparams(width = matchParent, height = dip(px2dip(102))) {
+            }.lparams(width = matchParent, height = dip(50)) {
                 alignParentTop()
             }
 
@@ -69,7 +77,7 @@ class MainDetailUI : AnkoComponent<MainDetailActivity> {
                 setTabTextColors(Color.parseColor("#000000"), Color.parseColor("#ff9800"))
                 setSelectedTabIndicatorColor(Color.parseColor("#ff9800"))
 
-            }.lparams(width = matchParent, height = dip(px2dip(85))) {
+            }.lparams(width = matchParent, height = dip(42)) {
                 below(MDUI_tb)
             }
 
@@ -104,7 +112,7 @@ class MainDetailUI : AnkoComponent<MainDetailActivity> {
                             rightMargin = dip(16)
                         }
 
-            }.lparams(width = matchParent, height = dip(px2dip(300))) { below(MDUI_divier1) }
+            }.lparams(width = matchParent, height = dip(150)) { below(MDUI_divier1) }
 
             textView {
                 id = MDUI_divier2
@@ -115,15 +123,17 @@ class MainDetailUI : AnkoComponent<MainDetailActivity> {
                 id = MDUI_ll_project_select
                 textView("选择项目") {
                     gravity = Gravity.START or Gravity.CENTER
+                    typeface = Typeface.DEFAULT_BOLD
                 }.lparams(width = 0, height = matchParent, weight = 1f)
 
                 textView("展开") {
                     id = MDUI_ll_tv_image
                     textColor = Color.parseColor("#ff9800")
                     gravity = Gravity.END or Gravity.CENTER
+                    compoundDrawablePadding=dip(8)
                 }.lparams(width = 0, height = matchParent, weight = 1f)
 
-            }.lparams(width = matchParent, height = dip(px2dip(92))) {
+            }.lparams(width = matchParent, height = dip(46)) {
                 below(MDUI_divier2)
                 rightMargin = dip(8)
                 leftMargin = dip(8)
@@ -134,10 +144,86 @@ class MainDetailUI : AnkoComponent<MainDetailActivity> {
                 backgroundColor = Color.parseColor("#bebebe")
             }.lparams(width = matchParent, height = dip(1)) { below(MDUI_ll_project_select) }
 
-            relativeLayout {
+            verticalLayout {
+                id = MDUI_rl_location
                 backgroundColor = Color.parseColor("#f0f0f0")
-                textView("未知") {  }
-            }.lparams(width = matchParent, height = dip(px2dip(480))) { below(MDUI_divier3) }
+                textView("未知") {
+                    id = MDUI_location_auto
+                    backgroundColor = Color.parseColor("#ffffff")
+                    compoundDrawablePadding = dip(8)
+                    gravity = Gravity.CENTER_VERTICAL
+                }.lparams(width = matchParent, height = dip(56)) {
+                    setMargins(dip(8), dip(8), dip(8), 0)
+                }
+
+                textView {
+                    id = MDUI_divier4
+                    backgroundColor = Color.parseColor("#bebebe")
+                }.lparams(width = matchParent, height = dip(1)) {
+                    setMargins(dip(8), 0, dip(8), 0)
+                }
+
+                linearLayout {
+                    editText {
+                        id = MDUI_location_input
+                        backgroundColor = Color.parseColor("#ffffff")
+                        hint = "在此输入目的地"
+                        hintTextColor = Color.parseColor("#8f8f8f")
+                        textColor = Color.parseColor("#111111")
+                        textSize = 14f
+                        compoundDrawablePadding = dip(8)
+                    }.lparams(width = 0, height = dip(56), weight = 10f) {}
+
+                    imageView(R.drawable.type_add) {
+                        id=MDUI_location_add
+                    }.lparams(width = dip(56), height = dip(56), weight = 1f) {
+                        backgroundColor=Color.parseColor("#ffffff")
+                    }
+                }.lparams(width = matchParent, height = dip(56)) {
+                    setMargins(dip(8), 0, dip(8), 0)
+                    leftPadding = dip(8)
+                }
+
+            }.lparams(width = matchParent, height = dip(200)) {
+                below(MDUI_divier3)
+            }
+
+            linearLayout {
+                id = MDUI_money
+                textView("人工优惠价￥") {
+                    textSize = sp(px2sp(14)).toFloat()
+                    textColor = Color.parseColor("#111111")
+                    gravity = Gravity.END or Gravity.CENTER_VERTICAL
+                }.lparams(width = 0, height = matchParent, weight = 1f)
+
+                textView("200") {
+                    textSize = sp(px2sp(26)).toFloat()
+                    textColor = Color.parseColor("#111111")
+                    gravity = Gravity.START or Gravity.CENTER_VERTICAL
+                }.lparams(width = 0, height = matchParent, weight = 1f)
+            }.lparams(width = matchParent, height = dip(65)) { below(MDUI_rl_location) }
+
+            linearLayout {
+                id = MDUI_order
+                textView("现在来修") {
+                    textSize = sp(px2sp(14)).toFloat()
+                    textColor = Color.parseColor("#111111")
+                    gravity = Gravity.CENTER
+                    backgroundColor = Color.parseColor("#fff500")
+                    typeface = Typeface.DEFAULT_BOLD
+                }.lparams(width = 0, height = matchParent, weight = 9f)
+
+                textView("预约") {
+                    textSize = sp(px2sp(26)).toFloat()
+                    textColor = Color.parseColor("#111111")
+                    gravity = Gravity.CENTER
+                    backgroundColor = Color.parseColor("#ff9800")
+                    typeface = Typeface.DEFAULT_BOLD
+                }.lparams(width = 0, height = matchParent, weight = 5f)
+            }.lparams(width = matchParent, height = dip(56)) {
+                alignParentBottom()
+            }
         }
+
     }
 }
