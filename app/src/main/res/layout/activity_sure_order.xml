@@ -6,6 +6,9 @@
         <variable
             name="clickListener"
             type="OnClickListener"/>
+        <variable
+            name="contactInfo"
+            type="com.repair.proj.ContactInfo"/>
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -92,7 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="16dp"
-                        android:switchMinWidth="20dp"
+                        android:switchMinWidth="32dp"
                         android:textOff=""
                         android:textOn=""
                         android:thumb="@drawable/thumb"
@@ -138,6 +141,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_span="3"
+                            android:textSize="14sp"
                             android:layout_toRightOf="@id/iv_date"
                             android:background="@drawable/layer_stroke_bottom"
                             android:gravity="center_vertical"
@@ -163,15 +167,17 @@
                                 android:scaleType="centerInside"
                                 android:src="@drawable/icon_contacts" />
 
-                            <TextView
+                            <EditText
                                 android:id="@+id/tv_contacts"
                                 android:layout_width="match_parent"
                                 android:layout_height="56dp"
                                 android:layout_span="3"
+                                android:textSize="14sp"
+                                android:hint="请输入联系人姓名"
                                 android:layout_toRightOf="@id/iv_contacts"
                                 android:background="@drawable/layer_stroke_bottom"
                                 android:gravity="center_vertical"
-                                android:text="张三" />
+                                android:text="@={contactInfo.name}" />
 
                             <ImageView
                                 android:id="@+id/iv_telephone"
@@ -181,15 +187,18 @@
                                 android:scaleType="centerInside"
                                 android:src="@drawable/icon_telephone" />
 
-                            <TextView
+                            <EditText
                                 android:id="@+id/tv_telephone"
                                 android:layout_width="match_parent"
                                 android:layout_height="56dp"
                                 android:layout_below="@id/iv_contacts"
                                 android:layout_span="3"
+                                android:textSize="14sp"
+                                android:hint="请输入电话号码"
+                                android:background="@null"
                                 android:layout_toRightOf="@id/iv_telephone"
                                 android:gravity="center_vertical"
-                                android:text="1380000000" />
+                                android:text="@={contactInfo.phoneNo}" />
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -207,6 +216,8 @@
                                 android:drawableTop="@drawable/icon_telephone_book"
                                 android:gravity="center"
                                 android:text="通讯录"
+                                android:id="@+id/tv_telephone_book"
+                                android:onClick="@{clickListener}"
                                 android:textColor="#C0C0C0"
 
                                 android:textSize="12sp" />
