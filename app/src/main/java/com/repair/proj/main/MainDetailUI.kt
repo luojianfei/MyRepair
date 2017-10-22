@@ -176,8 +176,9 @@ class MainDetailUI : AnkoComponent<MainDetailActivity> {
 
                     imageView(R.drawable.type_add) {
                         id=MDUI_location_add
-                    }.lparams(width = dip(56), height = dip(56), weight = 1f) {
+                    }.lparams(width =  dip(16), height = dip(16), weight = 1f) {
                         backgroundColor=Color.parseColor("#ffffff")
+                        gravity=Gravity.CENTER_VERTICAL
                     }
                 }.lparams(width = matchParent, height = dip(56)) {
                     setMargins(dip(8), 0, dip(8), 0)
