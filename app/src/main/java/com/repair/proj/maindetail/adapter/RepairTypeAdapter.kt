@@ -1,4 +1,4 @@
-package com.repair.proj.main
+package com.repair.proj.maindetail.adapter
 
 import android.support.v4.view.PagerAdapter
 import android.view.View

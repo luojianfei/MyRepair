@@ -8,8 +8,4 @@ import com.repair.proj.maindetail.contract.MainDetailContract;
  */
 
 public class MainDetailModel implements MainDetailContract.Model {
-    @Override
-    public void method() {
-
-    }
 }
