@@ -41,7 +41,7 @@ public class RegistFirstActivity extends BaseActivity<ActivityRegistFirstBinding
 
     @Override
     public String getValidateCode() {
-        return viewBinding.getPwd() ;
+        return viewBinding.getValidateCode() ;
     }
 
     @Override

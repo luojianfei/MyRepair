@@ -6,7 +6,7 @@
             name="telphoneNo"
             type="String"/>
         <variable
-            name="pwd"
+            name="validateCode"
             type="String"/>
         <variable
             name="clickListener"
@@ -78,7 +78,7 @@
                     android:hint="请输入短信验证码"
                     android:paddingLeft="18dp"
                     android:paddingRight="18dp"
-                    android:text="@={telphoneNo}"
+                    android:text="@={validateCode}"
                     android:textColor="#8F8F8F"
                     android:textSize="14sp" />
                 <Button
