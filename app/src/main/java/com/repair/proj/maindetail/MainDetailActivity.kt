@@ -27,6 +27,7 @@ class MainDetailActivity : XBaseActivity<MainDetailPresenter>(), MainDetailContr
 
     override fun beforeSetContentView() {
         super.beforeSetContentView()
+        //可以用于设置状态栏
     }
 
     override fun onInit() {
@@ -84,7 +85,6 @@ class MainDetailActivity : XBaseActivity<MainDetailPresenter>(), MainDetailContr
             error { "猪头四" }
         }
     }
-
 
     override fun getContentId(): Int {
         return R.layout.activity_main_detail
