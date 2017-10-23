@@ -1,4 +1,4 @@
-package com.repair.proj.viewl;
+package com.repair.proj.login;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -42,10 +42,10 @@ public class SelectTypeActivity extends BaseActivity<ActivitySelectTypeBinding> 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.tv_repair://维修工人
+            case R.id.tv_repair://注册维修师傅
+                ActivityUtils.startActivityIntent(context,LoginActivity.class);
                 break;
-            case R.id.tv_need_repair://用户
-                ActivityUtils.startActivityIntent(context,SureOrderActivity.class);
+            case R.id.tv_need_repair://用户报修
                 break;
         }
     }

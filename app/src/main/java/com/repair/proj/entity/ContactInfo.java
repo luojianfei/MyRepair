@@ -1,4 +1,4 @@
-package com.repair.proj;
+package com.repair.proj.entity;
 
 import com.repair.proj.utils.TextUtil;
 

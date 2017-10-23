@@ -8,5 +8,5 @@ import android.content.Context;
 
 public interface Basefview {
     Context context() ;
-    void showToastMsg() ;
+    void showToastMsg(String msg) ;
 }

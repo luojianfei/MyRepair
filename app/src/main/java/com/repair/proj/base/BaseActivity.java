@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -52,7 +53,7 @@ public abstract class BaseActivity<G extends ViewDataBinding> extends Activity i
     private static final String LAYOUT_LINEARLAYOUT = "LinearLayout";
     private static final String LAYOUT_FRAMELAYOUT = "FrameLayout";
     private static final String LAYOUT_RELATIVELAYOUT = "RelativeLayout";
-    public int color = 0;
+    public int color = Color.parseColor("#555555");
     public boolean doubleKeyExit = false;//是否双击推出应用
     public Context context;//上下文对象
     private long firstTime = 0;//第一次按下返回键

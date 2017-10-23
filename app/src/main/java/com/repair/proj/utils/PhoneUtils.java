@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 
-import com.repair.proj.ContactInfo;
+import com.repair.proj.entity.ContactInfo;
 
 /**
  * Created by HX·罗 on 2017/10/23.
