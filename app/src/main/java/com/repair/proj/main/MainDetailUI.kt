@@ -3,6 +3,7 @@ package com.repair.proj.main
 import android.graphics.Color
 import android.graphics.Typeface
 import android.support.design.widget.TabLayout
+import android.text.InputType
 import android.view.Gravity
 import android.view.View
 import com.repair.proj.R
@@ -30,13 +31,11 @@ class MainDetailUI : AnkoComponent<MainDetailActivity> {
         const val MDUI_ll_project_select = 12
         const val MDUI_ll_tv_image = 13
         const val MDUI_divier3 = 14
-        const val MDUI_divier4 = 15
         const val MDUI_rl_location = 16
-        const val MDUI_location_auto = 17
         const val MDUI_location_input = 18
         const val MDUI_money = 19
         const val MDUI_order = 20
-        const val MDUI_location_add = 21
+        const val MDUI_location_title = 21
     }
 
     override fun createView(ui: AnkoContext<MainDetailActivity>): View = with(ui) {
@@ -130,7 +129,7 @@ class MainDetailUI : AnkoComponent<MainDetailActivity> {
                     id = MDUI_ll_tv_image
                     textColor = Color.parseColor("#ff9800")
                     gravity = Gravity.END or Gravity.CENTER
-                    compoundDrawablePadding=dip(8)
+                    compoundDrawablePadding = dip(8)
                 }.lparams(width = 0, height = matchParent, weight = 1f)
 
             }.lparams(width = matchParent, height = dip(46)) {
@@ -144,45 +143,32 @@ class MainDetailUI : AnkoComponent<MainDetailActivity> {
                 backgroundColor = Color.parseColor("#bebebe")
             }.lparams(width = matchParent, height = dip(1)) { below(MDUI_ll_project_select) }
 
-            verticalLayout {
+            relativeLayout {
                 id = MDUI_rl_location
                 backgroundColor = Color.parseColor("#f0f0f0")
-                textView("未知") {
-                    id = MDUI_location_auto
+
+                textView("报修地点 : ") {
+                    id = MDUI_location_title
                     backgroundColor = Color.parseColor("#ffffff")
+                    gravity=Gravity.CENTER
+                    textColor=Color.BLACK
+                }.lparams(width = wrapContent, height = dip(56)) {
+                    setMargins(dip(8), dip(8), 0, 0)
+                    alignParentLeft()
+                }
+
+                editText {
+                    id = MDUI_location_input
+                    backgroundColor = Color.parseColor("#ffffff")
+                    hint = "在此输入目的地"
+                    hintTextColor = Color.parseColor("#8f8f8f")
+                    textColor = Color.parseColor("#111111")
+                    textSize = 14f
                     compoundDrawablePadding = dip(8)
-                    gravity = Gravity.CENTER_VERTICAL
+                    inputType = InputType.TYPE_NULL
                 }.lparams(width = matchParent, height = dip(56)) {
-                    setMargins(dip(8), dip(8), dip(8), 0)
-                }
-
-                textView {
-                    id = MDUI_divier4
-                    backgroundColor = Color.parseColor("#bebebe")
-                }.lparams(width = matchParent, height = dip(1)) {
-                    setMargins(dip(8), 0, dip(8), 0)
-                }
-
-                linearLayout {
-                    editText {
-                        id = MDUI_location_input
-                        backgroundColor = Color.parseColor("#ffffff")
-                        hint = "在此输入目的地"
-                        hintTextColor = Color.parseColor("#8f8f8f")
-                        textColor = Color.parseColor("#111111")
-                        textSize = 14f
-                        compoundDrawablePadding = dip(8)
-                    }.lparams(width = 0, height = dip(56), weight = 10f) {}
-
-                    imageView(R.drawable.type_add) {
-                        id=MDUI_location_add
-                    }.lparams(width =  dip(16), height = dip(16), weight = 1f) {
-                        backgroundColor=Color.parseColor("#ffffff")
-                        gravity=Gravity.CENTER_VERTICAL
-                    }
-                }.lparams(width = matchParent, height = dip(56)) {
-                    setMargins(dip(8), 0, dip(8), 0)
-                    leftPadding = dip(8)
+                    setMargins(0, dip(8), dip(8), 0)
+                    rightOf(MDUI_location_title)
                 }
 
             }.lparams(width = matchParent, height = dip(200)) {

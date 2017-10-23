@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.repair.proj.R
 import org.jetbrains.anko.*
@@ -22,8 +23,9 @@ class MainDetailActivity : AppCompatActivity(), AnkoLogger {
     private lateinit var rightArrow: ImageView
     private lateinit var pager: ViewPager
     private lateinit var slectType: TextView
-    private lateinit var locationC1: TextView
     private lateinit var locationC2: EditText
+    private lateinit var location_title: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MainDetailUI().setContentView(this)
@@ -39,8 +41,8 @@ class MainDetailActivity : AppCompatActivity(), AnkoLogger {
         rightArrow = find(MainDetailUI.MDUI_tb_frameLayout_right_arraw)
         pager = find(MainDetailUI.MDUI_tb_frameLayout_viewpager)
         slectType = find(MainDetailUI.MDUI_ll_tv_image)
-        locationC1 = find(MainDetailUI.MDUI_location_auto)
         locationC2 = find(MainDetailUI.MDUI_location_input)
+        location_title = find(MainDetailUI.MDUI_location_title)
     }
 
     private fun initLogic() {
@@ -93,15 +95,13 @@ class MainDetailActivity : AppCompatActivity(), AnkoLogger {
         slectType.setCompoundDrawables(null, null, drawable, null)
 
         //定位
-
-        var drawableC1 = resources.getDrawable(R.drawable.location_c2)
-        drawableC1.setBounds(0, 0, 48, 48)
-        locationC1.setCompoundDrawables(drawableC1, null, null, null)
-        locationC1.leftPadding = 48//在dsl中不起作用，因此在这里设置
-
-        var drawableC2 = resources.getDrawable(R.drawable.location_c1)
-        drawableC2.setBounds(0, 0, 48, 48)
-        locationC2.setCompoundDrawables(drawableC2, null, null, null)
-        locationC2.leftPadding = 48//在dsl中不起作用，因此在这里设置
+        location_title.leftPadding=48
+        var drawableAdd = resources.getDrawable(R.drawable.type_add)
+        drawableAdd.setBounds(0, 0, 48, 48)
+        locationC2.setCompoundDrawables(null, null, drawableAdd, null)
+        locationC2.rightPadding = 48//在dsl中不起作用，因此在这里设置
+        //设置定位的监听事件
+        locationC2.setOnClickListener {
+        }
     }
 }
