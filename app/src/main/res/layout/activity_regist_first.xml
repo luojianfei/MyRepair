@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="36sp"
-                android:textColor="#FF9904"
+                android:textColor="@color/app_second_color"
                 android:text="让赚钱变得更容易"
                 />
             <TextView
@@ -112,7 +112,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#FFA82E"
+                    android:textColor="@color/app_second_color"
                     android:id="@+id/tv_service_condition"
                     android:onClick="@{clickListener}"
                     android:text="服务条款" />

@@ -4,7 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="app_base_color">#FFF500</color>
+    <color name="app_base_color">#F4D70B</color>
+    <color name="app_second_color">#EF7A11</color>
     <color name="color_000000">#000000</color>
     <color name="color_ff9800">#ff9800</color>
     <color name="color_bebebe">#bebebe</color>

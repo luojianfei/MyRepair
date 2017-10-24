@@ -29,7 +29,7 @@
                 android:onClick="@{clickListener}"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/shape_circle_yellow"
-                android:textColor="#FF9800"
+                android:textColor="@color/app_second_color"
                 android:text="我要报修"
                 />
             <TextView

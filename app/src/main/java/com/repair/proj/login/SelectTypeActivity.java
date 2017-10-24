@@ -1,6 +1,5 @@
 package com.repair.proj.login;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -16,7 +15,6 @@ import com.repair.proj.utils.ActivityUtils;
 public class SelectTypeActivity extends BaseActivity<ActivitySelectTypeBinding> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        color = Color.parseColor("#555555");
         super.onCreate(savedInstanceState);
     }
     @Override

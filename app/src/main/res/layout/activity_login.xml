@@ -109,7 +109,7 @@
                 android:textSize="14sp"
                 android:id="@+id/tv_regist_repair"
                 android:onClick="@{clickListener}"
-                android:textColor="#FF9800"
+                android:textColor="@color/app_second_color"
                 android:layout_gravity="center_horizontal"
                 android:text="注册成为修一修的维修师傅 ＞"
                 />
