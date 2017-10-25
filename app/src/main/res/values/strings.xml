@@ -10,4 +10,15 @@
     <string name="md_repair_now">现在来修</string>
     <string name="md_repair_later">预约</string>
     <string name="str_server_no">客服热线：010-88888888</string>
+    <string name="ars_register">注册</string>
+    <string name="ars_local_title">所在地区:</string>
+    <string name="ars_local_hint">请选择地区</string>
+    <string name="ars_name_title">姓名:</string>
+    <string name="ars_name_hint">请输入真实姓名</string>
+    <string name="ars_idcard_title">身份证号:</string>
+    <string name="ars_idcard_hint">请输入身份证号</string>
+    <string name="ars_urgency_title">紧急联系人:</string>
+    <string name="ars_urgency_hint">请输入紧急联系人姓名</string>
+    <string name="ars_urgency_number_title">紧急联系人电话:</string>
+    <string name="ars_urgency_number_hint">请输入11位手机号</string>
 </resources>
