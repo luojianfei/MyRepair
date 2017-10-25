@@ -18,8 +18,8 @@ import kotlinx.android.synthetic.main.activity_location.*
  */
 
 class LocationActivity : XBaseActivity<LocationPresenter>(), LocationContract.View {
-    var locationService: LocationService? = null
-    var myListener: BDLocationListener = MyLocationListener()
+    private var locationService: LocationService? = null
+    private var myListener: BDLocationListener = MyLocationListener()
     override fun getContentId(): Int {
         return R.layout.activity_location
     }
