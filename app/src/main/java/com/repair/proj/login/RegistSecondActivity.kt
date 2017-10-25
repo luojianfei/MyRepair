@@ -15,9 +15,6 @@ import org.jetbrains.anko.AnkoLogger
  * Created by Mwh on 2017/10/25.
  */
 class RegistSecondActivity : XBaseActivity<MainDetailPresenter>(), MainDetailContract.View, AnkoLogger {
-    override fun getContentId(): Int {
-        return R.layout.activity_regist_second
-    }
 
     override fun beforeSetContentView() {
         super.beforeSetContentView()
@@ -47,5 +44,7 @@ class RegistSecondActivity : XBaseActivity<MainDetailPresenter>(), MainDetailCon
         ars_h_cancle.setOnClickListener { }
     }
 
-
+    override fun getContentId(): Int {
+        return R.layout.activity_regist_second
+    }
 }
