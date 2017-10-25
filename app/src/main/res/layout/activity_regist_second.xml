@@ -62,6 +62,7 @@
             android:layout_toRightOf="@id/ars_local_title"
             android:background="@color/color_ffffff"
             android:drawableRight="@drawable/arrow_right_black"
+            android:focusable="false"
             android:hint="@string/ars_local_hint"
             android:paddingRight="16px"
             android:textColorHint="@color/color_bbbbbb"
