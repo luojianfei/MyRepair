@@ -43,7 +43,7 @@ class LineTimeAdapter(activity: Activity, se: StepEnum) : RecyclerView.Adapter<L
         it.lineName.text = titles[position]
         it.lineLeft.backgroundResource = R.drawable.line_gray
         it.lineRight.backgroundResource = R.drawable.line_gray
-        it.lineName.textColor = activity.resources.getColor(R.color.color_bbbbbb)
+        it.lineName.textColor = activity.resources.getColor(R.color.color_bbbbbb,null)
         it.lineImage.imageResource = R.drawable.point_gray
         //当表示当前状态时
         if (position <= step) {

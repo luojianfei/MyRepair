@@ -32,31 +32,34 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    //图片加载
-    //完美适配方案框架
-    //网络请求框架
-    //kotlin插件
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile "org.jetbrains.anko:anko-commons:$anko_version"
-    compile "org.jetbrains.anko:anko-sdk25:$anko_version"
-    //xmvp
-    compile files('libs/BaiduLBS_Android.jar')
-    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
-    compile 'com.zhy:autolayout:1.4.5'
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support:recyclerview-v7:26.1.0'
-    compile 'com.android.support:design:26.1.0'
-    compile 'com.orhanobut:logger:1.15'
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:converter-scalars:2.2.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.github.xujiaji:xmvp:1.1.1'
     testCompile 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    //kotlin插件
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+    implementation "org.jetbrains.anko:anko-sdk25:$anko_version"
+    //百度地图
+    implementation files('libs/BaiduLBS_Android.jar')
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.0.0-RC1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC1'
-    compile 'com.contrarywind:Android-PickerView:3.2.5'
+    //完美适配方案框架
+    implementation 'com.zhy:autolayout:1.4.5'
+    //logger
+    implementation 'com.orhanobut:logger:1.15'
+    //网络访问
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.2.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    //xmvp框架
+    implementation 'com.github.xujiaji:xmvp:1.1.1'
+    //三级选择器
+    implementation 'com.contrarywind:Android-PickerView:3.2.5'
+    implementation 'com.google.code.gson:gson:2.8.2'
 }
