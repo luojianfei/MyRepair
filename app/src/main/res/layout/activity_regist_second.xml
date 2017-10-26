@@ -24,9 +24,17 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/ars_register"
+            android:textColor="@color/color_000000"
             android:textSize="16sp" />
 
     </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_bbbbbb" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/ars_rv"
@@ -52,7 +60,7 @@
             android:layout_centerVertical="true"
             android:text="@string/ars_local_title"
             android:textColor="@color/color_000000"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/ars_local_content"
@@ -62,10 +70,11 @@
             android:layout_toRightOf="@id/ars_local_title"
             android:background="@color/color_ffffff"
             android:drawableRight="@drawable/arrow_right_black"
+            android:focusable="false"
             android:hint="@string/ars_local_hint"
-            android:paddingRight="16px"
+            android:paddingRight="8px"
             android:textColorHint="@color/color_bbbbbb"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -89,7 +98,7 @@
             android:layout_centerVertical="true"
             android:text="@string/ars_name_title"
             android:textColor="@color/color_000000"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/ars_name_content"
@@ -101,7 +110,7 @@
             android:hint="@string/ars_name_hint"
             android:paddingRight="16px"
             android:textColorHint="@color/color_bbbbbb"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -125,7 +134,7 @@
             android:layout_centerVertical="true"
             android:text="@string/ars_idcard_title"
             android:textColor="@color/color_000000"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/ars_idcard_content"
@@ -137,7 +146,7 @@
             android:hint="@string/ars_idcard_hint"
             android:paddingRight="16px"
             android:textColorHint="@color/color_bbbbbb"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -161,7 +170,7 @@
             android:layout_centerVertical="true"
             android:text="@string/ars_urgency_title"
             android:textColor="@color/color_000000"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/ars_urgency_content"
@@ -173,7 +182,7 @@
             android:hint="@string/ars_urgency_hint"
             android:paddingRight="16px"
             android:textColorHint="@color/color_bbbbbb"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -197,7 +206,7 @@
             android:layout_centerVertical="true"
             android:text="@string/ars_urgency_number_title"
             android:textColor="@color/color_000000"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/ars_urgency_number_content"
@@ -209,7 +218,7 @@
             android:hint="@string/ars_urgency_number_hint"
             android:paddingRight="16px"
             android:textColorHint="@color/color_bbbbbb"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="match_parent"

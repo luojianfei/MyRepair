@@ -1,6 +1,7 @@
 package com.repair.proj.maindetail
 
 import android.graphics.Typeface
+import android.location.Location
 import android.support.v4.graphics.TypefaceCompat
 import android.support.v4.view.ViewPager
 import android.text.InputType
@@ -12,10 +13,8 @@ import com.repair.proj.maindetail.contract.MainDetailContract
 import com.repair.proj.maindetail.presenter.MainDetailPresenter
 import io.xujiaji.xmvp.view.base.XBaseActivity
 import kotlinx.android.synthetic.main.activity_main_detail.*
-import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.*
 import org.jetbrains.anko.collections.forEachWithIndex
-import org.jetbrains.anko.error
-import org.jetbrains.anko.find
 
 /**
  * 说明：
@@ -81,8 +80,8 @@ class MainDetailActivity : XBaseActivity<MainDetailPresenter>(), MainDetailContr
             md_pj_vp.setCurrentItem(md_pj_vp.currentItem + 1, true)
         }
         //定位控件点击事件
-        md_location_content.setOnClickListener{
-            error { "猪头四" }
+        md_location_content.setOnClickListener {
+            startActivityForResult<LocationActivity>(110)
         }
     }
 
