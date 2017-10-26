@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Mwh on 2017/10/25.
  */
 
-public class Com {
+public class CityCommon {
     private List<JsonBean> options1Items = new ArrayList<>();
     private ArrayList<ArrayList<String>> options2Items = new ArrayList<>();
     private ArrayList<ArrayList<ArrayList<String>>> options3Items = new ArrayList<>();

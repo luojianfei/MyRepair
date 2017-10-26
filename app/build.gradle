@@ -44,6 +44,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
     implementation "org.jetbrains.anko:anko-sdk25:$anko_version"
+    implementation "org.jetbrains.anko:anko-coroutines:$anko_version"
     //百度地图
     implementation files('libs/BaiduLBS_Android.jar')
     //glide
