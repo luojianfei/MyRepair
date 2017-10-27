@@ -1,23 +1,21 @@
 package com.repair.proj.maindetail
 
-import android.widget.Button
 import com.baidu.location.BDLocationListener
-import com.baidu.mapapi.map.BaiduMap
-import com.baidu.mapapi.map.MapView
 import com.repair.proj.R
+import com.repair.proj.databinding.ActivityLocationBinding
 import com.repair.proj.location.LocationService
 import com.repair.proj.location.MyLocationListener
 import com.repair.proj.maindetail.contract.LocationContract
 import com.repair.proj.maindetail.presenter.LocationPresenter
-
-import io.xujiaji.xmvp.view.base.XBaseActivity
+import com.repair.proj.nbase.NActivity
 import kotlinx.android.synthetic.main.activity_location.*
 
 /**
+ * databinding只用于xml数据的绑定
  * Created by Mwh on 2017/10/25.
  */
 
-class LocationActivity : XBaseActivity<LocationPresenter>(), LocationContract.View {
+class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>(), LocationContract.View {
     private var locationService: LocationService? = null
     private var myListener: BDLocationListener = MyLocationListener()
     override fun getContentId(): Int {

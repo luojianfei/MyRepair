@@ -1,11 +1,14 @@
 package com.repair.proj.login.presenter
 
 import android.app.Activity
+import android.app.Dialog
+import android.app.ProgressDialog
 import android.support.v7.app.AlertDialog
 import com.repair.proj.login.common.CityCommon
 import com.repair.proj.login.contract.RegistSecondContract
 import com.repair.proj.login.model.RegistSecondModel
-import io.xujiaji.xmvp.presenters.XBasePresenter
+import com.repair.proj.nbase.NPresenter
+import com.repair.proj.utils.DialogUtils
 import kotlinx.coroutines.experimental.*
 
 /**
@@ -13,18 +16,20 @@ import kotlinx.coroutines.experimental.*
  * Created by nxl on 2017/10/23.
  */
 
-class RegistSecondPresenter : XBasePresenter<RegistSecondContract.View, RegistSecondModel>(), RegistSecondContract.Presenter {
-    var cityCommon = CityCommon()
+class RegistSecondPresenter : RegistSecondContract.Presenter, NPresenter<RegistSecondContract.View, RegistSecondModel>() {
+    private var cityCommon = CityCommon()
+    private var dialogUtils = DialogUtils()
     override fun showLocationPicker(activity: Activity) = runBlocking {
-        //show loading
-        val dialog = AlertDialog.Builder(activity).setTitle("加载").setMessage("等待城市数据加载").create()
-        dialog.show()
+        var dialog = ProgressDialog(activity)
+        dialogUtils.showProgressDialog(dialog, activity)
         val job = launch(CommonPool) {
             cityCommon.initJsonData(activity)
         }
         job.join()
         dialog.dismiss()
-        cityCommon.showLocationPicker(activity)
+        cityCommon.showLocationPicker(activity) {
+            view.setLocationData(it)
+        }
     }
 
 }

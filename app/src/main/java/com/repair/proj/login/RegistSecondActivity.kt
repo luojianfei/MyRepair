@@ -1,29 +1,32 @@
 package com.repair.proj.login
 
-import android.app.Activity
 import android.graphics.Typeface
 import android.support.v7.widget.LinearLayoutManager
+import com.repair.proj.BR
 import com.repair.proj.R
+import com.repair.proj.databinding.ActivityRegistSecondBinding
 import com.repair.proj.login.adapter.LineTimeAdapter
 import com.repair.proj.login.adapter.StepEnum
 import com.repair.proj.login.contract.RegistSecondContract
+import com.repair.proj.login.entity.SecondEnitity
 import com.repair.proj.login.presenter.RegistSecondPresenter
-import com.repair.proj.maindetail.contract.MainDetailContract
-import io.xujiaji.xmvp.view.base.XBaseActivity
+import com.repair.proj.nbase.NActivity
 import kotlinx.android.synthetic.main.activity_regist_second.*
 import org.jetbrains.anko.AnkoLogger
 
 /**
+ * databinding只用于xml数据的绑定
  * Created by Mwh on 2017/10/25.
  */
-class RegistSecondActivity : XBaseActivity<RegistSecondPresenter>(), RegistSecondContract.View, AnkoLogger {
-
+class RegistSecondActivity : NActivity<RegistSecondPresenter, ActivityRegistSecondBinding>(), RegistSecondContract.View, AnkoLogger {
+    var se = SecondEnitity()
     override fun beforeSetContentView() {
         super.beforeSetContentView()
     }
 
     override fun onInit() {
         super.onInit()
+        binding.secondEntity = se
         //标题字体
         ars_h_title.typeface = Typeface.DEFAULT_BOLD
         //初始化recylerview
@@ -48,10 +51,20 @@ class RegistSecondActivity : XBaseActivity<RegistSecondPresenter>(), RegistSecon
         ars_local_content.setOnClickListener {
             presenter.showLocationPicker(this)
         }
+        ars_next.setOnClickListener {
+//            starta
+        }
     }
 
     override fun getContentId(): Int {
         return R.layout.activity_regist_second
     }
 
+    override fun setLocationData(data: String?) {
+        se.address = data ?: ""
+    }
+
+    override fun getRegistSecondData(): SecondEnitity {
+        return se
+    }
 }
