@@ -60,6 +60,8 @@ public abstract class NActivity<T extends NPresenter, V extends ViewDataBinding>
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.end();
+        if(presenter!=null){
+            presenter.end();
+        }
     }
 }

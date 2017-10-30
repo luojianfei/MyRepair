@@ -8,9 +8,122 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/art_header"
+            android:layout_width="match_parent"
+            android:layout_height="112px"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/art_h_cancle"
+                android:layout_width="32px"
+                android:layout_height="32px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:src="@drawable/cancle" />
+
+            <TextView
+                android:id="@+id/art_h_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/ars_register"
+                android:textColor="@color/color_000000"
+                android:textSize="16sp" />
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+
         <TextView
             android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_bbbbbb" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/art_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="92px"
+            android:paddingLeft="32px"
+            android:paddingRight="32px" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="hello world" />
+            android:layout_marginTop="92px"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/art_idcard_font"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/art_upload_idcard_front" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:src="@drawable/add"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/art_idcard_back"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/art_upload_idcard_back" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:src="@drawable/add"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/art_idcard_handheld"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/art_upload_idcard_handheld" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:src="@drawable/add"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/art_next"
+                android:layout_width="match_parent"
+                android:layout_height="102px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/app_base_color"
+                android:gravity="center"
+                android:text="下一步"
+                android:textColor="@color/app_second_color"
+                android:textSize="14sp" />
+        </com.zhy.autolayout.AutoLinearLayout>
     </com.zhy.autolayout.AutoLinearLayout>
 </layout>

@@ -21,4 +21,8 @@
     <string name="ars_urgency_hint">请输入紧急联系人姓名</string>
     <string name="ars_urgency_number_title">紧急联系人电话:</string>
     <string name="ars_urgency_number_hint">请输入11位手机号</string>
+    <string name="art_upload_idcard_front">上传身份证正面照:</string>
+    <string name="art_upload_idcard_back">上传身份证背面照:</string>
+    <string name="art_upload_idcard_handheld">上传手持身份证照:</string>
+    <string name="art_phone_audit">请耐心等待家家悦客服打电话给您,请随时保持电话畅通。</string>
 </resources>

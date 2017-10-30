@@ -2,7 +2,6 @@ package com.repair.proj.login
 
 import android.graphics.Typeface
 import android.support.v7.widget.LinearLayoutManager
-import com.repair.proj.BR
 import com.repair.proj.R
 import com.repair.proj.databinding.ActivityRegistSecondBinding
 import com.repair.proj.login.adapter.LineTimeAdapter
@@ -13,6 +12,7 @@ import com.repair.proj.login.presenter.RegistSecondPresenter
 import com.repair.proj.nbase.NActivity
 import kotlinx.android.synthetic.main.activity_regist_second.*
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.startActivity
 
 /**
  * databinding只用于xml数据的绑定
@@ -52,7 +52,7 @@ class RegistSecondActivity : NActivity<RegistSecondPresenter, ActivityRegistSeco
             presenter.showLocationPicker(this)
         }
         ars_next.setOnClickListener {
-//            starta
+            startActivity<RegistThreeActivity>()
         }
     }
 

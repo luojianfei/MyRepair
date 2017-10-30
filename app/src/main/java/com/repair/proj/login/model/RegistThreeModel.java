@@ -8,8 +8,4 @@ import com.repair.proj.login.contract.RegistThreeContract;
  */
 
 public class RegistThreeModel implements RegistThreeContract.Model {
-    @Override
-    public void method() {
-
-    }
 }

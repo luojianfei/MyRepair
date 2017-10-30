@@ -38,7 +38,6 @@
 
         </com.zhy.autolayout.AutoRelativeLayout>
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1px"
@@ -238,19 +237,19 @@
         </com.zhy.autolayout.AutoRelativeLayout>
 
         <com.zhy.autolayout.AutoRelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/ars_next"
-                android:layout_width="match_parent"
-                android:layout_height="102px"
-                android:layout_alignParentBottom="true"
-                android:background="@color/app_base_color"
-                android:gravity="center"
-                android:text="下一步"
-                android:textColor="@color/app_second_color"
-                android:textSize="14sp" />
-        </com.zhy.autolayout.AutoRelativeLayout>
+        <TextView
+            android:id="@+id/ars_next"
+            android:layout_width="match_parent"
+            android:layout_height="102px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/app_base_color"
+            android:gravity="center"
+            android:text="下一步"
+            android:textColor="@color/app_second_color"
+            android:textSize="14sp" />
+    </com.zhy.autolayout.AutoRelativeLayout>
     </com.zhy.autolayout.AutoLinearLayout>
 </layout>

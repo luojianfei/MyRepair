@@ -1,23 +1,37 @@
 package com.repair.proj.maindetail
 
 import com.baidu.location.BDLocationListener
+import com.baidu.mapapi.map.BaiduMap
+import com.baidu.mapapi.map.MapStatus
+import com.baidu.mapapi.model.LatLng
 import com.repair.proj.R
 import com.repair.proj.databinding.ActivityLocationBinding
 import com.repair.proj.location.LocationService
 import com.repair.proj.location.MyLocationListener
+import com.repair.proj.location.Util
 import com.repair.proj.maindetail.contract.LocationContract
 import com.repair.proj.maindetail.presenter.LocationPresenter
 import com.repair.proj.nbase.NActivity
 import kotlinx.android.synthetic.main.activity_location.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.error
 
 /**
  * databinding只用于xml数据的绑定
  * Created by Mwh on 2017/10/25.
  */
 
-class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>(), LocationContract.View {
+class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>(), LocationContract.View, AnkoLogger {
+    override val loggerTag: String
+        get() = "ttttt"
     private var locationService: LocationService? = null
-    private var myListener: BDLocationListener = MyLocationListener()
+    private var level=8
+    private var myListener: BDLocationListener = MyLocationListener {
+        Util.setUserMapCenter(al_bd_mapview.map,it)
+        Util.setMarker1(al_bd_mapview.map,it)
+        Util.setMarker2(al_bd_mapview.map,it,this)
+    }
+
     override fun getContentId(): Int {
         return R.layout.activity_location
     }
@@ -30,6 +44,24 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
         locationService?.registerListener(myListener)
         //开始定位
         locationService?.start()
+        al_bd_mapview.map.isMyLocationEnabled=false
+        al_bd_mapview.map.setOnMapStatusChangeListener(object :BaiduMap.OnMapStatusChangeListener{
+            override fun onMapStatusChangeStart(p0: MapStatus?) {
+                error { "onMapStatusChangeStart" }
+            }
+
+            override fun onMapStatusChangeStart(p0: MapStatus?, p1: Int) {
+                error { "onMapStatusChangeStart" }
+            }
+
+            override fun onMapStatusChange(p0: MapStatus?) {
+        }
+
+            override fun onMapStatusChangeFinish(p0: MapStatus?) {
+                error { "onMapStatusChangeFinish" }
+            }
+
+        })
     }
 
 
