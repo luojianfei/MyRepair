@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/ars_register"
-                android:textColor="@color/color_000000"
+                android:textColor="@color/color_111111"
                 android:textSize="16sp" />
 
         </com.zhy.autolayout.AutoRelativeLayout>
@@ -54,7 +54,7 @@
             android:layout_marginTop="92px"
             android:orientation="vertical">
 
-            <LinearLayout
+            <com.zhy.autolayout.AutoLinearLayout
                 android:id="@+id/art_idcard_font"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -64,17 +64,23 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/art_upload_idcard_front" />
+                    android:textColor="@color/color_111111"
+                    android:text="@string/art_upload_idcard_front"
+                    android:textSize="12sp" />
 
-                <ImageView
+                <com.zhy.autolayout.AutoRelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingBottom="15dp"
-                    android:paddingTop="15dp"
-                    android:src="@drawable/add"/>
-            </LinearLayout>
+                    android:layout_height="match_parent">
 
-            <LinearLayout
+                    <ImageView
+                        android:layout_width="222px"
+                        android:layout_height="136px"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/add" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
                 android:id="@+id/art_idcard_back"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -84,35 +90,48 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/art_upload_idcard_back" />
+                    android:textColor="@color/color_111111"
+                    android:text="@string/art_upload_idcard_back"
+                    android:textSize="12sp" />
 
-                <ImageView
+                <com.zhy.autolayout.AutoRelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingBottom="15dp"
-                    android:paddingTop="15dp"
-                    android:src="@drawable/add"/>
-            </LinearLayout>
+                    android:layout_height="match_parent">
 
-            <LinearLayout
+                    <ImageView
+                        android:layout_width="222px"
+                        android:layout_height="136px"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/add" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
                 android:id="@+id/art_idcard_handheld"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:textSize="12sp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/color_111111"
                     android:text="@string/art_upload_idcard_handheld" />
 
-                <ImageView
+                <com.zhy.autolayout.AutoRelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingBottom="15dp"
-                    android:paddingTop="15dp"
-                    android:src="@drawable/add"/>
-            </LinearLayout>
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="222px"
+                        android:layout_height="136px"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/add" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+            </com.zhy.autolayout.AutoLinearLayout>
 
             <TextView
                 android:id="@+id/art_next"

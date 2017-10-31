@@ -1,10 +1,13 @@
 package com.repair.proj.maindetail
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.support.v4.view.ViewPager
 import android.view.View
 import android.widget.ImageView
+import com.android.databinding.library.baseAdapters.BR
 import com.repair.proj.R
+import com.repair.proj.base.Common
 import com.repair.proj.databinding.ActivityMainBinding
 import com.repair.proj.databinding.ActivityMainDetailBinding
 import com.repair.proj.maindetail.adapter.RepairTypeAdapter
@@ -80,7 +83,7 @@ class MainDetailActivity : NActivity<MainDetailPresenter, ActivityMainDetailBind
         }
         //定位控件点击事件
         md_location_content.setOnClickListener {
-            startActivityForResult<LocationActivity>(110)
+            startActivityForResult<LocationActivity>(Common.LOCATION_REQUEST_CODE)
         }
     }
 
@@ -88,4 +91,11 @@ class MainDetailActivity : NActivity<MainDetailPresenter, ActivityMainDetailBind
         return R.layout.activity_main_detail
     }
 
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Common.LOCATION_REQUEST_CODE && resultCode == Common.LOCATION_RESULT_CODE) {
+            binding.address = data?.getStringExtra("address") ?: ""
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.repair.proj.login
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -16,6 +17,7 @@ class RegistForeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_regist_fore)
+        arf_h_title.typeface = Typeface.DEFAULT_BOLD
         var layoutManager=object : LinearLayoutManager(this){
             override fun canScrollHorizontally(): Boolean {
                 return false

@@ -86,7 +86,6 @@
         <activity
             android:name=".login.RegistThreeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         </activity>
 
         <activity

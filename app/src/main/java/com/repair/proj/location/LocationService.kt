@@ -40,7 +40,7 @@ class LocationService(locationContext: Context) {
                 mOption = LocationClientOption()
                 mOption!!.locationMode = LocationMode.Hight_Accuracy
                 mOption!!.setCoorType("bd09ll")
-                mOption!!.setScanSpan(0)//定位一次
+                mOption!!.setScanSpan(0)//5s定位一次
                 mOption!!.setIsNeedAddress(true)
                 mOption!!.setIsNeedLocationDescribe(true)
                 mOption!!.setNeedDeviceDirect(false)

@@ -1,5 +1,6 @@
 package com.repair.proj.login
 
+import android.graphics.Typeface
 import android.support.v7.widget.LinearLayoutManager
 import com.repair.proj.R
 import com.repair.proj.databinding.ActivityRegistThreeBinding
@@ -24,6 +25,7 @@ class RegistThreeActivity : NActivity<RegistThreePresenter, ActivityRegistThreeB
 
     override fun onInit() {
         super.onInit()
+        art_h_title.typeface = Typeface.DEFAULT_BOLD
         var layoutManager=object : LinearLayoutManager(this){
             override fun canScrollHorizontally(): Boolean {
                 return false

@@ -1,11 +1,13 @@
 package com.repair.proj.maindetail
 
+import android.content.Intent
 import android.text.TextUtils
 import com.baidu.location.BDLocationListener
 import com.baidu.mapapi.map.BaiduMap
 import com.baidu.mapapi.map.MapStatus
 import com.baidu.mapapi.search.geocode.*
 import com.repair.proj.R
+import com.repair.proj.base.Common
 import com.repair.proj.databinding.ActivityLocationBinding
 import com.repair.proj.location.LocationService
 import com.repair.proj.location.MyLocationListener
@@ -27,10 +29,12 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
     override val loggerTag: String
         get() = "ttttt"
     private var locationService: LocationService? = null
+    var geoCoder = GeoCoder.newInstance()
+    var reverseGeoCodeOption = ReverseGeoCodeOption()
     private var myListener: BDLocationListener = MyLocationListener {
         Util.setUserMapCenter(al_bd_mapview.map, it)
-        Util.setMarker1(al_bd_mapview.map,it)
-        Util.setMarker2(al_bd_mapview.map, it, this)
+        Util.setMarker1(al_bd_mapview.map, it)
+        al_address.text = it.address
     }
 
     override fun getContentId(): Int {
@@ -41,13 +45,19 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
         super.onInit()
         //声明LocationClient类
         locationService = LocationService(applicationContext)
-        //注册监听函数
+
+        al_bd_mapview.map.isMyLocationEnabled = false
+
+    }
+
+    override fun onListener() {
+        super.onListener()
+        //注册定位监听函数
         locationService?.registerListener(myListener)
         //开始定位
         locationService?.start()
-        var bdMap = al_bd_mapview.map
-        bdMap.isMyLocationEnabled = false
-        bdMap.setOnMapStatusChangeListener(object : BaiduMap.OnMapStatusChangeListener {
+        //注册位置改变监听函数
+        al_bd_mapview.map.setOnMapStatusChangeListener(object : BaiduMap.OnMapStatusChangeListener {
             override fun onMapStatusChangeStart(p0: MapStatus?) {
                 error { "onMapStatusChangeStart" }
             }
@@ -61,14 +71,23 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
             }
 
             override fun onMapStatusChangeFinish(mapStatus: MapStatus?) {
-                if(mapStatus!=null){
-                    Util.refreshMarker(mapStatus.target)
+                if (mapStatus != null) {
+                    geoCoder.reverseGeoCode(reverseGeoCodeOption.location(mapStatus.target))
+                    geoCoder.setOnGetGeoCodeResultListener(object : OnGetGeoCoderResultListener {
+                        override fun onGetGeoCodeResult(p0: GeoCodeResult?) {
+                            error { p0?.address ?: "error" }
+                        }
+
+                        override fun onGetReverseGeoCodeResult(p0: ReverseGeoCodeResult?) {
+                            al_address.text = p0?.address ?: "地理位置获取失败"
+                        }
+                    })
                 }
             }
 
         })
+        al_sure.setOnClickListener { backResult() }
     }
-
 
     override fun onPause() {
         super.onPause()
@@ -80,6 +99,10 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
         al_bd_mapview.onResume()
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         locationService?.let {
@@ -88,4 +111,10 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
         }
     }
 
+    private fun backResult() {
+        var intent = Intent()
+        intent.putExtra("address", al_address.text)
+        setResult(Common.LOCATION_RESULT_CODE, intent)
+        finish()
+    }
 }

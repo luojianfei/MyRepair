@@ -43,25 +43,28 @@ class LineTimeAdapter(activity: Activity, se: StepEnum) : RecyclerView.Adapter<L
         it.lineName.text = titles[position]
         it.lineLeft.backgroundResource = R.drawable.line_gray
         it.lineRight.backgroundResource = R.drawable.line_gray
-        it.lineName.textColor = activity.resources.getColor(R.color.color_bbbbbb,null)
+        it.lineName.textColor = activity.resources.getColor(R.color.color_bbbbbb)
         it.lineImage.imageResource = R.drawable.point_gray
+        if (position == step){
+            it.lineName.textColor = activity.resources.getColor(R.color.color_111111)
+        }
         //当表示当前状态时
         if (position <= step) {
-            //设置字体颜色
-            it.lineName.textColor = activity.resources.getColor(R.color.app_second_color)
+//            //设置字体颜色
+//            it.lineName.textColor = activity.resources.getColor(R.color.app_second_color)
             //设置左边线段颜色
             it.lineLeft.backgroundResource = R.drawable.line_yellow
             //设置圆形颜色
             it.lineImage.imageResource = R.drawable.point_yellow
         }
-        //当前状态之前的右边线需要高亮
+        //当前状态之前的左边线需要高亮
         if (position < step) {
             it.lineRight.backgroundResource = R.drawable.line_yellow
         }
         //当最后审核完成时
         if (step == titles.size) {
-            //设置字体颜色
-            it.lineName.textColor = activity.resources.getColor(R.color.app_second_color)
+//            //设置字体颜色
+//            it.lineName.textColor = activity.resources.getColor(R.color.app_second_color)
             //设置左边线段颜色
             it.lineLeft.backgroundResource = R.drawable.line_yellow
             //设置圆形颜色

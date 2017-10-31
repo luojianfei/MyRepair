@@ -23,7 +23,7 @@ object Util {
         //定义Maker坐标点
         var inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var view = inflater.inflate(R.layout.marker, null)
-        view.find<TextView>(R.id.marker_text).text = le.address
+//        view.find<TextView>(R.id.marker_text).text = le.address
         val bp = getBitmapFromView(view)
         val bitmap = BitmapDescriptorFactory.fromBitmap(bp)
         //构建MarkerOption，用于在地图上添加Marker
@@ -41,10 +41,11 @@ object Util {
     }
 
     fun setMarker1(baiduMap: BaiduMap, le: LocationEntity) {
+        baiduMap.clear()
         var point = LatLng(le.lat, le.lon)
         //定义Maker坐标点
 //        //构建Marker图标
-        val bitmap = BitmapDescriptorFactory.fromResource(R.drawable.marker1)
+        val bitmap = BitmapDescriptorFactory.fromResource(R.drawable.mark3)
         //构建MarkerOption，用于在地图上添加Marker
         val option = MarkerOptions()
                 .position(point)
