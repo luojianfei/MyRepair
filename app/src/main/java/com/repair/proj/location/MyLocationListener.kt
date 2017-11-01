@@ -11,6 +11,7 @@ import com.repair.proj.entity.LocationEntity
 class MyLocationListener(action: (entity: LocationEntity) -> Unit) : BDLocationListener {
     var action = action
 
+
     override fun onReceiveLocation(location: BDLocation) {
         //Receive Location
 

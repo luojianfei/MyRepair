@@ -14,9 +14,12 @@ import org.jetbrains.anko.find
 /**
  * Created by Mwh on 2017/10/25.
  */
-object Util {
+object BdLocationUtil {
     private var marker: Marker? = null
 
+    /**
+     * 自定义布局marker
+     */
     fun setMarker2(baiduMap: BaiduMap, le: LocationEntity, context: Context, level: Int = 9) {
         baiduMap.clear()
         var point = LatLng(le.lat, le.lon)
@@ -35,11 +38,11 @@ object Util {
         //在地图上添加Marker，并显示
         marker = baiduMap.addOverlay(option) as Marker
     }
-
+    //刷新marker，通过传入位置信息的方式
     fun refreshMarker(postion: LatLng) {
         marker?.position = postion
     }
-
+    //普通marker
     fun setMarker1(baiduMap: BaiduMap, le: LocationEntity) {
         baiduMap.clear()
         var point = LatLng(le.lat, le.lon)
@@ -57,12 +60,13 @@ object Util {
 
     private fun getBitmapFromView(view: View): Bitmap {
         view.destroyDrawingCache()
-        view.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.UNSPECIFIED);
+        view.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.UNSPECIFIED)
         view.layout(0, 0, view.measuredWidth, view.measuredHeight)
         view.isDrawingCacheEnabled = true
         return view.drawingCache
     }
 
+    //设置地图中心点
     fun setUserMapCenter(baiduMap: BaiduMap, le: LocationEntity) {
         var cenpt = LatLng(le.lat, le.lon)
         //定义地图状态

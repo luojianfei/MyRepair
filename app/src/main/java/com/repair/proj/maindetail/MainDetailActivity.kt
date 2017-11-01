@@ -34,10 +34,11 @@ class MainDetailActivity : NActivity<MainDetailPresenter, ActivityMainDetailBind
     override fun onInit() {
         super.onInit()
         //初始化加载项 tabTypes，layoutList需要从网络上获取
+        md_tb_name.typeface= Typeface.DEFAULT_BOLD
         var pagerViewList = arrayListOf<View>()
         var layoutList = arrayOf(R.drawable.md_sd, R.drawable.md_qg, R.drawable.md_mg, R.drawable.md_ng, R.drawable.md_st)
         tabItems.forEachWithIndex { id, data ->
-            binding.mdTab.addTab(binding.mdTab.newTab().setText(data).setTag(id))
+            md_tab.addTab(md_tab.newTab().setText(data).setTag(id))
             var view = layoutInflater.inflate(R.layout.activity_main_detail_image, null)
             view.tag = data
             view.find<ImageView>(R.id.amdi_image).setImageResource(layoutList[id])
@@ -49,7 +50,7 @@ class MainDetailActivity : NActivity<MainDetailPresenter, ActivityMainDetailBind
         md_tab.setupWithViewPager(binding.mdPjVp)
         md_tab.setTabsFromPagerAdapter(adapter)
         //设置字体
-        md_title_select_project.typeface = Typeface.DEFAULT_BOLD
+//        md_title_select_project.typeface = Typeface.DEFAULT_BOLD
 //        md_location_content.inputType = InputType.TYPE_NULL
     }
 

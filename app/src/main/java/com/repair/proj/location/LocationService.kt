@@ -123,4 +123,8 @@ class LocationService(locationContext: Context) {
 
     }
 
+    //手动请求定位
+    fun triggerLocation(){
+        client?.requestLocation()
+    }
 }

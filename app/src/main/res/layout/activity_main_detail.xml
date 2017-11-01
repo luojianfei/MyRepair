@@ -33,6 +33,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="16px"
+                android:textColor="@color/color_111111"
+                android:textSize="14sp"
                 android:layout_toRightOf="@id/md_tb_logo"
                 android:text="@string/md_repair" />
 
@@ -54,6 +56,7 @@
             android:layout_below="@id/md_tb"
             app:tabIndicatorColor="@color/app_second_color"
             app:tabMode="scrollable"
+            app:tabTextAppearance="@style/TabLayouTextStyle"
             app:tabSelectedTextColor="@color/app_second_color"
             app:tabTextColor="@color/color_000000">
 
@@ -128,8 +131,9 @@
                 android:layout_marginLeft="16px"
                 android:layout_weight="1"
                 android:gravity="start|center"
+                android:textColor="@color/color_111111"
                 android:text="@string/md_title_select_project"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/md_title_select_project_open"
@@ -137,7 +141,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="16px"
                 android:layout_weight="1"
-                android:drawablePadding="16px"
                 android:drawableRight="@drawable/arrow_down"
                 android:gravity="end|center"
                 android:text="@string/md_title_select_project_open"
@@ -153,7 +156,6 @@
             android:layout_below="@id/md_pj_select_ll"
             android:background="@color/color_bebebe" />
 
-        <!--定位相关-->
         <com.zhy.autolayout.AutoRelativeLayout
             android:id="@+id/md_types"
             android:layout_width="match_parent"
@@ -162,7 +164,7 @@
             android:background="@color/color_f0f0f0">
 
             <!--定位相关-->
-            <LinearLayout
+            <com.zhy.autolayout.AutoLinearLayout
                 android:id="@+id/md_location"
                 android:layout_width="match_parent"
                 android:layout_height="102px"
@@ -180,6 +182,7 @@
                     android:gravity="center"
                     android:paddingLeft="16px"
                     android:text="@string/md_location_title"
+                    android:textColor="@color/color_111111"
                     android:textSize="14sp" />
 
                 <EditText
@@ -198,9 +201,42 @@
                     android:textColorHint="@color/color_8f8f8f"
                     android:textSize="14sp" />
 
-            </LinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <!--上传照片-->
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/md_pic"
+                android:layout_width="match_parent"
+                android:layout_height="204px"
+                android:layout_marginLeft="32px"
+                android:layout_marginRight="32px"
+                android:layout_marginTop="16px"
+                android:layout_below="@id/md_location"
+                android:background="@color/color_ffffff"
+                android:orientation="vertical"
+                android:clickable="true">
 
 
+                <TextView
+                    android:id="@+id/md_pic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16px"
+                    android:gravity="center"
+                    android:paddingLeft="16px"
+                    android:text="@string/md_pic_title"
+                    android:textColor="@color/color_111111"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/md_pic_up"
+                    android:layout_width="136px"
+                    android:layout_height="136px"
+                    android:layout_marginLeft="16px"
+                    android:src="@drawable/add"
+                    />
+
+            </com.zhy.autolayout.AutoLinearLayout>
         </com.zhy.autolayout.AutoRelativeLayout>
 
         <!--价格相关-->

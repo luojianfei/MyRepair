@@ -1,22 +1,21 @@
 package com.repair.proj.maindetail
 
 import android.content.Intent
-import android.text.TextUtils
 import com.baidu.location.BDLocationListener
 import com.baidu.mapapi.map.BaiduMap
 import com.baidu.mapapi.map.MapStatus
+import com.baidu.mapapi.map.MapStatusUpdateFactory
 import com.baidu.mapapi.search.geocode.*
 import com.repair.proj.R
 import com.repair.proj.base.Common
 import com.repair.proj.databinding.ActivityLocationBinding
 import com.repair.proj.location.LocationService
 import com.repair.proj.location.MyLocationListener
-import com.repair.proj.location.Util
+import com.repair.proj.location.BdLocationUtil
 import com.repair.proj.maindetail.contract.LocationContract
 import com.repair.proj.maindetail.presenter.LocationPresenter
 import com.repair.proj.nbase.NActivity
 import kotlinx.android.synthetic.main.activity_location.*
-import kotlinx.android.synthetic.main.activity_test.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.error
 
@@ -32,8 +31,8 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
     var geoCoder = GeoCoder.newInstance()
     var reverseGeoCodeOption = ReverseGeoCodeOption()
     private var myListener: BDLocationListener = MyLocationListener {
-        Util.setUserMapCenter(al_bd_mapview.map, it)
-        Util.setMarker1(al_bd_mapview.map, it)
+        BdLocationUtil.setUserMapCenter(al_bd_mapview.map, it)
+        BdLocationUtil.setMarker1(al_bd_mapview.map, it)
         al_address.text = it.address
     }
 
@@ -45,7 +44,8 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
         super.onInit()
         //声明LocationClient类
         locationService = LocationService(applicationContext)
-
+        //设置缩放等级
+//        al_bd_mapview.map.setMapStatus(MapStatusUpdateFactory.newMapStatus(MapStatus.Builder().zoom(18f).build()))
         al_bd_mapview.map.isMyLocationEnabled = false
 
     }
@@ -86,7 +86,10 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
             }
 
         })
+
         al_sure.setOnClickListener { backResult() }
+
+        al_relocation.setOnClickListener { locationService?.triggerLocation() }
     }
 
     override fun onPause() {

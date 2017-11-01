@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">修一修</string>
     <string name="str_protocol"><u>《维修人工服务协议》</u></string>
-    <string name="md_repair">修一修</string>
+    <string name="md_repair">家家悦</string>
     <string name="md_title_select_project">选择项目</string>
     <string name="md_title_select_project_open">展开</string>
     <string name="md_location_title">报修地点 : </string>
+    <string name="md_pic_title">上传报修照片 : </string>
     <string name="md_location_hint">在此输入目的地</string>
     <string name="md_price_title">人工优惠价￥</string>
     <string name="md_repair_now">现在来修</string>
