@@ -58,7 +58,6 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="Z7fXIgWySVxpxpEWUD3UhQjxkN22IObl" />
 
-
         <activity android:name=".login.SelectTypeActivity" />
         <activity android:name=".viewl.SureOrderActivity" />
         <activity android:name=".login.LoginActivity" />
