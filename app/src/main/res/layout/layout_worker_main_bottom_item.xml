@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="tabName"
+            type="String"/>
+        <variable
+            name="drawable"
+            type="android.graphics.drawable.Drawable"/>
+    </data>
+    <TextView
+        style="@style/styleMainBottom"
+        android:drawableTop="@{drawable}"
+        android:text="@{tabName}" />
+
+</layout>

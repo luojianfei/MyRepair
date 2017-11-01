@@ -2,9 +2,11 @@ package com.repair.proj.base;
 
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +15,7 @@ import android.view.ViewGroup;
  * 作者: Administrator on 2016-11-01 14:31.
  */
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment<G extends ViewDataBinding> extends Fragment {
 
     /**
      * 贴附的activity
@@ -29,6 +31,7 @@ public abstract class BaseFragment extends Fragment {
      * 是否对用户可见
      */
     protected boolean mIsVisible;
+    public G viewBinding;
     /**
      * 是否加载完成
      * 当执行完oncreatview,View的初始化方法后方法后即为true
@@ -47,6 +50,11 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mRootView = inflater.inflate(setLayoutResouceId(), container, false);
+        try {
+            viewBinding = DataBindingUtil.bind(mRootView);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return mRootView;
     }
 
