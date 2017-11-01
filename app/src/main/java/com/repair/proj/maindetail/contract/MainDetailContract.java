@@ -1,6 +1,7 @@
 package com.repair.proj.maindetail.contract;
 
-import io.xujiaji.xmvp.contracts.XContract;
+
+import com.repair.proj.nbase.NContract;
 
 /**
  * 说明：
@@ -9,12 +10,12 @@ import io.xujiaji.xmvp.contracts.XContract;
 
 public interface MainDetailContract {
 
-    interface View extends XContract.View {
+    interface View extends NContract.View {
     }
 
-    interface Presenter extends XContract.Presenter  {
+    interface Presenter extends NContract.Presenter {
     }
 
-    interface Model extends XContract.Model {
+    interface Model extends NContract.Model {
     }
 }

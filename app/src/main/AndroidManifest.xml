@@ -75,15 +75,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".maindetail.MainDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
+
         <activity
             android:name=".login.RegistSecondActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowSoftInputMode="adjustPan" >
+            android:windowSoftInputMode="adjustPan">
         </activity>
+
+
         <activity
-            android:name=".maindetail.LocationActivity"
+            android:name=".login.RegistThreeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
+
+        <activity
+            android:name=".login.RegistForeActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
+            android:name=".maindetail.LocationActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!--<activity android:name=".workerMain.WorkMainActivity" />-->
     </application>
 

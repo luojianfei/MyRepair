@@ -39,7 +39,8 @@
         android:layout_height="wrap_content"
         android:gravity="start"
         android:paddingLeft="16dp"
-        android:textColor="@color/color_bbbbbb"
-        android:text="个人信息" />
+        android:text="个人信息"
+        android:textSize="12sp"
+        android:textColor="@color/color_bbbbbb" />
 
 </com.zhy.autolayout.AutoLinearLayout>

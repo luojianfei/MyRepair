@@ -1,27 +1,29 @@
 package com.repair.proj.maindetail
 
+import android.content.Intent
 import android.graphics.Typeface
-import android.location.Location
-import android.support.v4.graphics.TypefaceCompat
 import android.support.v4.view.ViewPager
-import android.text.InputType
 import android.view.View
 import android.widget.ImageView
+import com.android.databinding.library.baseAdapters.BR
 import com.repair.proj.R
+import com.repair.proj.base.Common
+import com.repair.proj.databinding.ActivityMainBinding
+import com.repair.proj.databinding.ActivityMainDetailBinding
 import com.repair.proj.maindetail.adapter.RepairTypeAdapter
 import com.repair.proj.maindetail.contract.MainDetailContract
 import com.repair.proj.maindetail.presenter.MainDetailPresenter
-import io.xujiaji.xmvp.view.base.XBaseActivity
+import com.repair.proj.nbase.NActivity
 import kotlinx.android.synthetic.main.activity_main_detail.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.collections.forEachWithIndex
 
 /**
- * 说明：
+ * 说明：databinding只用于xml数据的绑定
  * Created by code_nil on 2017/10/23.
  */
 
-class MainDetailActivity : XBaseActivity<MainDetailPresenter>(), MainDetailContract.View, AnkoLogger {
+class MainDetailActivity : NActivity<MainDetailPresenter, ActivityMainDetailBinding>(), MainDetailContract.View, AnkoLogger {
     var tabItems = arrayOf("水电", "漆工", "木工", "泥工", "疏通")
 
     override fun beforeSetContentView() {
@@ -32,6 +34,7 @@ class MainDetailActivity : XBaseActivity<MainDetailPresenter>(), MainDetailContr
     override fun onInit() {
         super.onInit()
         //初始化加载项 tabTypes，layoutList需要从网络上获取
+        md_tb_name.typeface= Typeface.DEFAULT_BOLD
         var pagerViewList = arrayListOf<View>()
         var layoutList = arrayOf(R.drawable.md_sd, R.drawable.md_qg, R.drawable.md_mg, R.drawable.md_ng, R.drawable.md_st)
         tabItems.forEachWithIndex { id, data ->
@@ -44,10 +47,10 @@ class MainDetailActivity : XBaseActivity<MainDetailPresenter>(), MainDetailContr
 
         var adapter = RepairTypeAdapter(pagerViewList)
         md_pj_vp.adapter = adapter
-        md_tab.setupWithViewPager(md_pj_vp)
+        md_tab.setupWithViewPager(binding.mdPjVp)
         md_tab.setTabsFromPagerAdapter(adapter)
         //设置字体
-        md_title_select_project.typeface = Typeface.DEFAULT_BOLD
+//        md_title_select_project.typeface = Typeface.DEFAULT_BOLD
 //        md_location_content.inputType = InputType.TYPE_NULL
     }
 
@@ -73,15 +76,15 @@ class MainDetailActivity : XBaseActivity<MainDetailPresenter>(), MainDetailContr
         })
         //左箭头点击事件
         md_pj_arrow_l.setOnClickListener {
-            md_pj_vp.setCurrentItem(md_pj_vp.currentItem - 1, true)
+            binding.mdPjVp.setCurrentItem(binding.mdPjVp.currentItem - 1, true)
         }
         //右箭头点击事件
         md_pj_arrow_r.setOnClickListener {
-            md_pj_vp.setCurrentItem(md_pj_vp.currentItem + 1, true)
+            binding.mdPjVp.setCurrentItem(binding.mdPjVp.currentItem + 1, true)
         }
         //定位控件点击事件
         md_location_content.setOnClickListener {
-            startActivityForResult<LocationActivity>(110)
+            startActivityForResult<LocationActivity>(Common.LOCATION_REQUEST_CODE)
         }
     }
 
@@ -89,4 +92,11 @@ class MainDetailActivity : XBaseActivity<MainDetailPresenter>(), MainDetailContr
         return R.layout.activity_main_detail
     }
 
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Common.LOCATION_REQUEST_CODE && resultCode == Common.LOCATION_RESULT_CODE) {
+            binding.address = data?.getStringExtra("address") ?: ""
+        }
+    }
 }

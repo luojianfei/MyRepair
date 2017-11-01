@@ -1,20 +1,28 @@
 package com.repair.proj.login.contract;
 
-import com.repair.proj.base.Basefview;
+import android.app.Activity;
 
-import io.xujiaji.xmvp.contracts.XContract;
+import com.repair.proj.login.entity.SecondEnitity;
+import com.repair.proj.nbase.NContract;
+
 
 /**
- * Created by nie on 2017/10/23.
+ * 说明：
+ * Created by code_nil on 2017/10/27.
  */
 
 public interface RegistSecondContract {
-    interface View extends XContract.View {
+    interface View extends NContract.View {
+        void setLocationData(String data);
+
+        SecondEnitity getRegistSecondData();
     }
 
-    interface Presenter extends XContract.Presenter {
+    interface Presenter extends NContract.Presenter {
+        void showLocationPicker(Activity activity);
     }
 
-    interface Model extends XContract.Model {
+    interface Model extends NContract.Model {
+
     }
 }
