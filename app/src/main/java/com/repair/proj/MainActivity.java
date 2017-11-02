@@ -1,16 +1,12 @@
 package com.repair.proj;
 
-import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.bigkoo.pickerview.listener.CustomListener;
-import com.bigkoo.pickerview.model.IPickerViewData;
 
 import java.util.ArrayList;
 
@@ -70,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
                 .setDecorView(mFrameLayout)
+                .setSelectOptions(4)
+                .setContentTextSize(16)
+                .setLineSpacingMultiplier(1.2f)
                 .build();
 
         pvCustomOptions.setPicker(cardItem);//添加数据
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getCardData(){
-        for(int i=0;i<20;i++){
+        for(int i=0;i<10;i++){
             cardItem.add(""+i);
         }
     }

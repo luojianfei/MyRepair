@@ -14,8 +14,12 @@ public interface MainDetailContract {
     }
 
     interface Presenter extends NContract.Presenter {
+        void showOrDismissDetailPicker(Boolean isShow);
+
     }
 
     interface Model extends NContract.Model {
     }
+
+
 }
