@@ -1,0 +1,6 @@
+<resources>
+
+    <dimen name="out_padding">18dp</dimen>
+    <dimen name="in_padding">10dp</dimen>
+
+</resources>

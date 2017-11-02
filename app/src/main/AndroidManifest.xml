@@ -58,13 +58,15 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="Z7fXIgWySVxpxpEWUD3UhQjxkN22IObl" />
 
-
         <activity android:name=".login.SelectTypeActivity" />
         <activity android:name=".viewl.SureOrderActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.RegistFirstActivity" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".workerMain.WorkMainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         </activity>
 
@@ -97,6 +99,7 @@
         <activity
             android:name=".maindetail.LocationActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <!--<activity android:name=".workerMain.WorkMainActivity" />-->
     </application>
 
 </manifest>
