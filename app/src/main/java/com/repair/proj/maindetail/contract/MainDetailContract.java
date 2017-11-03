@@ -1,6 +1,8 @@
 package com.repair.proj.maindetail.contract;
 
 
+import android.app.Activity;
+
 import com.repair.proj.nbase.NContract;
 
 /**
@@ -15,7 +17,6 @@ public interface MainDetailContract {
 
     interface Presenter extends NContract.Presenter {
         void showOrDismissDetailPicker(Boolean isShow);
-
     }
 
     interface Model extends NContract.Model {

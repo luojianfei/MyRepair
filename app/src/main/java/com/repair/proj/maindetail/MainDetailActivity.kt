@@ -1,17 +1,16 @@
 package com.repair.proj.maindetail
 
+import android.Manifest
 import android.content.Intent
-import android.databinding.ObservableInt
 import android.graphics.Typeface
-import android.graphics.drawable.ColorDrawable
+import android.net.Uri
+import android.os.Build
+import android.support.v4.content.FileProvider
 import android.support.v4.view.ViewPager
-import android.view.Gravity
-import android.view.MotionEvent
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.PopupWindow
-import com.repair.proj.BR
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.repair.proj.R
 import com.repair.proj.base.Common
 import com.repair.proj.databinding.ActivityMainDetailBinding
@@ -19,24 +18,35 @@ import com.repair.proj.maindetail.adapter.RepairTypeAdapter
 import com.repair.proj.maindetail.contract.MainDetailContract
 import com.repair.proj.maindetail.presenter.MainDetailPresenter
 import com.repair.proj.nbase.NActivity
+import com.repair.proj.utils.CameraUtil
+import com.repair.proj.utils.CropUtil
+import com.yalantis.ucrop.UCrop
 import kotlinx.android.synthetic.main.activity_main_detail.*
-import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.*
 import org.jetbrains.anko.collections.forEachWithIndex
-import org.jetbrains.anko.find
-import org.jetbrains.anko.startActivityForResult
+import pub.devrel.easypermissions.AfterPermissionGranted
+import pub.devrel.easypermissions.AppSettingsDialog
+import pub.devrel.easypermissions.EasyPermissions
+import java.io.File
 
 /**
  * 说明：databinding只用于xml数据的绑定
  * Created by code_nil on 2017/10/23.
  */
 
-class MainDetailActivity : NActivity<MainDetailPresenter, ActivityMainDetailBinding>(), MainDetailContract.View, AnkoLogger {
-
+class MainDetailActivity : NActivity<MainDetailPresenter,
+        ActivityMainDetailBinding>(), MainDetailContract.View, AnkoLogger, EasyPermissions.PermissionCallbacks {
     private val tabItems = arrayOf("水电", "漆工", "木工", "泥工", "疏通")//tablayout项目
     private val layoutList = arrayOf(R.drawable.md_sd, R.drawable.md_qg, R.drawable.md_mg, R.drawable.md_ng, R.drawable.md_st)//viewpager图标
     private var pagerViewList = arrayListOf<View>()
+    private lateinit var rootPath: String
+    private lateinit var pictureViews: List<ImageView>
+    private var upPicCount = 0
+    private var fromUri: Uri? = null
     override fun onInit() {
         super.onInit()
+        rootPath = externalCacheDir.absolutePath
+        pictureViews = arrayListOf(md_pic_1, md_pic_2, md_pic_3)
         //初始化项目选择
         presenter.initCustomOptionPicker(md_pj_select_detail_picker, this)
         //默认不显示项目选择布局
@@ -111,14 +121,11 @@ class MainDetailActivity : NActivity<MainDetailPresenter, ActivityMainDetailBind
             binding.num = num
         }
 
+        md_scrollView.setOnTouchListener { _, _ -> true }
 
-        md_scrollView.setOnTouchListener(object :View.OnTouchListener{
-            override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
-                if(p0==md_pic) return false
-                return true
-            }
-
-        })
+        md_pic.setOnClickListener {
+            takeCamera()
+        }
     }
 
     override fun getContentId(): Int {
@@ -128,8 +135,79 @@ class MainDetailActivity : NActivity<MainDetailPresenter, ActivityMainDetailBind
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Common.LOCATION_REQUEST_CODE && resultCode == Common.LOCATION_RESULT_CODE) {
-            binding.address = data?.getStringExtra("address") ?: ""
+        if (resultCode == RESULT_OK) {
+            when (requestCode) {
+            //定位返回
+                Common.LOCATION_REQUEST_CODE -> {
+                    if (data != null)
+                        binding.address = data.getStringExtra("address") ?: ""
+                }
+            //拍照返回
+                Common.PHOTO_TAKE -> {
+                    fromUri?.let {
+                        var toUri = Uri.fromFile(File(rootPath, "CROP${System.currentTimeMillis()}.jpg"))
+                        CropUtil.cropRawPhoto(this, it, toUri, Common.UCROP_TAKE)
+                    }
+                }
+            //裁剪成功
+                Common.UCROP_TAKE -> {
+                    // 使用Glide显示图片
+                    if (data != null && upPicCount < 3) {
+                        var view = pictureViews[upPicCount++]
+                        view.visibility = View.VISIBLE
+                        Glide.with(this).load(UCrop.getOutput(data)).transition(DrawableTransitionOptions().crossFade(500)).into(view)
+                    }
+
+                }
+            //裁剪失败
+                UCrop.RESULT_ERROR -> {
+                    if (data != null) toast(UCrop.getError(data)?.message ?: "")
+                }
+            }
         }
     }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        // Forward results to EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    }
+
+    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            AppSettingsDialog.Builder(this).build().show()
+        }
+    }
+
+    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
+    }
+
+    //相机拍照
+    @AfterPermissionGranted(Common.PER_RC_CAMERA)
+    private fun takeCamera() {
+        if (EasyPermissions.hasPermissions(this,
+                Manifest.permission.CAMERA,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            //生成rui
+            var file = File(rootPath, "${System.currentTimeMillis()}.jpg")
+            //7.0以上
+            var fromUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                FileProvider.getUriForFile(this, getString(R.string.file_provider_authorities), file)
+            } else {
+                Uri.fromFile(file)
+            }
+            this.fromUri = fromUri
+            if (!file.parentFile.exists()) {
+                file.mkdirs()
+            }
+            CameraUtil.takeCamera(this, fromUri, Common.PHOTO_TAKE)
+        } else {
+            EasyPermissions.requestPermissions(this, "申请必要权限", Common.PER_RC_CAMERA,
+                    Manifest.permission.CAMERA,
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        }
+    }
+
 }

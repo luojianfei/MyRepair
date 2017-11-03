@@ -55,7 +55,7 @@
             android:orientation="vertical">
 
             <com.zhy.autolayout.AutoLinearLayout
-                android:id="@+id/art_idcard_font"
+                android:id="@+id/art_idcard_ll_font"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -64,8 +64,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/color_111111"
                     android:text="@string/art_upload_idcard_front"
+                    android:textColor="@color/color_111111"
                     android:textSize="12sp" />
 
                 <com.zhy.autolayout.AutoRelativeLayout
@@ -73,15 +73,17 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/art_idcard_font"
                         android:layout_width="222px"
                         android:layout_height="136px"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/add" />
+                        android:background="@drawable/up_image_border"
+                        android:src="@drawable/upload_add" />
                 </com.zhy.autolayout.AutoRelativeLayout>
             </com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoLinearLayout
-                android:id="@+id/art_idcard_back"
+                android:id="@+id/art_idcard_ll_back"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -90,8 +92,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/color_111111"
                     android:text="@string/art_upload_idcard_back"
+                    android:textColor="@color/color_111111"
                     android:textSize="12sp" />
 
                 <com.zhy.autolayout.AutoRelativeLayout
@@ -99,15 +101,17 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/art_idcard_back"
                         android:layout_width="222px"
                         android:layout_height="136px"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/add" />
+                        android:background="@drawable/up_image_border"
+                        android:src="@drawable/upload_add" />
                 </com.zhy.autolayout.AutoRelativeLayout>
             </com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoLinearLayout
-                android:id="@+id/art_idcard_handheld"
+                android:id="@+id/art_idcard_ll_handheld"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -117,18 +121,20 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/color_111111"
-                    android:text="@string/art_upload_idcard_handheld" />
+                    android:text="@string/art_upload_idcard_handheld"
+                    android:textColor="@color/color_111111" />
 
                 <com.zhy.autolayout.AutoRelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/art_idcard_handheld"
                         android:layout_width="222px"
                         android:layout_height="136px"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/add" />
+                        android:background="@drawable/up_image_border"
+                        android:src="@drawable/upload_add" />
                 </com.zhy.autolayout.AutoRelativeLayout>
 
             </com.zhy.autolayout.AutoLinearLayout>

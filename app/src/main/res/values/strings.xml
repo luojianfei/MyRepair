@@ -27,4 +27,5 @@
     <string name="art_upload_idcard_back">上传身份证背面照:</string>
     <string name="art_upload_idcard_handheld">上传手持身份证照:</string>
     <string name="art_phone_audit">请耐心等待家家悦客服打电话给您,请随时保持电话畅通。</string>
+    <string name="file_provider_authorities">com.repair.proj.provider</string>
 </resources>

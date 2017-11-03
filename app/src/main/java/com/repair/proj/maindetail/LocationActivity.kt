@@ -1,5 +1,6 @@
 package com.repair.proj.maindetail
 
+import android.app.Activity
 import android.content.Intent
 import com.baidu.location.BDLocationListener
 import com.baidu.mapapi.map.BaiduMap
@@ -117,7 +118,7 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
     private fun backResult() {
         var intent = Intent()
         intent.putExtra("address", al_address.text)
-        setResult(Common.LOCATION_RESULT_CODE, intent)
+        setResult(Activity.RESULT_OK, intent)
         finish()
     }
 }
