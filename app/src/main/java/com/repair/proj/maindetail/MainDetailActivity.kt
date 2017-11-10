@@ -131,6 +131,10 @@ class MainDetailActivity : NActivity<MainDetailPresenter,
         md_pic.setOnClickListener {
             takeCamera()
         }
+
+        md_tb_contact.setOnClickListener {
+            md_drawer.openDrawer(md_drawer_left)
+        }
     }
 
     override fun getContentId(): Int {
