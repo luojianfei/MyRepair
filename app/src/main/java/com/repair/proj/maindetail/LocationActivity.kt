@@ -8,6 +8,7 @@ import com.baidu.location.BDLocationListener
 import com.baidu.mapapi.map.BaiduMap
 import com.baidu.mapapi.map.MapStatus
 import com.baidu.mapapi.map.MapStatusUpdateFactory
+import com.baidu.mapapi.model.LatLng
 import com.baidu.mapapi.search.geocode.*
 import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener
 import com.baidu.mapapi.search.sug.SuggestionResult
@@ -39,11 +40,14 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
     var geoCoder = GeoCoder.newInstance()
     var reverseGeoCodeOption = ReverseGeoCodeOption()
     var mSuggestionSearch = SuggestionSearch.newInstance()
+    var cityCode = ""
     private var myListener: BDLocationListener = MyLocationListener {
-        BdLocationUtil.setUserMapCenter(al_bd_mapview.map, it)
-        BdLocationUtil.setMarker1(al_bd_mapview.map, it)
+        var point = LatLng(it.lat, it.lon)
+        BdLocationUtil.setUserMapCenter(al_bd_mapview.map, point)
+        BdLocationUtil.setMarker1(al_bd_mapview.map, point)
         al_address.text = it.address
         al_city.text = it.city
+        cityCode = it.cityCode
     }
 
     override fun getContentId(): Int {
@@ -61,6 +65,7 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
 
         al_bd_mapview.map.isMyLocationEnabled = false
 
+        mSuggestionSearch.setOnGetSuggestionResultListener(this)
     }
 
     override fun onListener() {
@@ -106,7 +111,6 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
                 var city = al_city.text.toString()
                 if (!TextUtils.isEmpty(keys) && !TextUtils.isEmpty(city)) {
                     mSuggestionSearch.requestSuggestion(SuggestionSearchOption().keyword(keys).city(city))
-                    mSuggestionSearch.setOnGetSuggestionResultListener(this)
                 }
             }
             false
@@ -139,7 +143,10 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
     }
 
     override fun onGetSuggestionResult(p0: SuggestionResult?) {
-        if (p0 != null && p0.allSuggestions != null) {
+        if (p0 != null && p0.allSuggestions != null && p0.allSuggestions.size > 0) {
+            var point = LatLng(p0.allSuggestions[0].pt.latitude, p0.allSuggestions[0].pt.longitude)
+            BdLocationUtil.setUserMapCenter(al_bd_mapview.map, point)
+            BdLocationUtil.setMarker1(al_bd_mapview.map, point)
             error { p0.toString() }
         }
     }

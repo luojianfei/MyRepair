@@ -43,9 +43,8 @@ object BdLocationUtil {
         marker?.position = postion
     }
     //普通marker
-    fun setMarker1(baiduMap: BaiduMap, le: LocationEntity) {
+    fun setMarker1(baiduMap: BaiduMap, point: LatLng) {
         baiduMap.clear()
-        var point = LatLng(le.lat, le.lon)
         //定义Maker坐标点
 //        //构建Marker图标
         val bitmap = BitmapDescriptorFactory.fromResource(R.drawable.mark3)
@@ -67,11 +66,10 @@ object BdLocationUtil {
     }
 
     //设置地图中心点
-    fun setUserMapCenter(baiduMap: BaiduMap, le: LocationEntity) {
-        var cenpt = LatLng(le.lat, le.lon)
+    fun setUserMapCenter(baiduMap: BaiduMap, ll:LatLng) {
         //定义地图状态
         val mMapStatus = MapStatus.Builder()
-                .target(cenpt)
+                .target(ll)
                 .zoom(18f)
                 .build()
         //定义MapStatusUpdate对象，以便描述地图状态将要发生的变化

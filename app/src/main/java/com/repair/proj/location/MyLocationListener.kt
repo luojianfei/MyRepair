@@ -14,7 +14,7 @@ class MyLocationListener(action: (entity: LocationEntity) -> Unit) : BDLocationL
 
     override fun onReceiveLocation(location: BDLocation) {
         //Receive Location
-        action(LocationEntity(location.latitude, location.longitude, location.radius, location.addrStr, location.time,location.city))
+        action(LocationEntity(location.latitude, location.longitude, location.radius, location.addrStr, location.time,location.city,location.cityCode))
 //        val sb = StringBuffer(256)
 //        sb.append("time : ")
 //        sb.append(location.time)
