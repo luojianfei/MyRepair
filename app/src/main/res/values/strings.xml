@@ -28,4 +28,12 @@
     <string name="art_upload_idcard_handheld">上传手持身份证照:</string>
     <string name="art_phone_audit">请耐心等待家家悦客服打电话给您,请随时保持电话畅通。</string>
     <string name="file_provider_authorities">com.repair.proj.provider</string>
+    <string name="al_sure_location">确认目的地</string>
+    <string name="md_side_oder_record">订单记录</string>
+    <string name="md_side_master">我的师傅</string>
+    <string name="md_side_ticket">修修券</string>
+    <string name="md_side_mail">收件信箱</string>
+    <string name="md_side_service">客服中心</string>
+    <string name="md_side_rewards">邀请有奖</string>
+    <string name="md_side_setting">更多设置</string>
 </resources>

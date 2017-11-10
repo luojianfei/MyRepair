@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-  <FrameLayout
-      android:id="@+id/frament"
-      android:layout_width="120dp"
-      android:layout_height="80dp">
-
-  </FrameLayout>
+  <ImageView
+      android:id="@+id/md_side_header"
+      android:layout_width="64dp"
+      android:layout_height="64dp"
+      android:layout_gravity="center"
+      android:layout_marginTop="112px" />
 </RelativeLayout>

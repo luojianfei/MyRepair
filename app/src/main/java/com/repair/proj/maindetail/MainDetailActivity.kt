@@ -8,9 +8,13 @@ import android.os.Build
 import android.support.v4.content.FileProvider
 import android.support.v4.view.ViewPager
 import android.view.View
+import android.view.animation.Transformation
 import android.widget.ImageView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.repair.proj.R
 import com.repair.proj.base.Common
 import com.repair.proj.databinding.ActivityMainDetailBinding
@@ -68,6 +72,7 @@ class MainDetailActivity : NActivity<MainDetailPresenter,
         md_pj_vp.adapter = adapter
         md_tab.setupWithViewPager(binding.mdPjVp)
         md_tab.setTabsFromPagerAdapter(adapter)
+        Glide.with(this).load(R.drawable.header).apply((RequestOptions.bitmapTransform(CircleCropTransformation()))).into(md_side_header)
     }
 
     override fun onListener() {

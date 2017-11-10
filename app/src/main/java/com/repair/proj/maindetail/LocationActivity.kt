@@ -2,11 +2,17 @@ package com.repair.proj.maindetail
 
 import android.app.Activity
 import android.content.Intent
+import android.text.TextUtils
+import android.view.inputmethod.EditorInfo
 import com.baidu.location.BDLocationListener
 import com.baidu.mapapi.map.BaiduMap
 import com.baidu.mapapi.map.MapStatus
 import com.baidu.mapapi.map.MapStatusUpdateFactory
 import com.baidu.mapapi.search.geocode.*
+import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener
+import com.baidu.mapapi.search.sug.SuggestionResult
+import com.baidu.mapapi.search.sug.SuggestionSearch
+import com.baidu.mapapi.search.sug.SuggestionSearchOption
 import com.repair.proj.R
 import com.repair.proj.base.Common
 import com.repair.proj.databinding.ActivityLocationBinding
@@ -25,16 +31,19 @@ import org.jetbrains.anko.error
  * Created by Mwh on 2017/10/25.
  */
 
-class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>(), LocationContract.View, AnkoLogger {
+class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>(), LocationContract.View, AnkoLogger, OnGetSuggestionResultListener {
+
     override val loggerTag: String
         get() = "ttttt"
     private var locationService: LocationService? = null
     var geoCoder = GeoCoder.newInstance()
     var reverseGeoCodeOption = ReverseGeoCodeOption()
+    var mSuggestionSearch = SuggestionSearch.newInstance()
     private var myListener: BDLocationListener = MyLocationListener {
         BdLocationUtil.setUserMapCenter(al_bd_mapview.map, it)
         BdLocationUtil.setMarker1(al_bd_mapview.map, it)
         al_address.text = it.address
+        al_city.text = it.city
     }
 
     override fun getContentId(): Int {
@@ -45,18 +54,17 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
         super.onInit()
         //声明LocationClient类
         locationService = LocationService(applicationContext)
-        //设置缩放等级
-//        al_bd_mapview.map.setMapStatus(MapStatusUpdateFactory.newMapStatus(MapStatus.Builder().zoom(18f).build()))
+        //注册定位监听函数
+        locationService?.registerListener(myListener)
+        //开始定位
+        locationService?.start()
+
         al_bd_mapview.map.isMyLocationEnabled = false
 
     }
 
     override fun onListener() {
         super.onListener()
-        //注册定位监听函数
-        locationService?.registerListener(myListener)
-        //开始定位
-        locationService?.start()
         //注册位置改变监听函数
         al_bd_mapview.map.setOnMapStatusChangeListener(object : BaiduMap.OnMapStatusChangeListener {
             override fun onMapStatusChangeStart(p0: MapStatus?) {
@@ -91,6 +99,18 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
         al_sure.setOnClickListener { backResult() }
 
         al_relocation.setOnClickListener { locationService?.triggerLocation() }
+
+        al_location_search.setOnEditorActionListener { textView, i, keyEvent ->
+            if (i == EditorInfo.IME_ACTION_SEARCH) {
+                var keys = textView.text.toString()
+                var city = al_city.text.toString()
+                if (!TextUtils.isEmpty(keys) && !TextUtils.isEmpty(city)) {
+                    mSuggestionSearch.requestSuggestion(SuggestionSearchOption().keyword(keys).city(city))
+                    mSuggestionSearch.setOnGetSuggestionResultListener(this)
+                }
+            }
+            false
+        }
     }
 
     override fun onPause() {
@@ -101,10 +121,6 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
     override fun onResume() {
         super.onResume()
         al_bd_mapview.onResume()
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
     }
 
     override fun onDestroy() {
@@ -120,5 +136,11 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
         intent.putExtra("address", al_address.text)
         setResult(Activity.RESULT_OK, intent)
         finish()
+    }
+
+    override fun onGetSuggestionResult(p0: SuggestionResult?) {
+        if (p0 != null && p0.allSuggestions != null) {
+            error { p0.toString() }
+        }
     }
 }
