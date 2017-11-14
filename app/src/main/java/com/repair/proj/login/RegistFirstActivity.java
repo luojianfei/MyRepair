@@ -7,6 +7,7 @@ import com.repair.proj.R;
 import com.repair.proj.base.BaseActivity;
 import com.repair.proj.databinding.ActivityRegistFirstBinding;
 import com.repair.proj.login.contract.RegistFirstContract;
+import com.repair.proj.utils.ActivityUtils;
 
 /**
  * Created by HX·罗 on 2017/10/23.
@@ -51,6 +52,7 @@ public class RegistFirstActivity extends BaseActivity<ActivityRegistFirstBinding
                 finish();
                 break;
             case R.id.btn_next:
+                ActivityUtils.startActivityIntent(context,RegistSecondActivity.class);
                 break;
 
         }

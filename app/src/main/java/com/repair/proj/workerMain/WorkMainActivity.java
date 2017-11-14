@@ -27,7 +27,6 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        doubleKeyExit = true ;
         super.onCreate(savedInstanceState);
     }
 
