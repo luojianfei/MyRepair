@@ -8,6 +8,7 @@ import com.repair.proj.databinding.FragmentCancelBinding;
 import com.repair.proj.entity.OrderInfo;
 import com.repair.proj.workerMain.adapter.OrderListAdapter;
 import com.repair.proj.workerMain.contract.CancelContract;
+import com.repair.proj.workerMain.presenter.CancelPresenter;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  * Created by HX·罗 on 2017/11/1.
  */
 
-public class CancelFragment extends BaseFragment<FragmentCancelBinding> implements CancelContract.View {
+public class CancelFragment extends BaseFragment<CancelPresenter,FragmentCancelBinding> implements CancelContract.View {
     private OrderListAdapter listAdapter;
 
     @Override
@@ -31,7 +32,6 @@ public class CancelFragment extends BaseFragment<FragmentCancelBinding> implemen
 
     @Override
     public void initData(Bundle arguments) {
-
     }
 
     @Override

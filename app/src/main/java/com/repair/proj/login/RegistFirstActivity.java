@@ -1,19 +1,19 @@
 package com.repair.proj.login;
 
-import android.content.Context;
 import android.view.View;
 
 import com.repair.proj.R;
 import com.repair.proj.base.BaseActivity;
 import com.repair.proj.databinding.ActivityRegistFirstBinding;
 import com.repair.proj.login.contract.RegistFirstContract;
+import com.repair.proj.login.presenter.RegistFirstPresenter;
 import com.repair.proj.utils.ActivityUtils;
 
 /**
  * Created by HX·罗 on 2017/10/23.
  */
 
-public class RegistFirstActivity extends BaseActivity<ActivityRegistFirstBinding> implements RegistFirstContract.View {
+public class RegistFirstActivity extends BaseActivity<RegistFirstPresenter,ActivityRegistFirstBinding> implements RegistFirstContract.View {
     @Override
     public int setContentView() {
         return R.layout.activity_regist_first ;
@@ -56,15 +56,5 @@ public class RegistFirstActivity extends BaseActivity<ActivityRegistFirstBinding
                 break;
 
         }
-    }
-
-    @Override
-    public Context context() {
-        return context;
-    }
-
-    @Override
-    public void showToastMsg(String msg) {
-        showShortToast(msg);
     }
 }

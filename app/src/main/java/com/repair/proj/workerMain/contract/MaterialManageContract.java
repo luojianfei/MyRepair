@@ -1,16 +1,18 @@
 package com.repair.proj.workerMain.contract;
 
+import com.repair.proj.nbase.NContract;
+
 /**
  * Created by HX·罗 on 2017/10/31.
  */
 
 public interface MaterialManageContract {
-    interface View {
+    interface View extends NContract.View{
     }
 
-    interface Presenter {
+    interface Presenter extends NContract.Presenter{
     }
 
-    interface Model {
+    interface Model extends NContract.Model{
     }
 }

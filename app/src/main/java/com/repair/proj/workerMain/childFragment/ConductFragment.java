@@ -8,6 +8,7 @@ import com.repair.proj.databinding.FragmentConductBinding;
 import com.repair.proj.entity.OrderInfo;
 import com.repair.proj.workerMain.adapter.OrderListAdapter;
 import com.repair.proj.workerMain.contract.ConductContract;
+import com.repair.proj.workerMain.presenter.ConductPresenter;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  * Created by HX·罗 on 2017/11/1.
  */
 
-public class ConductFragment extends BaseFragment<FragmentConductBinding> implements ConductContract.View,OrderListAdapter.CallBack {
+public class ConductFragment extends BaseFragment<ConductPresenter,FragmentConductBinding> implements ConductContract.View,OrderListAdapter.CallBack {
 
     private OrderListAdapter listAdapter;
 

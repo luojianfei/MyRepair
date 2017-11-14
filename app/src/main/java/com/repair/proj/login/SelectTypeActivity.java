@@ -6,6 +6,7 @@ import android.view.View;
 import com.repair.proj.R;
 import com.repair.proj.base.BaseActivity;
 import com.repair.proj.databinding.ActivitySelectTypeBinding;
+import com.repair.proj.login.presenter.SelectTypePresenter;
 import com.repair.proj.user.UserDetailActivity;
 import com.repair.proj.utils.ActivityUtils;
 
@@ -13,7 +14,7 @@ import com.repair.proj.utils.ActivityUtils;
  * Created by HX·罗 on 2017/10/20.
  */
 
-public class SelectTypeActivity extends BaseActivity<ActivitySelectTypeBinding> {
+public class SelectTypeActivity extends BaseActivity<SelectTypePresenter,ActivitySelectTypeBinding> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class SelectTypeActivity extends BaseActivity<ActivitySelectTypeBinding> 
                 ActivityUtils.startActivityIntent(context,LoginActivity.class);
                 break;
             case R.id.tv_need_repair://用户报修
-                ActivityUtils.startActivityIntent(context, UserDetailActivity.class);
+                ActivityUtils.startActivityIntent(context,UserDetailActivity.class);
                 break;
         }
     }

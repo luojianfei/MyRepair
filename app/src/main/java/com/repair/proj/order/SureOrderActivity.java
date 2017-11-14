@@ -8,6 +8,7 @@ import android.view.View;
 import com.repair.proj.R;
 import com.repair.proj.base.BaseActivity;
 import com.repair.proj.databinding.ActivitySureOrderBinding;
+import com.repair.proj.order.presenter.SureOrderPresenter;
 import com.repair.proj.utils.ActivityUtils;
 import com.repair.proj.utils.ConstantUtil;
 import com.repair.proj.utils.PhoneUtils;
@@ -17,7 +18,7 @@ import com.repair.proj.utils.PhoneUtils;
  * Created by HX·罗 on 2017/10/18.
  */
 
-public class SureOrderActivity extends BaseActivity<ActivitySureOrderBinding> {
+public class SureOrderActivity extends BaseActivity<SureOrderPresenter,ActivitySureOrderBinding> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         color = Color.parseColor("#555555");
