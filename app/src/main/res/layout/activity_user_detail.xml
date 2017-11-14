@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="address"
+            type="String" />
+
+        <variable
+            name="picker_show"
+            type="Boolean" />
+
+        <variable
+            name="arrow_l_show"
+            type="Boolean" />
+
+        <variable
+            name="arrow_r_show"
+            type="Boolean" />
+
+        <variable
+            name="num"
+            type="Integer" />
+    </data>
+
+    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/md_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--主菜单-->
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/detail_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--toolbar相关-->
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/md_tb"
+                android:layout_width="match_parent"
+                android:layout_height="102px">
+
+                <ImageView
+                    android:id="@+id/md_tb_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8px"
+                    android:src="@drawable/repair" />
+
+                <TextView
+                    android:id="@+id/md_tb_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16px"
+                    android:layout_toRightOf="@id/md_tb_logo"
+                    android:text="@string/md_repair"
+                    android:textColor="@color/color_111111"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/md_tb_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16px"
+                    android:src="@drawable/icon_contacts" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <!--关于TabLayout-->
+            <android.support.design.widget.TabLayout
+                android:id="@+id/md_tab"
+                android:layout_width="match_parent"
+                android:layout_height="85px"
+                android:layout_below="@id/md_tb"
+                app:tabIndicatorColor="@color/app_second_color"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="@color/app_second_color"
+                app:tabTextAppearance="@style/TabLayouTextStyle"
+                app:tabTextColor="@color/color_000000">
+
+            </android.support.design.widget.TabLayout>
+
+            <!--分割线1-->
+            <TextView
+                android:id="@+id/md_diver1"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@id/md_tab"
+                android:background="@color/color_bebebe" />
+
+            <!--项目类型展示-->
+
+            <!--分割线2-->
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/md_pj_rl"
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:layout_below="@id/md_diver1">
+
+                <ImageView
+                    android:id="@+id/md_pj_arrow_l"
+                    android:layout_width="36px"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="32px"
+                    android:src="@drawable/ic_left_arrow"
+                    android:visibility="@{arrow_l_show?View.VISIBLE:View.INVISIBLE}" />
+
+
+                <ImageView
+                    android:id="@+id/md_pj_arrow_r"
+                    android:layout_width="36px"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="32px"
+                    android:src="@drawable/ic_right_arrow"
+                    android:visibility="@{arrow_r_show?View.VISIBLE:View.INVISIBLE}" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/md_pj_vp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="32px"
+                    android:layout_marginRight="32px"
+                    android:layout_toEndOf="@id/md_pj_arrow_l"
+                    android:layout_toLeftOf="@id/md_pj_arrow_r"
+                    android:layout_toRightOf="@id/md_pj_arrow_l"
+                    android:layout_toStartOf="@id/md_pj_arrow_r" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <TextView
+                android:id="@+id/md_diver2"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@id/md_pj_rl"
+                android:background="@color/color_bebebe" />
+
+            <!--项目选择-->
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/md_pj_select_ll"
+                android:layout_width="match_parent"
+                android:layout_height="92px"
+                android:layout_below="@id/md_diver2"
+                android:clickable="true">
+
+                <TextView
+                    android:id="@+id/md_title_select_project"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16px"
+                    android:layout_weight="1"
+                    android:gravity="start|center"
+                    android:text="@string/md_title_select_project"
+                    android:textColor="@color/color_111111"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/md_title_select_project_open"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="16px"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/arrow_down"
+                    android:gravity="end|center"
+                    android:text="@{picker_show?@string/sure:@string/md_title_select_project_open}"
+                    android:textColor="@color/app_second_color"
+                    android:textSize="12sp" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/md_pj_select_ll_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/md_pj_select_ll"
+                android:layout_marginLeft="16px"
+                android:layout_marginRight="16px"
+                android:orientation="horizontal"
+                android:visibility="@{picker_show?View.VISIBLE:View.GONE}">
+
+                <FrameLayout
+                    android:id="@+id/md_pj_select_detail_picker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"></FrameLayout>
+
+                <TextView
+                    android:id="@+id/md_pj_select_detail_unit"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="个">
+
+                </TextView>
+
+                <LinearLayout
+                    android:id="@+id/md_pj_select_detail_num_ll"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/md_num_reduce"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="-"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/md_pj_select_detail_num"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:text="@{String.valueOf(num)}" />
+
+                    <TextView
+                        android:id="@+id/md_num_add"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="+"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <!--分割线3-->
+            <TextView
+                android:id="@+id/md_diver3"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@id/md_pj_select_ll_detail"
+                android:background="@color/color_bebebe" />
+
+            <!--关于订单相关的布局-->
+            <include
+                layout="@layout/activity_user_detail_order"
+                bind:address="@{address}" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+        <!--侧滑菜单-->
+        <include layout="@layout/activity_user_drawer" />
+    </android.support.v4.widget.DrawerLayout>
+
+</layout>

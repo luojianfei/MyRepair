@@ -14,7 +14,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.repair.proj.R
 import com.repair.proj.base.Common
-import com.repair.proj.databinding.ActivityMainDetailBinding
+import com.repair.proj.databinding.ActivityUserDetailBinding
 import com.repair.proj.user.adapter.RepairTypeAdapter
 import com.repair.proj.user.contract.UserDetailContract
 import com.repair.proj.user.presenter.UserDetailPresenter
@@ -23,7 +23,9 @@ import com.repair.proj.utils.CameraUtil
 import com.repair.proj.utils.CropUtil
 import com.repair.proj.order.SureOrderActivity
 import com.yalantis.ucrop.UCrop
-import kotlinx.android.synthetic.main.activity_main_detail.*
+import kotlinx.android.synthetic.main.activity_user_detail.*
+import kotlinx.android.synthetic.main.activity_user_detail_order.*
+import kotlinx.android.synthetic.main.activity_user_drawer.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.collections.forEachWithIndex
 import pub.devrel.easypermissions.AfterPermissionGranted
@@ -37,7 +39,7 @@ import java.io.File
  */
 
 class UserDetailActivity : NActivity<UserDetailPresenter,
-        ActivityMainDetailBinding>(), UserDetailContract.View, AnkoLogger, EasyPermissions.PermissionCallbacks {
+        ActivityUserDetailBinding>(), UserDetailContract.View, AnkoLogger, EasyPermissions.PermissionCallbacks {
     private val tabItems = arrayOf("水电", "漆工", "木工", "泥工", "疏通")//tablayout项目
     private val layoutList = arrayOf(R.drawable.md_sd, R.drawable.md_qg, R.drawable.md_mg, R.drawable.md_ng, R.drawable.md_st)//viewpager图标
     private var pagerViewList = arrayListOf<View>()
@@ -140,7 +142,7 @@ class UserDetailActivity : NActivity<UserDetailPresenter,
     }
 
     override fun getContentId(): Int {
-        return R.layout.activity_main_detail
+        return R.layout.activity_user_detail
     }
 
 
