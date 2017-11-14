@@ -8,12 +8,13 @@ import com.repair.proj.base.BaseFragment;
 import com.repair.proj.databinding.FragmentOrderManageBinding;
 import com.repair.proj.workerMain.adapter.CustomFragmentPagerAdapter;
 import com.repair.proj.workerMain.contract.OrderManageContract;
+import com.repair.proj.workerMain.presenter.OrderManagePresenter;
 
 /**
  * Created by HX·罗 on 2017/10/31.
  */
 
-public class OrderManageFragment extends BaseFragment<FragmentOrderManageBinding> implements OrderManageContract.View {
+public class OrderManageFragment extends BaseFragment<OrderManagePresenter,FragmentOrderManageBinding> implements OrderManageContract.View {
 
     private CustomFragmentPagerAdapter pagerAdapter;
 

@@ -1,12 +1,12 @@
 package com.repair.proj.login;
 
-import android.content.Context;
 import android.view.View;
 
 import com.repair.proj.R;
 import com.repair.proj.base.BaseActivity;
 import com.repair.proj.databinding.ActivityLoginBinding;
 import com.repair.proj.login.contract.LoginContract;
+import com.repair.proj.login.presenter.LoginPresenter;
 import com.repair.proj.utils.ActivityUtils;
 import com.repair.proj.workerMain.WorkMainActivity;
 
@@ -14,7 +14,7 @@ import com.repair.proj.workerMain.WorkMainActivity;
  * Created by HX·罗 on 2017/10/23.
  */
 
-public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements LoginContract.View {
+public class LoginActivity extends BaseActivity<LoginPresenter,ActivityLoginBinding> implements LoginContract.View {
     @Override
     public int setContentView() {
         return R.layout.activity_login ;
@@ -63,15 +63,5 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
                 ActivityUtils.startActivityIntent(context,RegistFirstActivity.class);
                 break;
         }
-    }
-
-    @Override
-    public Context context() {
-        return context;
-    }
-
-    @Override
-    public void showToastMsg(String msg) {
-        showShortToast(msg);
     }
 }

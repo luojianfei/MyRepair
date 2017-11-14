@@ -1,19 +1,19 @@
 package com.repair.proj.login.contract;
 
-import com.repair.proj.base.Basefview;
+import com.repair.proj.nbase.NContract;
 
 /**
  * Created by HX·罗 on 2017/10/23.
  */
 
 public interface LoginContract {
-    interface View extends Basefview {
+    interface View extends NContract.View {
         String getUserName();
 
         String getPwd();
     }
 
-    interface Presenter {
+    interface Presenter extends NContract.Presenter {
         void method();
 
         void login();
@@ -23,7 +23,7 @@ public interface LoginContract {
         void forgetPwd();
     }
 
-    interface Model {
+    interface Model extends NContract.Model{
         void method();
     }
 }

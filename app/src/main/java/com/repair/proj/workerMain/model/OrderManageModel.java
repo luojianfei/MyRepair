@@ -1,10 +1,11 @@
 package com.repair.proj.workerMain.model;
 
+import com.repair.proj.nbase.NModel;
 import com.repair.proj.workerMain.contract.OrderManageContract;
 
 /**
  * Created by HX·罗 on 2017/10/31.
  */
 
-public class OrderManageModel implements OrderManageContract.Model {
+public class OrderManageModel extends NModel implements OrderManageContract.Model {
 }

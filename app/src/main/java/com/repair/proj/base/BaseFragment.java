@@ -11,11 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.repair.proj.nbase.GenericHelper;
+import com.repair.proj.nbase.NPresenter;
+
 /**
  * 作者: Administrator on 2016-11-01 14:31.
  */
 
-public abstract class BaseFragment<G extends ViewDataBinding> extends Fragment {
+public abstract class BaseFragment<T extends NPresenter,G extends ViewDataBinding> extends Fragment {
 
     /**
      * 贴附的activity
@@ -32,6 +35,7 @@ public abstract class BaseFragment<G extends ViewDataBinding> extends Fragment {
      */
     protected boolean mIsVisible;
     public G viewBinding;
+    public T presenter;
     /**
      * 是否加载完成
      * 当执行完oncreatview,View的初始化方法后方法后即为true
@@ -52,6 +56,7 @@ public abstract class BaseFragment<G extends ViewDataBinding> extends Fragment {
         mRootView = inflater.inflate(setLayoutResouceId(), container, false);
         try {
             viewBinding = DataBindingUtil.bind(mRootView);
+            presenter = GenericHelper.newPresenter(this) ;
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -14,6 +14,8 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.repair.proj.R;
+import com.repair.proj.nbase.GenericHelper;
+import com.repair.proj.nbase.NPresenter;
 import com.repair.proj.utils.ConstantUtil;
 import com.repair.proj.utils.Res;
 import com.repair.proj.utils.ScreenUtils;
@@ -27,7 +29,7 @@ import java.util.List;
 /**
  * Created by Leo on 2016/8/2 0002.
  */
-public abstract class BaseActivity<G extends ViewDataBinding> extends Activity implements View.OnClickListener {
+public abstract class BaseActivity<T extends NPresenter, G extends ViewDataBinding> extends Activity implements View.OnClickListener {
 
     /**
      * 设置activity布局
@@ -64,6 +66,7 @@ public abstract class BaseActivity<G extends ViewDataBinding> extends Activity i
     public View parentView;
     public LayoutInflater inflater;
     public G viewBinding;
+    public T presenter;
     public CustomApplication app;
     public boolean fullScreen = false;
 
@@ -79,6 +82,7 @@ public abstract class BaseActivity<G extends ViewDataBinding> extends Activity i
         parentView = View.inflate(context, setContentView(), null);
         try {
             viewBinding = DataBindingUtil.bind(parentView);
+            presenter = GenericHelper.newPresenter(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -99,21 +103,17 @@ public abstract class BaseActivity<G extends ViewDataBinding> extends Activity i
     }
 
     @Override
-    public View onCreateView(String name, Context context, AttributeSet attrs)
-    {
+    public View onCreateView(String name, Context context, AttributeSet attrs) {
         View view = null;
-        if (name.equals(LAYOUT_FRAMELAYOUT))
-        {
+        if (name.equals(LAYOUT_FRAMELAYOUT)) {
             view = new AutoFrameLayout(context, attrs);
         }
 
-        if (name.equals(LAYOUT_LINEARLAYOUT))
-        {
+        if (name.equals(LAYOUT_LINEARLAYOUT)) {
             view = new AutoLinearLayout(context, attrs);
         }
 
-        if (name.equals(LAYOUT_RELATIVELAYOUT))
-        {
+        if (name.equals(LAYOUT_RELATIVELAYOUT)) {
             view = new AutoRelativeLayout(context, attrs);
         }
 
