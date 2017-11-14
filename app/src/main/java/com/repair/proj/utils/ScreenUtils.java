@@ -160,7 +160,7 @@ public class ScreenUtils {
      */
     public static final void titleAlph(boolean isAlph, int color, Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setTranslucentStatus(true, activity);
+            setTranslucentStatus(isAlph, activity);
             if (!isAlph) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     Window window = activity.getWindow();

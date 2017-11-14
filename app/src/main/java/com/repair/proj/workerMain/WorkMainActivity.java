@@ -1,10 +1,10 @@
 package com.repair.proj.workerMain;
 
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TabHost;
 
@@ -38,10 +38,9 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
 
     @Override
     public void initView() {
-
         mTabHost = findView(android.R.id.tabhost);
 
-        tabDrawable = new Drawable[]{Res.getDrawableRes(R.drawable.icon_hand_shake,context),
+        tabDrawable = new Drawable[]{Res.getDrawableRes(R.drawable.icon_material,context),
                 Res.getDrawableRes(R.drawable.icon_material,context)};
         mTabHost.setup(context,getSupportFragmentManager(),R.id.fl_content);
         for (int i = 0 ; i < fragmentArray.length ; i++){
@@ -49,7 +48,7 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
             //将Tab按钮添加进Tab选项卡中
             mTabHost.addTab(tabSpec, fragmentArray[i], null);
             //设置Tab按钮的背景
-            mTabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.WHITE);
+            mTabHost.getTabWidget().setGravity(Gravity.CENTER_VERTICAL);
         }
     }
 
@@ -60,12 +59,17 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
 
     @Override
     public void initListener() {
-
+        viewBinding.setClickListener(this);
+        viewBinding.layoutDrawer.setClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-
+        switch (view.getId()){
+            case R.id.iv_right:
+                viewBinding.mdDrawerLeft.openDrawer(Gravity.RIGHT);
+                break;
+        }
     }
     /**
      * 获取tab item
@@ -78,5 +82,14 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
         binding.setTabName(tabNames[index]);
         binding.setDrawable(tabDrawable[index]);
         return view;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(viewBinding.mdDrawerLeft.isDrawerOpen(Gravity.RIGHT)){
+            viewBinding.mdDrawerLeft.closeDrawers();
+        }else{
+            super.onBackPressed();
+        }
     }
 }

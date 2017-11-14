@@ -25,7 +25,7 @@ public class CancelFragment extends BaseFragment<FragmentCancelBinding> implemen
 
     @Override
     public void initView() {
-        listAdapter = new OrderListAdapter(getContext(),new ArrayList<OrderInfo>());
+        listAdapter = new OrderListAdapter(getContext(),new ArrayList<OrderInfo>(),null);
         viewBinding.rcvList.setAdapter(listAdapter);
     }
 

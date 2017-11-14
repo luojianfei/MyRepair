@@ -6,6 +6,7 @@ import android.view.View;
 import com.repair.proj.R;
 import com.repair.proj.base.BaseActivity;
 import com.repair.proj.databinding.ActivitySelectTypeBinding;
+import com.repair.proj.maindetail.MainDetailActivity;
 import com.repair.proj.utils.ActivityUtils;
 
 /**
@@ -40,10 +41,11 @@ public class SelectTypeActivity extends BaseActivity<ActivitySelectTypeBinding> 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.tv_repair://注册维修师傅
+            case R.id.tv_repair://维修师傅
                 ActivityUtils.startActivityIntent(context,LoginActivity.class);
                 break;
             case R.id.tv_need_repair://用户报修
+                ActivityUtils.startActivityIntent(context,MainDetailActivity.class);
                 break;
         }
     }

@@ -8,6 +8,7 @@ import com.repair.proj.base.BaseActivity;
 import com.repair.proj.databinding.ActivityLoginBinding;
 import com.repair.proj.login.contract.LoginContract;
 import com.repair.proj.utils.ActivityUtils;
+import com.repair.proj.workerMain.WorkMainActivity;
 
 /**
  * Created by HX·罗 on 2017/10/23.
@@ -54,6 +55,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding> implements
             case R.id.iv_eye://查看密码
                 break;
             case R.id.btn_login://登录
+                ActivityUtils.startActivityIntent(context, WorkMainActivity.class);
                 break;
             case R.id.tv_fogot://忘记密码
                 break;

@@ -9,6 +9,7 @@ import com.repair.proj.R;
 import com.repair.proj.base.BaseActivity;
 import com.repair.proj.databinding.ActivitySureOrderBinding;
 import com.repair.proj.utils.ActivityUtils;
+import com.repair.proj.utils.ConstantUtil;
 import com.repair.proj.utils.PhoneUtils;
 
 /**
@@ -60,7 +61,7 @@ public class SureOrderActivity extends BaseActivity<ActivitySureOrderBinding> {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
-            case 1://获取联系人
+            case ConstantUtil.REQUEST_CODE_GETCONTACTS://获取联系人
                 viewBinding.setContactInfo(PhoneUtils.getPhoneNumber(context,data));
                 break;
         }

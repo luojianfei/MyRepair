@@ -18,16 +18,30 @@ import java.util.ArrayList;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.MyHolder> {
 
-    private Context context ;
-    private ArrayList<OrderInfo> orderInfos ;
-    public OrderListAdapter(Context context,ArrayList<OrderInfo> orderInfos){
-        this.context = context ;
-        this.orderInfos = orderInfos ;
+    private CallBack callBack;
+    private Context context;
+    private ArrayList<OrderInfo> orderInfos;
+    private RecyclerView recyclerView;
+
+    public interface CallBack {
+        void callBack(int position);
+    }
+
+    public OrderListAdapter(Context context, ArrayList<OrderInfo> orderInfos, CallBack callBack) {
+        this.context = context;
+        this.callBack = callBack;
+        this.orderInfos = orderInfos;
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        this.recyclerView = recyclerView;
     }
 
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(context, R.layout.item_order_list,null) ;
+        View view = View.inflate(context, R.layout.item_order_list, null);
         view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
         return new MyHolder(view);
     }
@@ -42,12 +56,35 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.MyHo
         return 3;
     }
 
-    class MyHolder extends RecyclerView.ViewHolder{
+    class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ItemOrderListBinding binding ;
+        private ItemOrderListBinding binding;
+        private View view;
+
         public MyHolder(View itemView) {
             super(itemView);
-            binding = DataBindingUtil.bind(itemView) ;
+            this.view = itemView;
+            binding = DataBindingUtil.bind(itemView);
+            binding.setClickListener(this);
+        }
+
+        private int getRealPosition() {
+            return recyclerView.getChildLayoutPosition(view);
+        }
+
+        public void setData(int position) {
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btn_sure:
+                    if (callBack != null) {
+                        callBack.callBack(getRealPosition());
+                    }
+                    break;
+            }
         }
     }
 

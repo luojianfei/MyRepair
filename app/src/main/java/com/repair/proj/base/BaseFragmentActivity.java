@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.widget.Toast;
 
 import com.repair.proj.R;
@@ -85,7 +84,7 @@ public abstract class BaseFragmentActivity<G extends ViewDataBinding> extends Fr
         if (!isTop) {
             parentView.setFitsSystemWindows(true);
         }
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(parentView);
         inflater = LayoutInflater.from(context);
         if (!fullScreen) {

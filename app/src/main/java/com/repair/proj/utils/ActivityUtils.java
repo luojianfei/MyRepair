@@ -69,7 +69,7 @@ public class ActivityUtils {
             intent = new Intent(Intent.ACTION_PICK,
                     ContactsContract.Contacts.CONTENT_URI);
         }
-        activity.startActivityForResult(intent, 1);
+        activity.startActivityForResult(intent, ConstantUtil.REQUEST_CODE_GETCONTACTS);
     }
 
 }

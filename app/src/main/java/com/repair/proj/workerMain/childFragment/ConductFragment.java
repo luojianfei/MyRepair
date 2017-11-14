@@ -6,6 +6,8 @@ import com.repair.proj.R;
 import com.repair.proj.base.BaseFragment;
 import com.repair.proj.databinding.FragmentConductBinding;
 import com.repair.proj.entity.OrderInfo;
+import com.repair.proj.utils.ActivityUtils;
+import com.repair.proj.viewl.SureOrderActivity;
 import com.repair.proj.workerMain.adapter.OrderListAdapter;
 import com.repair.proj.workerMain.contract.ConductContract;
 
@@ -15,7 +17,7 @@ import java.util.ArrayList;
  * Created by HX·罗 on 2017/11/1.
  */
 
-public class ConductFragment extends BaseFragment<FragmentConductBinding> implements ConductContract.View {
+public class ConductFragment extends BaseFragment<FragmentConductBinding> implements ConductContract.View,OrderListAdapter.CallBack {
 
     private OrderListAdapter listAdapter;
 
@@ -26,7 +28,7 @@ public class ConductFragment extends BaseFragment<FragmentConductBinding> implem
 
     @Override
     public void initView() {
-        listAdapter = new OrderListAdapter(getContext(),new ArrayList<OrderInfo>());
+        listAdapter = new OrderListAdapter(getContext(),new ArrayList<OrderInfo>(),this);
         viewBinding.rcvList.setAdapter(listAdapter);
     }
 
@@ -37,5 +39,10 @@ public class ConductFragment extends BaseFragment<FragmentConductBinding> implem
     @Override
     public void initListener() {
 
+    }
+
+    @Override
+    public void callBack(int position) {
+        ActivityUtils.startActivityIntent(getContext(), SureOrderActivity.class);
     }
 }

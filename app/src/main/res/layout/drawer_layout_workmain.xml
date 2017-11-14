@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener"/>
+    </data>
+    <LinearLayout
+        android:layout_width="270dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:background="@color/color_ffffff">
+
+
+        <com.repair.proj.customView.CircleImageView
+            android:id="@+id/civ_head"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:civ_border_color="#C3C3C3"
+            app:civ_border_width="1dp"
+            android:layout_gravity="center"
+            android:src="@drawable/header"
+            android:layout_marginTop="112px"/>
+
+        <TextView
+            android:id="@+id/md_side_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30px"
+            android:gravity="center"
+            android:text="15378183400"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/md_side_oder_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="40px"
+            android:drawableRight="@drawable/icon_contacts"
+            android:gravity="right|center_vertical"
+            android:paddingRight="22px"
+            android:text="@string/md_side_oder_record"
+            android:layout_marginTop="82px"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/md_side_master"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="40px"
+            android:drawableRight="@drawable/icon_contacts"
+            android:gravity="right|center_vertical"
+            android:paddingRight="22px"
+            android:text="@string/md_side_master"
+            android:layout_marginTop="50px"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/md_side_ticket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="40px"
+            android:drawableRight="@drawable/icon_contacts"
+            android:gravity="right|center_vertical"
+            android:paddingRight="22px"
+            android:text="@string/md_side_ticket"
+            android:layout_marginTop="50px"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/md_side_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="40px"
+            android:drawableRight="@drawable/icon_contacts"
+            android:gravity="right|center_vertical"
+            android:paddingRight="22px"
+            android:text="@string/md_side_mail"
+            android:layout_marginTop="50px"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/md_side_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="40px"
+            android:drawableRight="@drawable/icon_contacts"
+            android:gravity="right|center_vertical"
+            android:paddingRight="22px"
+            android:text="@string/md_side_service"
+            android:layout_marginTop="50px"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/md_side_rewards"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="40px"
+            android:drawableRight="@drawable/icon_contacts"
+            android:gravity="right|center_vertical"
+            android:paddingRight="22px"
+            android:text="@string/md_side_rewards"
+            android:layout_marginTop="50px"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/md_side_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="40px"
+            android:drawableRight="@drawable/icon_contacts"
+            android:gravity="right|center_vertical"
+            android:paddingRight="22px"
+            android:text="@string/md_side_setting"
+            android:layout_marginTop="50px"
+            android:textSize="14sp" />
+    </LinearLayout>
+</layout>

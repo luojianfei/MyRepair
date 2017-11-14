@@ -9,9 +9,21 @@
             name="drawable"
             type="android.graphics.drawable.Drawable"/>
     </data>
-    <TextView
-        style="@style/styleMainBottom"
-        android:drawableTop="@{drawable}"
-        android:text="@{tabName}" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/styleMainBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:drawableTop="@{drawable}"
+            android:text="@{tabName}" />
+    </LinearLayout>
 
 </layout>
