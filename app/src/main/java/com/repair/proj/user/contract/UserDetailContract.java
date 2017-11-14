@@ -1,7 +1,5 @@
-package com.repair.proj.maindetail.contract;
+package com.repair.proj.user.contract;
 
-
-import android.app.Activity;
 
 import com.repair.proj.nbase.NContract;
 
@@ -10,7 +8,7 @@ import com.repair.proj.nbase.NContract;
  * Created by code_nil on 2017/10/23.
  */
 
-public interface MainDetailContract {
+public interface UserDetailContract {
 
     interface View extends NContract.View {
     }

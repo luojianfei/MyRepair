@@ -1,4 +1,4 @@
-package com.repair.proj.maindetail
+package com.repair.proj.user
 
 import android.Manifest
 import android.content.Intent
@@ -8,22 +8,20 @@ import android.os.Build
 import android.support.v4.content.FileProvider
 import android.support.v4.view.ViewPager
 import android.view.View
-import android.view.animation.Transformation
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.repair.proj.R
 import com.repair.proj.base.Common
 import com.repair.proj.databinding.ActivityMainDetailBinding
-import com.repair.proj.maindetail.adapter.RepairTypeAdapter
-import com.repair.proj.maindetail.contract.MainDetailContract
-import com.repair.proj.maindetail.presenter.MainDetailPresenter
+import com.repair.proj.user.adapter.RepairTypeAdapter
+import com.repair.proj.user.contract.UserDetailContract
+import com.repair.proj.user.presenter.UserDetailPresenter
 import com.repair.proj.nbase.NActivity
 import com.repair.proj.utils.CameraUtil
 import com.repair.proj.utils.CropUtil
+import com.repair.proj.order.SureOrderActivity
 import com.yalantis.ucrop.UCrop
 import kotlinx.android.synthetic.main.activity_main_detail.*
 import org.jetbrains.anko.*
@@ -38,8 +36,8 @@ import java.io.File
  * Created by code_nil on 2017/10/23.
  */
 
-class MainDetailActivity : NActivity<MainDetailPresenter,
-        ActivityMainDetailBinding>(), MainDetailContract.View, AnkoLogger, EasyPermissions.PermissionCallbacks {
+class UserDetailActivity : NActivity<UserDetailPresenter,
+        ActivityMainDetailBinding>(), UserDetailContract.View, AnkoLogger, EasyPermissions.PermissionCallbacks {
     private val tabItems = arrayOf("水电", "漆工", "木工", "泥工", "疏通")//tablayout项目
     private val layoutList = arrayOf(R.drawable.md_sd, R.drawable.md_qg, R.drawable.md_mg, R.drawable.md_ng, R.drawable.md_st)//viewpager图标
     private var pagerViewList = arrayListOf<View>()
@@ -104,7 +102,7 @@ class MainDetailActivity : NActivity<MainDetailPresenter,
         }
         //定位控件点击事件
         md_location_content.setOnClickListener {
-            startActivityForResult<LocationActivity>(Common.LOCATION_REQUEST_CODE)
+            startActivityForResult<UserLocationActivity>(Common.LOCATION_REQUEST_CODE)
         }
 
         md_pj_select_ll.setOnClickListener {
@@ -135,6 +133,10 @@ class MainDetailActivity : NActivity<MainDetailPresenter,
         md_tb_contact.setOnClickListener {
             md_drawer.openDrawer(md_drawer_left)
         }
+
+        //维修接口
+        md_repair_now.setOnClickListener { startActivity<SureOrderActivity>() }
+        md_repair_later.setOnClickListener { startActivity<SureOrderActivity>() }
     }
 
     override fun getContentId(): Int {

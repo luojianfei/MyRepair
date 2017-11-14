@@ -6,8 +6,6 @@ import com.repair.proj.R;
 import com.repair.proj.base.BaseFragment;
 import com.repair.proj.databinding.FragmentConductBinding;
 import com.repair.proj.entity.OrderInfo;
-import com.repair.proj.utils.ActivityUtils;
-import com.repair.proj.viewl.SureOrderActivity;
 import com.repair.proj.workerMain.adapter.OrderListAdapter;
 import com.repair.proj.workerMain.contract.ConductContract;
 
@@ -43,6 +41,6 @@ public class ConductFragment extends BaseFragment<FragmentConductBinding> implem
 
     @Override
     public void callBack(int position) {
-        ActivityUtils.startActivityIntent(getContext(), SureOrderActivity.class);
+//        ActivityUtils.startActivityIntent(getContext(), SureOrderActivity.class);
     }
 }

@@ -6,7 +6,7 @@ import android.view.View;
 import com.repair.proj.R;
 import com.repair.proj.base.BaseActivity;
 import com.repair.proj.databinding.ActivitySelectTypeBinding;
-import com.repair.proj.maindetail.MainDetailActivity;
+import com.repair.proj.user.UserDetailActivity;
 import com.repair.proj.utils.ActivityUtils;
 
 /**
@@ -45,7 +45,7 @@ public class SelectTypeActivity extends BaseActivity<ActivitySelectTypeBinding> 
                 ActivityUtils.startActivityIntent(context,LoginActivity.class);
                 break;
             case R.id.tv_need_repair://用户报修
-                ActivityUtils.startActivityIntent(context,MainDetailActivity.class);
+                ActivityUtils.startActivityIntent(context, UserDetailActivity.class);
                 break;
         }
     }

@@ -1,28 +1,14 @@
-package com.repair.proj.maindetail.presenter
+package com.repair.proj.user.presenter
 
-import android.Manifest
 import android.app.Activity
-import android.content.ActivityNotFoundException
-import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
-import android.os.Build
-import android.provider.MediaStore
-import android.support.v4.content.FileProvider
 import android.util.Log
-import android.view.View
 import android.view.ViewGroup
 import com.bigkoo.pickerview.OptionsPickerView
 import com.repair.proj.R
-import com.repair.proj.base.Common
-import com.repair.proj.maindetail.contract.MainDetailContract
-import com.repair.proj.maindetail.model.MainDetailModel
+import com.repair.proj.user.contract.UserDetailContract
+import com.repair.proj.user.model.UserDetailModel
 import com.repair.proj.nbase.NPresenter
-import kotlinx.android.synthetic.main.activity_main_detail.*
-import org.jetbrains.anko.toast
-import pub.devrel.easypermissions.AfterPermissionGranted
-import pub.devrel.easypermissions.EasyPermissions
-import java.io.File
 import java.util.ArrayList
 
 
@@ -31,7 +17,7 @@ import java.util.ArrayList
  * Created by code_nil on 2017/10/23.
  */
 
-class MainDetailPresenter : NPresenter<MainDetailContract.View, MainDetailModel>(), MainDetailContract.Presenter {
+class UserDetailPresenter : NPresenter<UserDetailContract.View, UserDetailModel>(), UserDetailContract.Presenter {
 
     private val cardItem = ArrayList<String>()
     private var pvCustomOptions: OptionsPickerView<*>? = null

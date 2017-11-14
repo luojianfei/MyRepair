@@ -1,4 +1,4 @@
-package com.repair.proj.maindetail
+package com.repair.proj.user
 
 import android.app.Activity
 import android.content.Intent
@@ -7,7 +7,6 @@ import android.view.inputmethod.EditorInfo
 import com.baidu.location.BDLocationListener
 import com.baidu.mapapi.map.BaiduMap
 import com.baidu.mapapi.map.MapStatus
-import com.baidu.mapapi.map.MapStatusUpdateFactory
 import com.baidu.mapapi.model.LatLng
 import com.baidu.mapapi.search.geocode.*
 import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener
@@ -15,15 +14,14 @@ import com.baidu.mapapi.search.sug.SuggestionResult
 import com.baidu.mapapi.search.sug.SuggestionSearch
 import com.baidu.mapapi.search.sug.SuggestionSearchOption
 import com.repair.proj.R
-import com.repair.proj.base.Common
-import com.repair.proj.databinding.ActivityLocationBinding
+import com.repair.proj.databinding.ActivityUserLocationBinding
 import com.repair.proj.location.LocationService
 import com.repair.proj.location.MyLocationListener
 import com.repair.proj.location.BdLocationUtil
-import com.repair.proj.maindetail.contract.LocationContract
-import com.repair.proj.maindetail.presenter.LocationPresenter
+import com.repair.proj.user.contract.UserLocationContract
+import com.repair.proj.user.presenter.UserLocationPresenter
 import com.repair.proj.nbase.NActivity
-import kotlinx.android.synthetic.main.activity_location.*
+import kotlinx.android.synthetic.main.activity_user_location.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.error
 
@@ -32,7 +30,7 @@ import org.jetbrains.anko.error
  * Created by Mwh on 2017/10/25.
  */
 
-class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>(), LocationContract.View, AnkoLogger, OnGetSuggestionResultListener {
+class UserLocationActivity : NActivity<UserLocationPresenter, ActivityUserLocationBinding>(), UserLocationContract.View, AnkoLogger, OnGetSuggestionResultListener {
 
     override val loggerTag: String
         get() = "ttttt"
@@ -51,7 +49,7 @@ class LocationActivity : NActivity<LocationPresenter, ActivityLocationBinding>()
     }
 
     override fun getContentId(): Int {
-        return R.layout.activity_location
+        return R.layout.activity_user_location
     }
 
     override fun onInit() {

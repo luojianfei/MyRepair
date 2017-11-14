@@ -65,7 +65,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".viewl.SureOrderActivity" />
+        <activity android:name=".order.SureOrderActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.RegistFirstActivity" />
         <activity
@@ -78,7 +78,7 @@
         </activity>
 
         <activity
-            android:name=".maindetail.MainDetailActivity"
+            android:name=".user.UserDetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         </activity>
@@ -100,7 +100,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity
-            android:name=".maindetail.LocationActivity"
+            android:name=".user.UserLocationActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         </activity>
         <!--<activity android:name=".workerMain.WorkMainActivity" />-->
@@ -109,6 +109,7 @@
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".order.MatchLocationActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
