@@ -11,9 +11,12 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.concurrent.timerTask
 import com.baidu.mapapi.model.LatLng
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.repair.proj.location.BdLocationUtil
 import com.repair.proj.location.LocationService
 import com.repair.proj.location.MyLocationListener
+import com.repair.proj.user.CircleCropTransformation
 import org.jetbrains.anko.AnkoLogger
 
 
@@ -22,7 +25,7 @@ import org.jetbrains.anko.AnkoLogger
  * Created by code_nil on 2017/11/14.
  */
 
-class MatchLocationActivity : NActivity<MatchLocationPresenter, ActivityMatchLocationBinding>(), MatchLocationContract.View, AnkoLogger,MKOfflineMapListener {
+class MatchLocationActivity : NActivity<MatchLocationPresenter, ActivityMatchLocationBinding>(), MatchLocationContract.View, AnkoLogger, MKOfflineMapListener {
 
     private val format = "mm:ss"
     var timer = Timer()
@@ -60,6 +63,8 @@ class MatchLocationActivity : NActivity<MatchLocationPresenter, ActivityMatchLoc
         aml_chat.setPadding(240, 0, 0, 0)
         initTimer()
         aml_mv.map.setMaxAndMinZoomLevel(15f, 15f)
+
+        Glide.with(this).load(R.drawable.header).apply((RequestOptions.bitmapTransform(CircleCropTransformation()))).into(aml_contacts)
     }
 
 

@@ -36,7 +36,7 @@
     <string name="md_side_service">客服中心</string>
     <string name="md_side_rewards">邀请有奖</string>
     <string name="md_side_setting">更多设置</string>
-    <string name="aml_match_content"> 匹配师傅中……</string>
+    <string name="aml_match_content"> 匹配师傅中…</string>
     <string name="aml_match_tip"> 正在通知附近师傅</string>
     <string name="aml_waite_tip">已等候:</string>
 </resources>

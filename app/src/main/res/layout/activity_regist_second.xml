@@ -2,15 +2,18 @@
 <layout>
 
     <data>
-        <import type="com.repair.proj.login.entity.SecondEnitity"/>
+
+        <import type="com.repair.proj.login.entity.SecondEnitity" />
+
         <variable
             name="secondEntity"
-            type="SecondEnitity"/>
+            type="SecondEnitity" />
     </data>
 
     <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/color_ffffff"
         android:orientation="vertical">
 
         <com.zhy.autolayout.AutoRelativeLayout
@@ -49,14 +52,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="92px"
-            android:paddingLeft="32px"
-            android:paddingRight="32px" />
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px"
+            />
 
         <com.zhy.autolayout.AutoRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="94px"
-            android:layout_marginLeft="32px"
-            android:layout_marginRight="32px"
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px"
             android:layout_marginTop="74px">
 
             <TextView
@@ -65,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:paddingLeft="8px"
                 android:layout_centerVertical="true"
                 android:text="@string/ars_local_title"
                 android:textColor="@color/color_000000"
@@ -95,8 +100,8 @@
         <com.zhy.autolayout.AutoRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="94px"
-            android:layout_marginLeft="32px"
-            android:layout_marginRight="32px">
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px">
 
             <TextView
                 android:id="@+id/ars_name_title"
@@ -106,6 +111,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:text="@string/ars_name_title"
+                android:paddingLeft="8px"
                 android:textColor="@color/color_000000"
                 android:textSize="12sp" />
 
@@ -131,8 +137,8 @@
         <com.zhy.autolayout.AutoRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="94px"
-            android:layout_marginLeft="32px"
-            android:layout_marginRight="32px">
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px">
 
             <TextView
                 android:id="@+id/ars_idcard_title"
@@ -141,6 +147,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:paddingLeft="8px"
                 android:text="@string/ars_idcard_title"
                 android:textColor="@color/color_000000"
                 android:textSize="12sp" />
@@ -167,8 +174,8 @@
         <com.zhy.autolayout.AutoRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="94px"
-            android:layout_marginLeft="32px"
-            android:layout_marginRight="32px">
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px">
 
             <TextView
                 android:id="@+id/ars_urgency_title"
@@ -177,6 +184,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:paddingLeft="8px"
                 android:text="@string/ars_urgency_title"
                 android:textColor="@color/color_000000"
                 android:textSize="12sp" />
@@ -203,8 +211,8 @@
         <com.zhy.autolayout.AutoRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="94px"
-            android:layout_marginLeft="32px"
-            android:layout_marginRight="32px">
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px">
 
             <TextView
                 android:id="@+id/ars_urgency_number_title"
@@ -214,6 +222,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:text="@string/ars_urgency_number_title"
+                android:paddingLeft="8px"
                 android:textColor="@color/color_000000"
                 android:textSize="12sp" />
 
@@ -237,19 +246,19 @@
         </com.zhy.autolayout.AutoRelativeLayout>
 
         <com.zhy.autolayout.AutoRelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/ars_next"
             android:layout_width="match_parent"
-            android:layout_height="102px"
-            android:layout_alignParentBottom="true"
-            android:background="@color/app_base_color"
-            android:gravity="center"
-            android:text="下一步"
-            android:textColor="@color/app_second_color"
-            android:textSize="14sp" />
-    </com.zhy.autolayout.AutoRelativeLayout>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/ars_next"
+                android:layout_width="match_parent"
+                android:layout_height="102px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/app_base_color"
+                android:gravity="center"
+                android:text="下一步"
+                android:textColor="@color/app_second_color"
+                android:textSize="14sp" />
+        </com.zhy.autolayout.AutoRelativeLayout>
     </com.zhy.autolayout.AutoLinearLayout>
 </layout>
