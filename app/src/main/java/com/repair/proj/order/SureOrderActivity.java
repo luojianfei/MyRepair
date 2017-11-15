@@ -18,7 +18,7 @@ import com.repair.proj.utils.PhoneUtils;
  * Created by HX·罗 on 2017/10/18.
  */
 
-public class SureOrderActivity extends BaseActivity<SureOrderPresenter,ActivitySureOrderBinding> {
+public class SureOrderActivity extends BaseActivity<SureOrderPresenter, ActivitySureOrderBinding> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         color = Color.parseColor("#555555");
@@ -55,6 +55,9 @@ public class SureOrderActivity extends BaseActivity<SureOrderPresenter,ActivityS
             case R.id.tv_telephone_book://电话本选择联系人
                 ActivityUtils.startActivityForContacts(this);
                 break;
+            case R.id.btn_next:
+                ActivityUtils.startActivityIntent(this,MatchLocationActivity.class);
+                break;
         }
     }
 
@@ -63,7 +66,7 @@ public class SureOrderActivity extends BaseActivity<SureOrderPresenter,ActivityS
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case ConstantUtil.REQUEST_CODE_GETCONTACTS://获取联系人
-                viewBinding.setContactInfo(PhoneUtils.getPhoneNumber(context,data));
+                viewBinding.setContactInfo(PhoneUtils.getPhoneNumber(context, data));
                 break;
         }
     }
