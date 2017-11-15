@@ -42,7 +42,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:text="修一修"
+                android:textColor="@color/color_bbbbbb"
+                android:text="LOG修一修"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
@@ -56,6 +57,7 @@
                 android:textSize="14sp"
                 android:textColor="#8f8f8f"
                 android:text="@={phoneNo}"
+                android:textColorHint="@color/color_bbbbbb"
                 android:drawablePadding="8dp"
                 android:background="@drawable/layer_stroke_bottom"
                 android:drawableLeft="@drawable/icon_telephone"/>
@@ -76,6 +78,7 @@
                     android:textCursorDrawable="@drawable/shape_cursor"
                     android:textColor="#8f8f8f"
                     android:text="@={pwd}"
+                    android:textColorHint="@color/color_bbbbbb"
                     android:background="@null"
                     android:textSize="14sp" />
                 <ImageView

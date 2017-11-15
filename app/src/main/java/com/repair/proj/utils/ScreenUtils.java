@@ -3,16 +3,11 @@ package com.repair.proj.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Rect;
-import android.os.Build;
 import android.os.PowerManager;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
-
-import com.repair.proj.base.SystemBarTintManager;
 
 /**
  * 获得屏幕相关的辅助类
@@ -159,55 +154,55 @@ public class ScreenUtils {
      * 设置状态栏颜色
      */
     public static final void titleAlph(boolean isAlph, int color, Activity activity) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setTranslucentStatus(isAlph, activity);
-            if (!isAlph) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    Window window = activity.getWindow();
-                    //After LOLLIPOP not translucent status bar
-                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                    //Then call setStatusBarColor.
-                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                    window.setStatusBarColor(color);
-                }else {
-                    SystemBarTintManager tintManager = new SystemBarTintManager(activity);
-                    tintManager.setStatusBarTintEnabled(true);
-                    tintManager.setStatusBarTintColor(color);
-                }
-            }
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            setTranslucentStatus(isAlph, activity);
+//            if (!isAlph) {
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                    Window window = activity.getWindow();
+//                    //After LOLLIPOP not translucent status bar
+//                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//                    //Then call setStatusBarColor.
+//                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//                    window.setStatusBarColor(color);
+//                }else {
+//                    SystemBarTintManager tintManager = new SystemBarTintManager(activity);
+//                    tintManager.setStatusBarTintEnabled(true);
+//                    tintManager.setStatusBarTintColor(color);
+//                }
+//            }
+//        }
 
     }
 
-    /**
-     * 设置状态栏透明
-     *
-     * @param on
-     * @param activity
-     */
-    private static void setTranslucentStatus(boolean on, Activity activity) {
-        Window window = activity.getWindow();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
-                    | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-            window.getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-            );
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.TRANSPARENT);
-        } else {
-            WindowManager.LayoutParams winParams = window.getAttributes();
-            final int bits =
-                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-            if (on) {
-                winParams.flags |= bits;
-            } else {
-                winParams.flags &= ~bits;
-            }
-            window.setAttributes(winParams);
-        }
-    }
+//    /**
+//     * 设置状态栏透明
+//     *
+//     * @param on
+//     * @param activity
+//     */
+//    private static void setTranslucentStatus(boolean on, Activity activity) {
+//        Window window = activity.getWindow();
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+//                    | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//            window.getDecorView().setSystemUiVisibility(
+//                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//            );
+//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.setStatusBarColor(Color.TRANSPARENT);
+//        } else {
+//            WindowManager.LayoutParams winParams = window.getAttributes();
+//            final int bits =
+//                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+//            if (on) {
+//                winParams.flags |= bits;
+//            } else {
+//                winParams.flags &= ~bits;
+//            }
+//            window.setAttributes(winParams);
+//        }
+//    }
 
 }
 
