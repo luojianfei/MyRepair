@@ -1,20 +1,33 @@
 package com.repair.proj.location
 
+import com.baidu.location.BDAbstractLocationListener
 import com.baidu.location.BDLocation
 import com.baidu.location.BDLocationListener
 import com.repair.proj.entity.LocationEntity
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.error
 
 /**
  * Created by Mwh on 2017/10/25.
  */
 
-class MyLocationListener(action: (entity: LocationEntity) -> Unit) : BDLocationListener {
+class MyLocationListener(action: (entity: LocationEntity) -> Unit) : BDAbstractLocationListener(), AnkoLogger {
     var action = action
 
 
     override fun onReceiveLocation(location: BDLocation) {
         //Receive Location
-        action(LocationEntity(location.latitude, location.longitude, location.radius, location.addrStr, location.time,location.city,location.cityCode))
+        //61 gps定位  62：定位失败
+        var latitude = location.latitude
+        var longitude = location.longitude
+        var radius = location.radius
+        var addrStr = location.addrStr ?: ""
+        var time = location.time ?: ""
+        var city = location.city ?: ""
+        var cityCode = location.cityCode ?: ""
+        var localType = location.locType
+        var entity = LocationEntity(latitude, longitude, radius, addrStr, time, city, cityCode, localType)
+        action(entity)
 //        val sb = StringBuffer(256)
 //        sb.append("time : ")
 //        sb.append(location.time)
@@ -75,5 +88,10 @@ class MyLocationListener(action: (entity: LocationEntity) -> Unit) : BDLocationL
 //            }
 //        }
 //        Log.e("pcw", sb.toString())
+    }
+
+    override fun onLocDiagnosticMessage(p0: Int, p1: Int, p2: String?) {
+        super.onLocDiagnosticMessage(p0, p1, p2)
+        error { p2 ?: "null" }
     }
 }

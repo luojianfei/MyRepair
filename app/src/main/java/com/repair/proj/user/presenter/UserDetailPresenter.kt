@@ -5,10 +5,12 @@ import android.graphics.Color
 import android.util.Log
 import android.view.ViewGroup
 import com.bigkoo.pickerview.OptionsPickerView
+import com.bigkoo.pickerview.lib.WheelView
 import com.repair.proj.R
 import com.repair.proj.user.contract.UserDetailContract
 import com.repair.proj.user.model.UserDetailModel
 import com.repair.proj.nbase.NPresenter
+import org.jetbrains.anko.find
 import java.util.ArrayList
 
 
@@ -34,7 +36,6 @@ class UserDetailPresenter : NPresenter<UserDetailContract.View, UserDetailModel>
         } else {
             pvCustomOptions?.dismiss()
         }
-
     }
 
     fun initCustomOptionPicker(viewGroup: ViewGroup, activity: Activity) {//条件选择器初始化，自定义布局
@@ -49,17 +50,23 @@ class UserDetailPresenter : NPresenter<UserDetailContract.View, UserDetailModel>
             //返回的分别是三个级别的选中位置
             Log.e("ttttt", cardItem[options1] + "")
         })
-                .setLayoutRes(R.layout.pickerview_custom_options) { }
+                .setLayoutRes(R.layout.pickerview_custom_options) {
+                    var view=it.find<WheelView>(R.id.options1)
+                    view.setOnTouchListener { v, event ->
+                        view.parent.requestDisallowInterceptTouchEvent(true)
+                        false
+                    }
+                }
                 .setDecorView(viewGroup)
-                .setSelectOptions(9)
-                .setBgColor(Color.parseColor("#fafafa"))
-                .setLineSpacingMultiplier(1.4f)
+                .setSelectOptions(5)
+                .setBgColor(activity.resources.getColor(R.color.color_f0f0f0))
+                .setLineSpacingMultiplier(1.2f)
                 .build()
         pvCustomOptions?.setPicker(cardItem)//添加数据
     }
 
     private fun getCardData() {
-        (0..19).mapTo(cardItem) { "" + it }
+        (0..100).mapTo(cardItem) { "" + it }
     }
 
 }

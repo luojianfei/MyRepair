@@ -39,7 +39,7 @@ class UserLocationActivity : NActivity<UserLocationPresenter, ActivityUserLocati
     var reverseGeoCodeOption = ReverseGeoCodeOption()
     var mSuggestionSearch = SuggestionSearch.newInstance()
     var cityCode = ""
-    private var myListener: BDLocationListener = MyLocationListener {
+    private var myListener = MyLocationListener {
         var point = LatLng(it.lat, it.lon)
         BdLocationUtil.setUserMapCenter(al_bd_mapview.map, point)
         BdLocationUtil.setMarker1(al_bd_mapview.map, point)

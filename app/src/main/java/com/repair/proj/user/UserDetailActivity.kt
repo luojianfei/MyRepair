@@ -24,7 +24,6 @@ import com.repair.proj.utils.CropUtil
 import com.repair.proj.order.SureOrderActivity
 import com.yalantis.ucrop.UCrop
 import kotlinx.android.synthetic.main.activity_user_detail.*
-import kotlinx.android.synthetic.main.activity_user_detail_order.*
 import kotlinx.android.synthetic.main.activity_user_drawer.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.collections.forEachWithIndex
@@ -94,6 +93,12 @@ class UserDetailActivity : NActivity<UserDetailPresenter,
 
             override fun onPageSelected(position: Int) {}
         })
+        //最开始时实现左右箭头的显示和关闭
+        binding.arrowLShow=true
+        binding.arrowRShow=true
+        var item=md_pj_vp.currentItem
+        if(item==0 ) binding.arrowLShow=false
+        if(item==tabItems.size-1)binding.arrowRShow=false
         //左箭头点击事件
         md_pj_arrow_l.setOnClickListener {
             binding.mdPjVp.setCurrentItem(binding.mdPjVp.currentItem - 1, true)
@@ -126,7 +131,7 @@ class UserDetailActivity : NActivity<UserDetailPresenter,
             binding.num = num
         }
 
-        md_scrollView.setOnTouchListener { _, _ -> true }
+//        md_scrollView.setOnTouchListener { _, _ -> true }
 
         md_pic.setOnClickListener {
             takeCamera()
@@ -139,6 +144,12 @@ class UserDetailActivity : NActivity<UserDetailPresenter,
         //维修接口
         md_repair_now.setOnClickListener { startActivity<SureOrderActivity>() }
         md_repair_later.setOnClickListener { startActivity<SureOrderActivity>() }
+
+        //处理事件冲突
+        md_scrollview.setOnTouchListener { v, event ->
+            md_pj_select_detail_picker.parent.requestDisallowInterceptTouchEvent(false)
+            false
+        }
     }
 
     override fun getContentId(): Int {

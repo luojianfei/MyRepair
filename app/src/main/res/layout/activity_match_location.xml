@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="matchFlag"
+            type="Boolean" />
+    </data>
+
     <com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.baidu.mapapi.map.MapView
-            android:id="@+id/aml_map"
+            android:id="@+id/aml_mv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
@@ -64,7 +73,7 @@
                 android:id="@+id/aml_wait_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone">
+                android:visibility="@{matchFlag?View.GONE:View.VISIBLE}">
 
                 <TextView
                     android:layout_width="0dp"
@@ -97,7 +106,8 @@
                 android:id="@+id/aml_order_recive_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="@{matchFlag?View.VISIBLE:View.GONE}">
 
                 <com.zhy.autolayout.AutoLinearLayout
                     android:id="@+id/aml_master_ll"
@@ -222,8 +232,9 @@
             <com.zhy.autolayout.AutoLinearLayout
                 android:id="@+id/aml_bottom_handle"
                 android:layout_width="match_parent"
-                android:visibility="gone"
-                android:layout_height="102px">
+                android:layout_height="102px"
+                android:visibility="@{matchFlag?View.GONE:View.VISIBLE}">
+
                 <TextView
                     android:id="@+id/aml_urge_order"
                     android:layout_width="0dp"
@@ -270,8 +281,9 @@
 
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:visibility="@{matchFlag?View.VISIBLE:View.GONE}">
 
                 <com.zhy.autolayout.AutoLinearLayout
                     android:layout_width="match_parent"
@@ -283,35 +295,38 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center_vertical|end"
-                        android:textColor="@color/color_000000"
-                        android:textSize="14sp"
                         android:paddingTop="16px"
-                        android:text="￥"/>
+                        android:text="￥"
+                        android:textColor="@color/color_000000"
+                        android:textSize="14sp" />
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
+                        android:text="200"
                         android:textColor="@color/color_000000"
-                        android:textSize="20sp"
-                        android:text="200"/>
+                        android:textSize="20sp" />
                 </com.zhy.autolayout.AutoLinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:text="若订单产生材料费用，可在线支付"
                     android:textColor="@color/color_8f8f8f"
-                    android:textSize="12sp"
-                    android:text="若订单产生材料费用，可在线支付"/>
+                    android:textSize="12sp" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="112px"
                     android:layout_weight="2"
-                    android:text="支付材料费用"
-                    android:gravity="center"
-                    android:textSize="16sp"
                     android:background="@color/app_base_color"
-                    android:textColor="@color/app_second_color"/>
+                    android:gravity="center"
+                    android:text="支付材料费用"
+                    android:textColor="@color/app_second_color"
+                    android:textSize="16sp" />
             </com.zhy.autolayout.AutoLinearLayout>
         </com.zhy.autolayout.AutoLinearLayout>
     </com.zhy.autolayout.AutoRelativeLayout>

@@ -66,8 +66,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     kapt "com.android.databinding:compiler:3.0.0"
     implementation files('libs/BaiduLBS_Android.jar')
-    //    implementation project(':pickerview')
-    implementation 'com.contrarywind:Android-PickerView:3.2.6'
+    implementation project(':pickerview')
+//    implementation 'com.contrarywind:Android-PickerView:3.2.6'
     implementation 'com.yalantis:ucrop:2.2.0'
     implementation 'pub.devrel:easypermissions:1.0.1'
 }

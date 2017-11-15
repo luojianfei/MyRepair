@@ -70,7 +70,7 @@ class LocationService(locationContext: Context) {
      * @return
      */
 
-    fun registerListener(listener: BDLocationListener?): Boolean {
+    fun registerListener(listener: BDAbstractLocationListener?): Boolean {
         var isSuccess = false
         if (listener != null) {
             client!!.registerLocationListener(listener)
@@ -79,7 +79,7 @@ class LocationService(locationContext: Context) {
         return isSuccess
     }
 
-    fun unregisterListener(listener: BDLocationListener?) {
+    fun unregisterListener(listener: BDAbstractLocationListener?) {
         if (listener != null) {
             client!!.unRegisterLocationListener(listener)
         }
