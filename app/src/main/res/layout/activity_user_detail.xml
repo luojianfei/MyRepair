@@ -364,7 +364,7 @@
                     <com.zhy.autolayout.AutoLinearLayout
                         android:id="@+id/md_pic"
                         android:layout_width="match_parent"
-                        android:layout_height="204px"
+                        android:layout_height="214px"
                         android:layout_below="@id/md_location"
                         android:layout_marginLeft="32px"
                         android:layout_marginRight="32px"
@@ -388,6 +388,7 @@
                         <com.zhy.autolayout.AutoLinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_marginTop="10px"
                             android:orientation="horizontal">
 
                             <ImageView
