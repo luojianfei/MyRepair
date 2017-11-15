@@ -39,4 +39,15 @@
     <string name="aml_match_content"> 匹配师傅中…</string>
     <string name="aml_match_tip"> 正在通知附近师傅</string>
     <string name="aml_waite_tip">已等候:</string>
+    <string name="aml_matched">待维修</string>
+    <string name="bd_error_code_62">无法获取有效定位依据，定位失败，请检查运营商网络或者WiFi网络是否正常开启，尝试重新请求定位</string>
+    <string name="bd_error_code_63">网络异常，没有成功向服务器发起请求，请确认当前测试手机网络是否通畅，尝试重新请求定位</string>
+    <string name="time_gmt">GMT+00:00</string>
+    <string name="aml_payment_content">支付材料费用</string>
+    <string name="aml_paymeny_tip">若订单产生材料费用，可在线支付</string>
+    <string name="aml_price_unit">￥</string>
+    <string name="aml_urge_order">催单</string>
+    <string name="cancle">取消</string>
+    <string name="call">打电话</string>
+    <string name="chat">聊天</string>
 </resources>

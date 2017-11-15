@@ -79,7 +79,7 @@ class MatchLocationActivity : NActivity<MatchLocationPresenter, ActivityMatchLoc
     }
 
     private fun initTimer() {
-        formatter.timeZone = TimeZone.getTimeZone("GMT+00:00")
+        formatter.timeZone = TimeZone.getTimeZone(getString(R.string.time_gmt))
         timer.schedule(timerTask {
             runOnUiThread {
                 time++
@@ -87,6 +87,7 @@ class MatchLocationActivity : NActivity<MatchLocationPresenter, ActivityMatchLoc
                 if (time == 5) {
                     binding.matchFlag = true
                     timer.cancel()
+                    aml_match_text.text=getString(R.string.aml_matched)
                 }
             }
         }, 1000, 1000)
@@ -107,8 +108,8 @@ class MatchLocationActivity : NActivity<MatchLocationPresenter, ActivityMatchLoc
 
     private fun checkLocalType(localType: Int) {
         when (localType) {
-            62 -> "无法获取有效定位依据，定位失败，请检查运营商网络或者WiFi网络是否正常开启，尝试重新请求定位"
-            63 -> "网络异常，没有成功向服务器发起请求，请确认当前测试手机网络是否通畅，尝试重新请求定位"
+            62 -> getString(R.string.bd_error_code_62)
+            63 -> getString(R.string.bd_error_code_63)
         }
     }
 
