@@ -323,8 +323,7 @@
 
                 <com.zhy.autolayout.AutoLinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="102px"
-                    android:layout_weight="2">
+                    android:layout_height="78px">
 
                     <TextView
                         android:layout_width="0dp"
@@ -348,10 +347,9 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="28px"
+                    android:layout_height="50px"
                     android:gravity="center"
                     android:text="若订单产生材料费用，可在线支付"
-                    android:layout_gravity="center"
                     android:textColor="@color/color_8f8f8f"
                     android:textSize="12sp" />
 
