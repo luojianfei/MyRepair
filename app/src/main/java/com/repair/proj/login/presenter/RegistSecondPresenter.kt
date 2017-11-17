@@ -3,6 +3,7 @@ package com.repair.proj.login.presenter
 import android.app.Activity
 import android.app.Dialog
 import android.app.ProgressDialog
+import android.os.Looper
 import android.support.v7.app.AlertDialog
 import com.repair.proj.login.common.CityCommon
 import com.repair.proj.login.contract.RegistSecondContract
@@ -10,6 +11,7 @@ import com.repair.proj.login.model.RegistSecondModel
 import com.repair.proj.nbase.NPresenter
 import com.repair.proj.utils.DialogUtils
 import kotlinx.coroutines.experimental.*
+import java.util.concurrent.TimeUnit
 
 /**
  * nie
@@ -21,15 +23,16 @@ class RegistSecondPresenter : RegistSecondContract.Presenter, NPresenter<RegistS
     private var dialogUtils = DialogUtils()
     override fun showLocationPicker(activity: Activity) = runBlocking {
         var dialog = ProgressDialog(activity)
-        dialogUtils.showProgressDialog(dialog, activity)
-        val job = launch(CommonPool) {
+        launch(CommonPool) {
             cityCommon.initJsonData(activity)
+            dialog.dismiss()
+            activity.runOnUiThread {
+                cityCommon.showLocationPicker(activity) {
+                    view.setLocationData(it)
+                }
+            }
         }
-        job.join()
-        dialog.dismiss()
-        cityCommon.showLocationPicker(activity) {
-            view.setLocationData(it)
-        }
+        dialogUtils.showProgressDialog(dialog, activity)
     }
 
 }
