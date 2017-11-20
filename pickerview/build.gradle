@@ -5,9 +5,8 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
-
     defaultConfig {
-        minSdkVersion 9
+        minSdkVersion 15
         targetSdkVersion 26
         versionCode 26
         versionName "3.2.6"
@@ -20,6 +19,8 @@ android {
     }
     lintOptions {
         abortOnError false
+    }
+    productFlavors {
     }
 }
 

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyRepair.iml" filepath="$PROJECT_DIR$/MyRepair.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MyRepair.iml" filepath="$PROJECT_DIR$/.idea/MyRepair.iml" />
+      <module fileurl="file://G:\Workspace\MyRepair\MyRepair.iml" filepath="G:\Workspace\MyRepair\MyRepair.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/pickerview/pickerview.iml" filepath="$PROJECT_DIR$/pickerview/pickerview.iml" />
     </modules>

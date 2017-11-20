@@ -43,8 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/color_bbbbbb"
-                android:text="LOG修一修"
+                android:textColor="#111"
+                android:text="log家家悦"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 

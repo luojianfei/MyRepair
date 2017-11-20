@@ -43,8 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/color_bbbbbb"
-                android:text="LOG修一修"
+                android:textColor="#111"
+                android:text="log家家悦"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
@@ -54,6 +54,7 @@
                 android:hint="请输入用户名"
                 android:textCursorDrawable="@drawable/shape_cursor"
                 android:inputType="phone"
+                android:gravity="center_vertical"
                 android:layout_marginTop="63dp"
                 android:textSize="14sp"
                 android:textColor="#8f8f8f"
@@ -64,7 +65,7 @@
                 android:drawableLeft="@drawable/icon_contacts"/>
             <LinearLayout
                 android:layout_width="320dp"
-                android:layout_height="46dp"
+                android:layout_height="56dp"
                 android:background="@drawable/layer_stroke_bottom"
                 android:orientation="horizontal"
                 >
@@ -75,6 +76,7 @@
                     android:inputType="textPassword"
                     android:drawableLeft="@drawable/icon_pwd"
                     android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
                     android:hint="输入密码"
                     android:textCursorDrawable="@drawable/shape_cursor"
                     android:textColor="#8f8f8f"
@@ -100,12 +102,13 @@
                 >
                 <EditText
                     android:layout_width="0dp"
-                    android:layout_height="46dp"
+                    android:layout_height="56dp"
                     android:layout_weight="1"
                     android:inputType="textPassword"
                     android:drawableLeft="@drawable/icon_pwd"
                     android:drawablePadding="8dp"
                     android:hint="再次输入密码"
+                    android:gravity="center_vertical"
                     android:textCursorDrawable="@drawable/shape_cursor"
                     android:textColor="#8f8f8f"
                     android:text="@={pwd}"
@@ -140,6 +143,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
+                    android:textColor="#111"
                     android:text="登录即表示同意"
                     />
                 <TextView
