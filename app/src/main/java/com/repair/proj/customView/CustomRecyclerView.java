@@ -49,7 +49,7 @@ public class CustomRecyclerView extends RecyclerView {
     }
 
     private void init(Context context) {
-        addItemDecoration(new MyItemDecoration());
+//        addItemDecoration(new MyItemDecoration());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context){
             @Override
             protected int getExtraLayoutSpace(State state) {
@@ -95,19 +95,5 @@ public class CustomRecyclerView extends RecyclerView {
         }
 
         public abstract void onLoadMore(int currentPage);
-    }
-    class MyItemDecoration extends RecyclerView.ItemDecoration {
-        /**
-         *
-         * @param outRect 边界
-         * @param view recyclerView ItemView
-         * @param parent recyclerView
-         * @param state recycler 内部数据管理
-         */
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            //设定底部边距为1px
-            outRect.set(0, 0, 0, 20);
-        }
     }
 }

@@ -7,7 +7,9 @@ import com.repair.proj.R;
 import com.repair.proj.base.BaseActivity;
 import com.repair.proj.databinding.ActivitySelectTypeBinding;
 import com.repair.proj.login.presenter.SelectTypePresenter;
-import com.repair.proj.user.UserDetailActivity;
+import com.repair.proj.user.InviteRewardActivity;
+import com.repair.proj.user.MyWorkerActivity;
+import com.repair.proj.userLogin.UserLoginActivity;
 import com.repair.proj.utils.ActivityUtils;
 
 /**
@@ -44,9 +46,11 @@ public class SelectTypeActivity extends BaseActivity<SelectTypePresenter,Activit
         switch (v.getId()){
             case R.id.tv_repair://维修师傅
                 ActivityUtils.startActivityIntent(context,LoginActivity.class);
+//                ActivityUtils.startActivityIntent(context,InviteRewardActivity.class);
                 break;
             case R.id.tv_need_repair://用户报修
-                ActivityUtils.startActivityIntent(context,UserDetailActivity.class);
+//                ActivityUtils.startActivityIntent(context,UserDetailActivity.class);
+                ActivityUtils.startActivityIntent(context,UserLoginActivity.class);
                 break;
         }
     }

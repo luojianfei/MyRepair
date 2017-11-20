@@ -9,6 +9,9 @@
         <variable
             name="title"
             type="String"/>
+        <variable
+            name="rightDrawable"
+            type="android.graphics.drawable.Drawable"/>
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,6 +35,15 @@
             android:gravity="center"
             android:textStyle="bold"
             android:text="@{title}"
+            />
+        <ImageView
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:id="@+id/iv_right"
+            android:layout_alignParentRight="true"
+            android:src="@{rightDrawable}"
+            android:onClick="@{clickListener}"
             />
     </RelativeLayout>
     

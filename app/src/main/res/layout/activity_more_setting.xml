@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F0F0F0"
+        >
+        <include layout="@layout/layout_title"
+            android:id="@+id/layout_title"/>
+        <TextView style="@style/style_drawable_tv"
+            android:drawableLeft="@null"
+            android:text="用户守则"
+            android:layout_marginTop="12dp"
+            android:onClick="@{clickListener}"
+            android:id="@+id/tv_user_rule"
+            />
+        <TextView style="@style/style_drawable_tv"
+            android:drawableLeft="@null"
+            android:text="收费标准"
+            android:layout_marginTop="1dp"
+            android:onClick="@{clickListener}"
+            android:id="@+id/tv_charge_standard"
+            />
+        <TextView style="@style/style_drawable_tv"
+            android:drawableLeft="@null"
+            android:text="分享"
+            android:layout_marginTop="12dp"
+            android:onClick="@{clickListener}"
+            android:id="@+id/tv_share"
+            />
+        <TextView style="@style/style_drawable_tv"
+            android:drawableLeft="@null"
+            android:text="给修一修评分"
+            android:layout_marginTop="1dp"
+            android:onClick="@{clickListener}"
+            android:id="@+id/tv_score"
+            />
+        <TextView style="@style/style_drawable_tv"
+            android:drawableLeft="@null"
+            android:text="关于修一修"
+            android:layout_marginTop="1dp"
+            android:onClick="@{clickListener}"
+            android:id="@+id/tv_about"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="退出登录"
+            android:onClick="@{clickListener}"
+            android:id="@+id/tv_logout"
+            android:textColor="@color/app_second_color"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:background="@drawable/selector_white_bg"
+            />
+    </LinearLayout>
+
+</layout>

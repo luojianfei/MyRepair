@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F0F0F0"
+        >
+        <include layout="@layout/layout_title"
+            android:id="@+id/layout_title"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="2dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_below="@id/layout_title"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:textColorHint="#8F8F8F"
+            android:textSize="14sp"
+            android:hint="输入师傅手机号，收藏您信任的师傅"
+            android:textColor="#111"
+            android:textCursorDrawable="@drawable/shape_cursor"
+            android:drawableLeft="@drawable/icon_contacts"
+            android:background="#FFFFFF"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:textColor="#8F8F8F"
+            android:text="@string/str_my_worker_tip"
+            />
+    </RelativeLayout>
+
+</layout>

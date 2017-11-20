@@ -50,7 +50,7 @@
 
             <EditText
                 android:layout_width="320dp"
-                android:layout_height="56dp"
+                android:layout_height="46dp"
                 android:hint="手机号"
                 android:textCursorDrawable="@drawable/shape_cursor"
                 android:inputType="phone"
@@ -64,13 +64,13 @@
                 android:drawableLeft="@drawable/icon_telephone"/>
             <LinearLayout
                 android:layout_width="320dp"
-                android:layout_height="56dp"
+                android:layout_height="46dp"
                 android:background="@drawable/layer_stroke_bottom"
                 android:orientation="horizontal"
                 >
                 <EditText
                     android:layout_width="0dp"
-                    android:layout_height="56dp"
+                    android:layout_height="46dp"
                     android:layout_weight="1"
                     android:inputType="textPassword"
                     android:drawableLeft="@drawable/icon_pwd"
@@ -119,7 +119,7 @@
                 android:onClick="@{clickListener}"
                 android:textColor="@color/app_second_color"
                 android:layout_gravity="center_horizontal"
-                android:text="注册成为家家悦的维修师傅 ＞"
+                android:text="注册成为家家悦的用户   ＞"
                 />
         </LinearLayout>
     </RelativeLayout>

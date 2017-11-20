@@ -113,6 +113,15 @@
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".userLogin.UserLoginActivity" />
+        <activity android:name=".userLogin.UserRegistFirstActivity" />
+        <activity android:name=".userLogin.UserRegistSecondActivity" />
+        <activity android:name=".user.MyWorkerActivity" />
+        <activity android:name=".user.MyCouponActivity" />
+        <activity android:name=".user.ServiceCenterActivity" />
+        <activity android:name=".user.MessageActivity" />
+        <activity android:name=".user.MoreSettingActivity" />
+        <activity android:name=".user.InviteRewardActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

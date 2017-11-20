@@ -6,7 +6,7 @@
             name="phoneNo"
             type="String"/>
         <variable
-            name="pwd"
+            name="validateCode"
             type="String"/>
         <variable
             name="clickListener"
@@ -31,8 +31,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/view_devider"
+            android:layout_centerHorizontal="true"
             android:gravity="center_vertical"
             android:paddingTop="58dp"
             android:orientation="vertical"
@@ -44,7 +44,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/color_bbbbbb"
-                android:text="logo家家悦"
+                android:text="LOG修一修"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
@@ -65,6 +65,7 @@
             <LinearLayout
                 android:layout_width="320dp"
                 android:layout_height="56dp"
+                android:gravity="center_vertical"
                 android:background="@drawable/layer_stroke_bottom"
                 android:orientation="horizontal"
                 >
@@ -75,51 +76,30 @@
                     android:inputType="textPassword"
                     android:drawableLeft="@drawable/icon_pwd"
                     android:drawablePadding="8dp"
-                    android:hint="密码"
+                    android:hint="请输入验证码"
                     android:textCursorDrawable="@drawable/shape_cursor"
                     android:textColor="#8f8f8f"
-                    android:text="@={pwd}"
+                    android:text="@={validateCode}"
                     android:textColorHint="@color/color_bbbbbb"
                     android:background="@null"
                     android:textSize="14sp" />
-                <ImageView
+                <Button
+                    android:layout_width="101dp"
+                    android:layout_height="40dp"
+                    android:textSize="14sp"
                     android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleType="centerInside"
-                    android:id="@+id/iv_eye"
-                    android:onClick="@{clickListener}"
-                    android:src="@drawable/icon_eye_p"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/selector_radiu_juice_btn"
+                    android:text="获取验证码"
                     />
             </LinearLayout>
             <Button
                 style="@style/style_radiu_yellow_btn"
                 android:layout_marginTop="16dp"
-                android:id="@+id/btn_login"
+                android:id="@+id/btn_next"
                 android:onClick="@{clickListener}"
-                android:text="登录"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="19dp"
-                android:textSize="14sp"
-                android:id="@+id/tv_fogot"
-                android:onClick="@{clickListener}"
-                android:textColor="#666666"
-                android:layout_gravity="center_horizontal"
-                android:text="忘记密码 ＞"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="72dp"
-                android:textSize="14sp"
-                android:id="@+id/tv_regist_repair"
-                android:onClick="@{clickListener}"
-                android:textColor="@color/app_second_color"
-                android:layout_gravity="center_horizontal"
-                android:text="注册成为家家悦的维修师傅 ＞"
+                android:text="下一步"
                 />
         </LinearLayout>
     </RelativeLayout>

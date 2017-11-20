@@ -31,8 +31,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/view_devider"
+            android:layout_centerHorizontal="true"
             android:gravity="center_vertical"
             android:paddingTop="58dp"
             android:orientation="vertical"
@@ -44,14 +44,14 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/color_bbbbbb"
-                android:text="logo家家悦"
+                android:text="LOG修一修"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:layout_width="320dp"
                 android:layout_height="56dp"
-                android:hint="手机号"
+                android:hint="请输入用户名"
                 android:textCursorDrawable="@drawable/shape_cursor"
                 android:inputType="phone"
                 android:layout_marginTop="63dp"
@@ -61,10 +61,10 @@
                 android:textColorHint="@color/color_bbbbbb"
                 android:drawablePadding="8dp"
                 android:background="@drawable/layer_stroke_bottom"
-                android:drawableLeft="@drawable/icon_telephone"/>
+                android:drawableLeft="@drawable/icon_contacts"/>
             <LinearLayout
                 android:layout_width="320dp"
-                android:layout_height="56dp"
+                android:layout_height="46dp"
                 android:background="@drawable/layer_stroke_bottom"
                 android:orientation="horizontal"
                 >
@@ -75,7 +75,7 @@
                     android:inputType="textPassword"
                     android:drawableLeft="@drawable/icon_pwd"
                     android:drawablePadding="8dp"
-                    android:hint="密码"
+                    android:hint="输入密码"
                     android:textCursorDrawable="@drawable/shape_cursor"
                     android:textColor="#8f8f8f"
                     android:text="@={pwd}"
@@ -92,6 +92,36 @@
                     android:src="@drawable/icon_eye_p"
                     />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="320dp"
+                android:layout_height="56dp"
+                android:background="@drawable/layer_stroke_bottom"
+                android:orientation="horizontal"
+                >
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_weight="1"
+                    android:inputType="textPassword"
+                    android:drawableLeft="@drawable/icon_pwd"
+                    android:drawablePadding="8dp"
+                    android:hint="再次输入密码"
+                    android:textCursorDrawable="@drawable/shape_cursor"
+                    android:textColor="#8f8f8f"
+                    android:text="@={pwd}"
+                    android:textColorHint="@color/color_bbbbbb"
+                    android:background="@null"
+                    android:textSize="14sp" />
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerInside"
+                    android:id="@+id/iv_eye_agin"
+                    android:onClick="@{clickListener}"
+                    android:src="@drawable/icon_eye_p"
+                    />
+            </LinearLayout>
             <Button
                 style="@style/style_radiu_yellow_btn"
                 android:layout_marginTop="16dp"
@@ -99,28 +129,27 @@
                 android:onClick="@{clickListener}"
                 android:text="登录"
                 />
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="19dp"
-                android:textSize="14sp"
-                android:id="@+id/tv_fogot"
-                android:onClick="@{clickListener}"
-                android:textColor="#666666"
-                android:layout_gravity="center_horizontal"
-                android:text="忘记密码 ＞"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="72dp"
-                android:textSize="14sp"
-                android:id="@+id/tv_regist_repair"
-                android:onClick="@{clickListener}"
-                android:textColor="@color/app_second_color"
-                android:layout_gravity="center_horizontal"
-                android:text="注册成为家家悦的维修师傅 ＞"
-                />
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="登录即表示同意"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/app_second_color"
+                    android:text="@string/str_user_protocol"
+                    />
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 

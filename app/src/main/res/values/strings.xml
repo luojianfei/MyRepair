@@ -50,4 +50,6 @@
     <string name="cancle">取消</string>
     <string name="call">打电话</string>
     <string name="chat">聊天</string>
+    <string name="str_user_protocol"><u>家家悦用户协议</u></string>
+    <string name="str_my_worker_tip">收藏好师傅，\n直接发单给他们。</string>
 </resources>

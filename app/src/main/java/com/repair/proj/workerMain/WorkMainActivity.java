@@ -34,7 +34,6 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
     public int setContentView() {
         return R.layout.activity_worker_main ;
     }
-
     @Override
     public void initView() {
         mTabHost = findView(android.R.id.tabhost);
