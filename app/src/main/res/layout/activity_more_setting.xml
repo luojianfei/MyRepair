@@ -37,14 +37,14 @@
             />
         <TextView style="@style/style_drawable_tv"
             android:drawableLeft="@null"
-            android:text="给修一修评分"
+            android:text="给家家悦评分"
             android:layout_marginTop="1dp"
             android:onClick="@{clickListener}"
             android:id="@+id/tv_score"
             />
         <TextView style="@style/style_drawable_tv"
             android:drawableLeft="@null"
-            android:text="关于修一修"
+            android:text="关于家家悦"
             android:layout_marginTop="1dp"
             android:onClick="@{clickListener}"
             android:id="@+id/tv_about"
