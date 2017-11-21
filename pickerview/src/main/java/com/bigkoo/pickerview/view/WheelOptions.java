@@ -34,7 +34,8 @@ public class WheelOptions<T> {
 
     // 条目间距倍数
     float lineSpacingMultiplier = 1.6F;
-
+    //显示个数
+    int itemsVisible = 11;
     public View getView() {
         return view;
     }
@@ -213,8 +214,14 @@ public class WheelOptions<T> {
         wv_option1.setLineSpacingMultiplier(lineSpacingMultiplier);
         wv_option2.setLineSpacingMultiplier(lineSpacingMultiplier);
         wv_option3.setLineSpacingMultiplier(lineSpacingMultiplier);
-
     }
+
+    private void setItemsVisible(){
+        wv_option1.setItemsVisible(itemsVisible);
+        wv_option2.setItemsVisible(itemsVisible);
+        wv_option3.setItemsVisible(itemsVisible);
+    }
+
 
     /**
      * 设置选项的单位
@@ -322,6 +329,11 @@ public class WheelOptions<T> {
     public void setLineSpacingMultiplier(float lineSpacingMultiplier) {
         this.lineSpacingMultiplier = lineSpacingMultiplier;
         setLineSpacingMultiplier();
+    }
+
+    public void setItemsVisible(int itemsVisible) {
+        this.itemsVisible = itemsVisible;
+        setItemsVisible();
     }
 
     /**

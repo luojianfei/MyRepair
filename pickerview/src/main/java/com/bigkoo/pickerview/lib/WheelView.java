@@ -94,7 +94,7 @@ public class WheelView extends View {
     int change;
 
     // 默认绘制11个绘制几个条目，实际上第一项和最后一项Y轴压缩成0%了，所以可见的数目实际为9
-    int itemsVisible = 7;
+    int itemsVisible = 11;
 
     int measuredHeight;// WheelView 控件高度
     int measuredWidth;// WheelView 控件宽度
@@ -739,7 +739,6 @@ public class WheelView extends View {
         isOptions = options;
     }
 
-
     public void setTextColorOut(int textColorOut) {
         if (textColorOut != 0) {
             this.textColorOut = textColorOut;
@@ -767,13 +766,15 @@ public class WheelView extends View {
 
     public void setLineSpacingMultiplier(float lineSpacingMultiplier) {
         if (lineSpacingMultiplier != 0) {
-
-
             this.lineSpacingMultiplier = lineSpacingMultiplier;
             judgeLineSpae();
-
         }
     }
 
-
+    //至少显示3个 显示个数是itemsVisible-2  有两个被压缩
+    public void setItemsVisible(int itemsVisible) {
+        if(itemsVisible>5){
+            this.itemsVisible = itemsVisible;
+        }
+    }
 }

@@ -57,6 +57,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
     private int backgroundId; //显示时的外部背景色颜色,默认是灰色
     // 条目间距倍数 默认1.6
     private float lineSpacingMultiplier = 1.6F;
+    private int itemsVisible=11;
     private boolean isDialog;//是否是对话框模式
 
     private boolean cancelable;//是否能取消
@@ -119,6 +120,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         this.textColorOut = builder.textColorOut;
         this.dividerColor = builder.dividerColor;
         this.lineSpacingMultiplier = builder.lineSpacingMultiplier;
+        this.itemsVisible=builder.itemsVisible;
         this.customListener = builder.customListener;
         this.layoutRes = builder.layoutRes;
         this.isDialog = builder.isDialog;
@@ -162,6 +164,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         public ViewGroup decorView ;//显示pickerview的根View,默认是activity的根view
         // 条目间距倍数 默认1.6
         private float lineSpacingMultiplier = 1.6F;
+        private int itemsVisible = 11;
         private boolean isDialog;//是否是对话框模式
 
         private String label1;
@@ -310,6 +313,11 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
             return this;
         }
 
+        public Builder setItemsVisible(int itemsVisible) {
+            this.itemsVisible = itemsVisible;
+            return this;
+        }
+
         /**
          * 设置分割线的颜色
          *
@@ -451,6 +459,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
         wheelOptions.setDividerColor(dividerColor);
         wheelOptions.setDividerType(dividerType);
         wheelOptions.setLineSpacingMultiplier(lineSpacingMultiplier);
+        wheelOptions.setItemsVisible(itemsVisible);
         wheelOptions.setTextColorOut(textColorOut);
         wheelOptions.setTextColorCenter(textColorCenter);
         wheelOptions.isCenterLabel(isCenterLabel);

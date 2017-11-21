@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.repair.proj.R;
+import com.repair.proj.utils.ActivityUtils;
 import com.repair.proj.utils.ConstantUtil;
 import com.repair.proj.utils.Res;
 import com.repair.proj.utils.ScreenUtils;
@@ -229,4 +230,7 @@ public abstract class BaseFragmentActivity<G extends ViewDataBinding> extends Fr
         return false;
     }
 
+    public void startActivity(Class clazz){
+        ActivityUtils.startActivityIntent(context,clazz);
+    }
 }

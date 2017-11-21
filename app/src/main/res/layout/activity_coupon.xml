@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F0F0F0"
+        >
+        <include layout="@layout/layout_title"
+            android:id="@+id/layout_title"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="2dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_margin="8dp"
+            android:layout_below="@id/layout_title"
+            android:id="@+id/et_content"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:textColorHint="#8F8F8F"
+            android:textSize="14sp"
+            android:hint="按此输入兑换码"
+            android:textColor="#111"
+            android:textCursorDrawable="@drawable/shape_cursor"
+            android:background="@drawable/shape_radiu_white"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/et_content"
+            android:background="#BBBBBB"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:drawableTop="@drawable/icon_coupon"
+            android:layout_centerInParent="true"
+            android:textColor="#8F8F8F"
+            android:drawablePadding="18dp"
+            android:text="暂无优惠券"
+            />
+    </RelativeLayout>
+
+</layout>

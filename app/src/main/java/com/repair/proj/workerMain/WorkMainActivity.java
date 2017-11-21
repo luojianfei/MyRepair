@@ -12,16 +12,23 @@ import com.repair.proj.R;
 import com.repair.proj.base.BaseFragmentActivity;
 import com.repair.proj.databinding.ActivityWorkerMainBinding;
 import com.repair.proj.databinding.LayoutWorkerMainBottomItemBinding;
+import com.repair.proj.user.InviteRewardActivity;
+import com.repair.proj.user.MessageActivity;
+import com.repair.proj.user.MoreSettingActivity;
+import com.repair.proj.user.MyCouponActivity;
+import com.repair.proj.user.MyWorkerActivity;
+import com.repair.proj.user.ServiceCenterActivity;
+import com.repair.proj.utils.ActivityUtils;
 import com.repair.proj.utils.Res;
 
 /**
  * Created by HX·罗 on 2017/10/31.
  */
 
-public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBinding>{
+public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBinding> {
 
-    private String tabNames[] = {"订单管理","材料管理"} ;//tab名字
-    private Class fragmentArray[] = {OrderManageFragment.class,MaterialManageFragment.class} ;
+    private String tabNames[] = {"订单管理", "材料管理"};//tab名字
+    private Class fragmentArray[] = {OrderManageFragment.class, MaterialManageFragment.class};
     private Drawable[] tabDrawable;
     private FragmentTabHost mTabHost;
 
@@ -32,16 +39,16 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
 
     @Override
     public int setContentView() {
-        return R.layout.activity_worker_main ;
+        return R.layout.activity_worker_main;
     }
     @Override
     public void initView() {
         mTabHost = findView(android.R.id.tabhost);
 
-        tabDrawable = new Drawable[]{Res.getDrawableRes(R.drawable.icon_material,context),
-                Res.getDrawableRes(R.drawable.icon_material,context)};
-        mTabHost.setup(context,getSupportFragmentManager(),R.id.fl_content);
-        for (int i = 0 ; i < fragmentArray.length ; i++){
+        tabDrawable = new Drawable[]{Res.getDrawableRes(R.drawable.icon_material, context),
+                Res.getDrawableRes(R.drawable.icon_material, context)};
+        mTabHost.setup(context, getSupportFragmentManager(), R.id.fl_content);
+        for (int i = 0; i < fragmentArray.length; i++) {
             TabHost.TabSpec tabSpec = mTabHost.newTabSpec(tabNames[i]).setIndicator(getTabItemView(i));
             //将Tab按钮添加进Tab选项卡中
             mTabHost.addTab(tabSpec, fragmentArray[i], null);
@@ -63,20 +70,40 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.iv_right:
                 viewBinding.mdDrawerLeft.openDrawer(Gravity.RIGHT);
                 break;
+            case R.id.md_side_master://我的师傅
+                startActivity(MyWorkerActivity.class);
+                break;
+            case R.id.md_side_ticket://修修券
+                startActivity(MyCouponActivity.class);
+                break;
+            case R.id.md_side_mail://收件箱
+                startActivity(MessageActivity.class);
+                break;
+            case R.id.md_side_service://客服中心
+                startActivity(ServiceCenterActivity.class);
+                break;
+            case R.id.md_side_rewards://邀请有奖
+                startActivity(InviteRewardActivity.class);
+                break;
+            case R.id.md_side_setting://更多设置
+                startActivity(MoreSettingActivity.class);
+                break;
         }
     }
+
     /**
      * 获取tab item
+     *
      * @param index
      * @return
      */
-    private View getTabItemView(int index){
+    private View getTabItemView(int index) {
         View view = inflater.inflate(R.layout.layout_worker_main_bottom_item, null);
-        LayoutWorkerMainBottomItemBinding binding = DataBindingUtil.bind(view) ;
+        LayoutWorkerMainBottomItemBinding binding = DataBindingUtil.bind(view);
         binding.setTabName(tabNames[index]);
         binding.setDrawable(tabDrawable[index]);
         return view;
@@ -84,9 +111,9 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
 
     @Override
     public void onBackPressed() {
-        if(viewBinding.mdDrawerLeft.isDrawerOpen(Gravity.RIGHT)){
+        if (viewBinding.mdDrawerLeft.isDrawerOpen(Gravity.RIGHT)) {
             viewBinding.mdDrawerLeft.closeDrawers();
-        }else{
+        } else {
             super.onBackPressed();
         }
     }
