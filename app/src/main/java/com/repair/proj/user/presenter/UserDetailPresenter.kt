@@ -61,6 +61,7 @@ class UserDetailPresenter : NPresenter<UserDetailContract.View, UserDetailModel>
                 .setSelectOptions(5)
                 .setBgColor(activity.resources.getColor(R.color.color_f0f0f0))
                 .setLineSpacingMultiplier(1.2f)
+                .setItemsVisible(7)
                 .build()
         pvCustomOptions?.setPicker(cardItem)//添加数据
     }

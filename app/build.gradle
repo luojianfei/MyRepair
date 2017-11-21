@@ -46,6 +46,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
     implementation 'com.android.support:design:26.1.0'
     //kotlin插件
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
@@ -54,8 +55,8 @@ dependencies {
     implementation "org.jetbrains.anko:anko-coroutines:$anko_version"
     //百度地图
     //glide
-    implementation 'com.github.bumptech.glide:glide:4.0.0-RC1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC1'
+    implementation 'com.github.bumptech.glide:glide:4.1.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.1.1'
     //完美适配方案框架
     implementation 'com.zhy:autolayout:1.4.5'
     //logger
@@ -68,7 +69,9 @@ dependencies {
     kapt "com.android.databinding:compiler:3.0.0"
     implementation files('libs/BaiduLBS_Android.jar')
     implementation project(':pickerview')
-//    implementation 'com.contrarywind:Android-PickerView:3.2.6'
-    implementation 'com.yalantis:ucrop:2.2.0'
+    //    implementation 'com.contrarywind:Android-PickerView:3.2.6'
     implementation 'pub.devrel:easypermissions:1.0.1'
+    //图片选择框架
+    implementation 'me.iwf.photopicker:PhotoPicker:0.9.10@aar'
+    implementation 'com.nineoldandroids:library:2.4.0'
 }

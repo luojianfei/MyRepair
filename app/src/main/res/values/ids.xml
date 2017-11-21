@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--给图片标记索引位置 这是由于glide加载占用了view的tag，当使用tag时将会引起错误-->
+    <item name="positionTag" type="id" />
+</resources>

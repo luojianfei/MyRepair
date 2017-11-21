@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:bind="http://schemas.android.com/tools">
+<layout>
 
     <data>
+
         <import type="android.view.View" />
 
         <variable
@@ -30,6 +31,7 @@
         android:id="@+id/md_drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.zhy.autolayout.AutoRelativeLayout
             android:id="@+id/detail_main"
             android:layout_width="match_parent"
@@ -66,6 +68,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="16px"
+                    android:onClick="onClick"
                     android:src="@drawable/icon_contacts" />
             </com.zhy.autolayout.AutoRelativeLayout>
 
@@ -142,6 +145,7 @@
                         android:layout_weight="2"
                         android:background="@color/app_base_color"
                         android:gravity="center"
+                        android:onClick="onClick"
                         android:text="@string/md_repair_now"
                         android:textColor="@color/color_111111"
                         android:textSize="14sp" />
@@ -153,6 +157,7 @@
                         android:layout_weight="1"
                         android:background="@color/app_second_color"
                         android:gravity="center"
+                        android:onClick="onClick"
                         android:text="@string/md_repair_later"
                         android:textColor="@color/color_111111"
                         android:textSize="14sp" />
@@ -162,10 +167,10 @@
 
             <ScrollView
                 android:id="@+id/md_scrollview"
-                android:layout_below="@id/md_diver1"
-                android:layout_above="@+id/md_bottom"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_above="@+id/md_bottom"
+                android:layout_below="@id/md_diver1">
 
                 <com.zhy.autolayout.AutoRelativeLayout
                     android:id="@+id/md_scroll_rl"
@@ -184,6 +189,7 @@
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="32px"
+                            android:onClick="onClick"
                             android:src="@drawable/ic_left_arrow"
                             android:visibility="@{arrow_l_show?View.VISIBLE:View.INVISIBLE}" />
 
@@ -195,6 +201,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="32px"
+                            android:onClick="onClick"
                             android:src="@drawable/ic_right_arrow"
                             android:visibility="@{arrow_r_show?View.VISIBLE:View.INVISIBLE}" />
 
@@ -216,13 +223,14 @@
                         android:layout_height="1px"
                         android:layout_below="@id/md_pj_rl"
                         android:background="@color/color_bebebe" />
-                   <!-- 项目选择相关-->
+                    <!-- 项目选择相关-->
                     <com.zhy.autolayout.AutoLinearLayout
                         android:id="@+id/md_pj_select_ll"
                         android:layout_width="match_parent"
                         android:layout_height="92px"
                         android:layout_below="@id/md_diver2"
-                        android:clickable="true">
+                        android:clickable="true"
+                        android:onClick="onClick">
 
                         <TextView
                             android:id="@+id/md_title_select_project"
@@ -260,10 +268,10 @@
 
                         <FrameLayout
                             android:id="@+id/md_pj_select_detail_picker"
-                            android:background="@color/color_8f8f8f"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1"
+                            android:background="@color/color_8f8f8f" />
 
                         <TextView
                             android:id="@+id/md_pj_select_detail_unit"
@@ -289,6 +297,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_weight="1"
                                 android:gravity="end"
+                                android:onClick="onClick"
                                 android:text="-"
                                 android:textSize="16sp" />
 
@@ -308,6 +317,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_weight="1"
+                                android:onClick="onClick"
                                 android:text="+"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -323,9 +333,9 @@
                     <!--定位相关-->
                     <com.zhy.autolayout.AutoLinearLayout
                         android:id="@+id/md_location"
-                        android:layout_below="@+id/md_diver3"
                         android:layout_width="match_parent"
                         android:layout_height="102px"
+                        android:layout_below="@+id/md_diver3"
                         android:layout_marginLeft="32px"
                         android:layout_marginRight="32px"
                         android:layout_marginTop="16px"
@@ -352,6 +362,7 @@
                             android:focusable="false"
                             android:hint="@string/md_location_hint"
                             android:inputType="none"
+                            android:onClick="onClick"
                             android:paddingLeft="8px"
                             android:paddingRight="16px"
                             android:text="@{address}"
@@ -386,38 +397,24 @@
                             android:textSize="14sp" />
 
                         <com.zhy.autolayout.AutoLinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
+                            android:layout_height="136px"
                             android:layout_marginTop="10px"
                             android:orientation="horizontal">
 
-                            <ImageView
-                                android:id="@+id/md_pic_1"
-                                android:layout_width="136px"
-                                android:layout_height="136px"
-                                android:layout_marginLeft="16px"
-                                android:visibility="gone" />
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/md_rv_select_pictures"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"/>
+
 
                             <ImageView
-                                android:id="@+id/md_pic_2"
-                                android:layout_width="136px"
-                                android:layout_height="136px"
-                                android:layout_marginLeft="16px"
-                                android:visibility="gone" />
-
-                            <ImageView
-                                android:id="@+id/md_pic_3"
-                                android:layout_width="136px"
-                                android:layout_height="136px"
-                                android:layout_marginLeft="16px"
-                                android:visibility="gone" />
-
-                            <ImageView
-                                android:id="@+id/md_pic_up"
+                                android:id="@+id/md_pic_add"
                                 android:layout_width="136px"
                                 android:layout_height="136px"
                                 android:layout_marginLeft="16px"
                                 android:background="@drawable/up_image_border"
+                                android:onClick="onClick"
                                 android:src="@drawable/upload_add" />
                         </com.zhy.autolayout.AutoLinearLayout>
 
@@ -425,6 +422,7 @@
 
                 </com.zhy.autolayout.AutoRelativeLayout>
             </ScrollView>
+
         </com.zhy.autolayout.AutoRelativeLayout>
         <!--侧滑菜单-->
         <include layout="@layout/activity_user_drawer" />

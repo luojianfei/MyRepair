@@ -110,6 +110,7 @@ class CityCommon {
                 .setTextColorCenter(Color.BLACK) //设置选中项文字颜色
                 .setContentTextSize(20)
                 .setOutSideCancelable(false)// default is true
+                .setItemsVisible(11)
                 .build()
         /*pvOptions.setPicker(options1Items);//一级选择器
         pvOptions.setPicker(options1Items, options2Items);//二级选择器*/

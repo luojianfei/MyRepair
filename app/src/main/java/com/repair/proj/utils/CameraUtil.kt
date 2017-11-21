@@ -28,4 +28,12 @@ object CameraUtil {
             activity.toast("摄像头未准备好!")
         }
     }
+
+    fun takeAlbum(activity: Activity,code:Int){
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        intent.addCategory(Intent.CATEGORY_OPENABLE)
+        activity.startActivityForResult(Intent.createChooser(intent, activity.getString(R.string.album)), code)
+    }
 }
