@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.repair.proj">
     <!--照相-->
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <!-- 读取文件权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -58,7 +58,7 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="Z7fXIgWySVxpxpEWUD3UhQjxkN22IObl" />
 
-        <activity android:name=".login.SelectTypeActivity" >
+        <activity android:name=".login.SelectTypeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -79,21 +79,20 @@
 
         <activity
             android:name=".user.UserDetailActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
 
         </activity>
 
         <activity
             android:name=".login.RegistSecondActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowSoftInputMode="adjustPan">
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
 
 
         <activity
             android:name=".login.RegistThreeActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <activity
             android:name=".login.RegistForeActivity"
@@ -101,14 +100,27 @@
 
         <activity
             android:name=".user.UserLocationActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        </activity>
-        <!--<activity android:name=".workerMain.WorkMainActivity" />-->
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
-        <activity android:name=".order.MatchLocationActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        </activity>
+        <activity
+            android:name=".userLogin.UserLoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
+        <activity android:name=".userLogin.UserRegistFirstActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+
+        <activity android:name=".userLogin.UserRegistSecondActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".order.MatchLocationActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+
+        <activity android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
+
+        <activity android:name="me.iwf.photopicker.PhotoPagerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
 </manifest>
