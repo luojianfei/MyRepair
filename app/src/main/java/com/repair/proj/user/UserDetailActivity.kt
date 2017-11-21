@@ -14,6 +14,7 @@ import android.support.v4.view.ViewPager
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.text.TextUtils
+import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -124,6 +125,28 @@ class UserDetailActivity : NActivity<UserDetailPresenter,
         md_scrollview.setOnTouchListener { v, event ->
             md_pj_select_detail_picker.parent.requestDisallowInterceptTouchEvent(false)
             false
+        }
+        binding.layoutDrawer!!.clickListener = View.OnClickListener { v ->
+            when(v!!.id){
+                R.id.md_side_master ->{//我的师傅
+                    startActivity<MyWorkerActivity>()
+                }
+                R.id.md_side_ticket ->{//修修券
+                    startActivity<MyCouponActivity>()
+                }
+                R.id.md_side_mail ->{//收件箱
+                    startActivity<MessageActivity>()
+                }
+                R.id.md_side_service ->{//客服中心
+                    startActivity<ServiceCenterActivity>()
+                }
+                R.id.md_side_rewards ->{//邀请有奖
+                    startActivity<InviteRewardActivity>()
+                }
+                R.id.md_side_setting ->{//更多设置
+                    startActivity<MoreSettingActivity>()
+                }
+            }
         }
     }
 
@@ -237,7 +260,7 @@ class UserDetailActivity : NActivity<UserDetailPresenter,
             }
         //侧滑栏
             R.id.md_tb_contact -> {
-                md_drawer.openDrawer(md_drawer_left)
+                md_drawer.openDrawer(Gravity.RIGHT)
             }
         //马上维修
             R.id.md_repair_now -> {

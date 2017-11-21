@@ -18,7 +18,6 @@ import com.repair.proj.user.MoreSettingActivity;
 import com.repair.proj.user.MyCouponActivity;
 import com.repair.proj.user.MyWorkerActivity;
 import com.repair.proj.user.ServiceCenterActivity;
-import com.repair.proj.utils.ActivityUtils;
 import com.repair.proj.utils.Res;
 
 /**
