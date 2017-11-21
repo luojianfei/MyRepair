@@ -53,4 +53,6 @@
     <string name="camera">拍照</string>
     <string name="album">相册</string>
     <string name="select_album">从相册选择</string>
+    <string name="str_user_protocol"><u>家家悦用户协议</u></string>
+    <string name="str_my_worker_tip">收藏好师傅，\n直接发单给他们。</string>
 </resources>

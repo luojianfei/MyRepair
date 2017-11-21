@@ -1,6 +1,9 @@
 package com.repair.proj.workerMain.childFragment;
 
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.repair.proj.R;
 import com.repair.proj.base.BaseFragment;
@@ -27,6 +30,12 @@ public class CancelFragment extends BaseFragment<CancelPresenter,FragmentCancelB
     @Override
     public void initView() {
         listAdapter = new OrderListAdapter(getContext(),new ArrayList<OrderInfo>(),null);
+        viewBinding.rcvList.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                outRect.set(0, 0, 0, 20);
+            }
+        });
         viewBinding.rcvList.setAdapter(listAdapter);
     }
 

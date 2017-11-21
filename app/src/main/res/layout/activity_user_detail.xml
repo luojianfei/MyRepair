@@ -425,7 +425,8 @@
 
         </com.zhy.autolayout.AutoRelativeLayout>
         <!--侧滑菜单-->
-        <include layout="@layout/activity_user_drawer" />
+        <include layout="@layout/activity_user_drawer"
+            android:id="@+id/layout_drawer"/>
     </android.support.v4.widget.DrawerLayout>
 
 </layout>

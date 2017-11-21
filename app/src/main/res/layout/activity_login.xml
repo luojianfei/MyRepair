@@ -31,7 +31,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/view_devider"
             android:gravity="center_vertical"
             android:paddingTop="58dp"
             android:orientation="vertical"
@@ -42,14 +43,14 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/color_bbbbbb"
-                android:text="LOG修一修"
+                android:textColor="#111"
+                android:text="logo家家悦"
                 android:textSize="26sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:layout_width="256dp"
-                android:layout_height="46dp"
+                android:layout_width="320dp"
+                android:layout_height="56dp"
                 android:hint="手机号"
                 android:textCursorDrawable="@drawable/shape_cursor"
                 android:inputType="phone"
@@ -62,14 +63,14 @@
                 android:background="@drawable/layer_stroke_bottom"
                 android:drawableLeft="@drawable/icon_telephone"/>
             <LinearLayout
-                android:layout_width="256dp"
-                android:layout_height="46dp"
+                android:layout_width="320dp"
+                android:layout_height="56dp"
                 android:background="@drawable/layer_stroke_bottom"
                 android:orientation="horizontal"
                 >
                 <EditText
                     android:layout_width="0dp"
-                    android:layout_height="46dp"
+                    android:layout_height="56dp"
                     android:layout_weight="1"
                     android:inputType="textPassword"
                     android:drawableLeft="@drawable/icon_pwd"
@@ -93,7 +94,7 @@
             </LinearLayout>
             <Button
                 style="@style/style_radiu_yellow_btn"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="16dp"
                 android:id="@+id/btn_login"
                 android:onClick="@{clickListener}"
                 android:text="登录"
@@ -101,7 +102,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="19dp"
                 android:textSize="14sp"
                 android:id="@+id/tv_fogot"
                 android:onClick="@{clickListener}"
@@ -118,7 +119,7 @@
                 android:onClick="@{clickListener}"
                 android:textColor="@color/app_second_color"
                 android:layout_gravity="center_horizontal"
-                android:text="注册成为修一修的维修师傅 ＞"
+                android:text="注册成为家家悦的维修师傅 ＞"
                 />
         </LinearLayout>
     </RelativeLayout>

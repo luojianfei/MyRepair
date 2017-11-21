@@ -63,7 +63,6 @@ class UserDetailActivity : NActivity<UserDetailPresenter,
     override fun onInit() {
         super.onInit()
         ppu = PhotoPickerUtil(this)
-        rootPath = externalCacheDir.absolutePath
         //初始化项目选择
         presenter.initCustomOptionPicker(md_pj_select_detail_picker, this)
         //默认不显示项目选择布局
