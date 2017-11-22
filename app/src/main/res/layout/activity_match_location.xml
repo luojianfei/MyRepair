@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -28,7 +28,7 @@
         <com.zhy.autolayout.AutoLinearLayout
             android:id="@+id/aml_header"
             android:layout_width="match_parent"
-            android:layout_height="164px"
+            android:layout_height="112px"
             android:layout_alignParentTop="true"
             android:background="@color/color_f0f0f0"
             android:paddingLeft="16px"
@@ -48,6 +48,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/aml_match_content"
+                android:textColor="@color/color_111111"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -82,8 +83,8 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="16px"
                     android:text="@string/aml_match_tip"
-                    android:textSize="14sp"
-                    android:textColor="@color/color_bebebe" />
+                    android:textColor="@color/color_bebebe"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -91,8 +92,8 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="@string/aml_waite_tip"
-                    android:textSize="14sp"
-                    android:textColor="@color/color_8f8f8f" />
+                    android:textColor="@color/color_8f8f8f"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/aml_time"
@@ -101,8 +102,8 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="00:00"
-                    android:textSize="14sp"
-                    android:textColor="@color/color_f4d60d" />
+                    android:textColor="@color/color_f4d60d"
+                    android:textSize="14sp" />
             </com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoLinearLayout
@@ -123,53 +124,42 @@
                         android:id="@+id/aml_contacts"
                         android:layout_width="120px"
                         android:layout_height="120px"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="32px"
-                        android:layout_marginRight="30px"
-                        android:layout_gravity="center_vertical" />
+                        android:layout_marginRight="30px" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                       <com.zhy.autolayout.AutoLinearLayout
-                           android:layout_width="wrap_content"
-                           android:layout_height="0dp"
-                           android:layout_weight="1"
-                           android:orientation="horizontal">
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
-                           <TextView
-                               android:layout_width="match_parent"
-                               android:layout_height="match_parent"
-                               android:gravity="bottom"
-                               android:text="王师傅" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="bottom"
+                                android:text="王师傅" />
 
-                           <ImageView
-                               android:layout_width="40px"
-                               android:layout_height="40px"
-                               android:layout_gravity="bottom"
-                               android:src="@drawable/star"/>
-                           <ImageView
-                               android:layout_width="40px"
-                               android:layout_height="40px"
-                               android:layout_gravity="bottom"
-                               android:src="@drawable/star"/>
-                           <ImageView
-                               android:layout_width="40px"
-                               android:layout_height="40px"
-                               android:layout_gravity="bottom"
-                               android:src="@drawable/star"/>
-                           <ImageView
-                               android:layout_width="40px"
-                               android:layout_height="40px"
-                               android:layout_gravity="bottom"
-                               android:src="@drawable/star"/>
-                           <ImageView
-                               android:layout_width="40px"
-                               android:layout_height="40px"
-                               android:layout_gravity="bottom"
-                               android:src="@drawable/star"/>
-                       </com.zhy.autolayout.AutoLinearLayout>
+                            <com.repair.proj.order.RatingBar
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:starEmpty="@drawable/star_empty"
+                                app:starFill="@drawable/star_fill"
+                                app:starHalf="@drawable/star_half"
+                                android:gravity="bottom"
+                                android:layout_marginLeft="16px"
+                                android:paddingBottom="4px"
+                                app:starImageSize="15dp"
+                                app:starPadding="1dp"
+                                app:starStep="1.5"
+                                app:stepSize="Half"
+                                />
+                        </com.zhy.autolayout.AutoLinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"

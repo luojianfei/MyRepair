@@ -55,4 +55,14 @@
     <string name="select_album">从相册选择</string>
     <string name="str_user_protocol"><u>家家悦用户协议</u></string>
     <string name="str_my_worker_tip">收藏好师傅，\n直接发单给他们。</string>
+    <string name="opa_pay_content">支付材料费用</string>
+    <string name="opa_order_pay_tip">输入材料金额 (元)</string>
+    <string name="opa_materials_search">输入材料名称</string>
+    <string name="opa_order_materials_price">查看材料价格表</string>
+    <string name="opa_sure_pay">支付费用</string>
+    <string name="mih_unit">单位</string>
+    <string name="mih_name">名称</string>
+    <string name="mih_price">价格</string>
+    <string name="mih_num">数量</string>
+    <string name="opa_unit">￥</string>
 </resources>

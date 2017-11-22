@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/aom_mv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/aom_header"
+            android:layout_width="match_parent"
+            android:layout_height="112px"
+            android:layout_alignParentTop="true"
+            android:background="@color/color_f0f0f0"
+            android:paddingLeft="16px"
+            android:paddingRight="16px">
+
+            <ImageView
+                android:id="@+id/aom_back"
+                android:layout_width="64px"
+                android:layout_height="64px"
+                android:layout_gravity="center"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/aom_head_title"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/aml_matched"
+                android:textColor="@color/color_111111"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/aom_match_more"
+                android:layout_width="64px"
+                android:layout_height="64px"
+                android:layout_gravity="center"
+                android:src="@drawable/more" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/aom_master_all"
+            android:layout_width="680px"
+            android:layout_height="552px"
+            android:layout_centerInParent="true"
+            android:background="@color/color_ffffff"
+            android:orientation="vertical">
+
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/mark_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/mark_ll_al"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30px">
+
+                    <ImageView
+                        android:layout_width="64px"
+                        android:layout_height="64px"
+                        android:src="@drawable/complete" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="订单完成"
+                        android:textColor="@color/color_8bc34a"
+                        android:textSize="16sp" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <TextView
+                    android:id="@+id/mark_ll_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mark_ll_al"
+                    android:layout_marginTop="22px"
+                    android:gravity="center"
+                    android:text="感谢您的使用，维修就找修一修。"
+                    android:textColor="@color/color_111111"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/mark_ll_tip"
+                    android:layout_marginTop="22px"
+                    android:background="@color/color_bebebe" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <TextView
+                android:id="@+id/aom_user_mark_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32px"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:textColor="@color/color_111111"
+                android:text="给辛苦维修的师傅一个好评吧！"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/aml_master_ll"
+                android:layout_width="match_parent"
+                android:layout_height="106px"
+                android:orientation="horizontal"
+                android:layout_marginTop="34px"
+                android:paddingLeft="32px">
+
+                <ImageView
+                    android:id="@+id/aom_contacts"
+                    android:layout_width="96px"
+                    android:layout_height="96px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="32px"
+                    android:layout_marginRight="30px" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="王师傅"
+                        android:textColor="@color/color_111111"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="工号 : "
+                            android:textColor="@color/color_bebebe"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="85172529"
+                            android:textColor="@color/color_bebebe"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="电工"
+                        android:textColor="@color/color_bebebe"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.repair.proj.order.RatingBar
+                android:id="@+id/aom_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22px"
+                android:gravity="center"
+                app:starEmpty="@drawable/star_empty"
+                app:starFill="@drawable/star_fill"
+                app:starHalf="@drawable/star_half"
+                app:starImageSize="20dp"
+                app:starPadding="10dp"
+                app:starStep="1.5"
+                app:stepSize="Half" />
+
+            <TextView
+                android:id="@+id/aom_uped_mark_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="37px"
+                android:gravity="center"
+                android:text="评价已提交"
+                android:visibility="gone"
+                android:textColor="@color/app_second_color"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/aom_server_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26px"
+                android:gravity="center"
+                android:text="您的十分满意是我们最大的追求"
+                android:textColor="@color/color_111111"
+                android:visibility="gone"
+                android:textSize="12sp" />
+
+         <com.zhy.autolayout.AutoRelativeLayout
+             android:id="@+id/aom_mark_all"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+             <TextView
+                 android:id="@+id/aom_mark"
+                 android:layout_width="match_parent"
+                 android:layout_height="86px"
+                 android:layout_alignParentBottom="true"
+                 android:background="@color/app_base_color"
+                 android:gravity="center"
+                 android:text="提交评分"
+                 android:textStyle="bold"
+                 android:textColor="@color/app_second_color"
+                 android:textSize="14sp" />
+         </com.zhy.autolayout.AutoRelativeLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+</layout>
