@@ -18,6 +18,7 @@ import com.repair.proj.location.LocationService
 import com.repair.proj.location.MyLocationListener
 import com.repair.proj.user.CircleCropTransformation
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.startActivity
 
 
 /**
@@ -65,6 +66,11 @@ class MatchLocationActivity : NActivity<MatchLocationPresenter, ActivityMatchLoc
         aml_mv.map.setMaxAndMinZoomLevel(15f, 15f)
 
         Glide.with(this).load(R.drawable.header).apply((RequestOptions.bitmapTransform(CircleCropTransformation()))).into(aml_contacts)
+    }
+
+    override fun onListener() {
+        super.onListener()
+        aml_payment.setOnClickListener { startActivity<OrderPayActivity>() }
     }
 
 

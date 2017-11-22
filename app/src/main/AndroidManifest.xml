@@ -58,7 +58,13 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="Z7fXIgWySVxpxpEWUD3UhQjxkN22IObl" />
 
-        <activity android:name=".login.SelectTypeActivity"></activity>
+        <activity android:name=".login.SelectTypeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".order.SureOrderActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.RegistFirstActivity" />
@@ -67,11 +73,11 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".workerMain.WorkMainActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity
             android:name=".user.UserDetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".login.RegistSecondActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
@@ -96,7 +102,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".order.MatchLocationActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name="me.iwf.photopicker.PhotoPickerActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -116,11 +122,6 @@
         <activity
             android:name=".order.MarkOrderActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

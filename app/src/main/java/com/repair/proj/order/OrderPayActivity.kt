@@ -11,6 +11,7 @@ import com.repair.proj.order.entity.MaterialsEntity
 import kotlinx.android.synthetic.main.activity_order_pay.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.error
+import org.jetbrains.anko.startActivity
 
 
 class OrderPayActivity : AppCompatActivity() ,AnkoLogger{
@@ -55,5 +56,6 @@ class OrderPayActivity : AppCompatActivity() ,AnkoLogger{
         var draw = resources.getDrawable(R.drawable.search)
         draw.setBounds(0, 0, 64, 64)
         opa_materials_search.setCompoundDrawables(null, null, draw, null)
+        opa_sure_pay.setOnClickListener { startActivity<MarkOrderActivity>() }
     }
 }
