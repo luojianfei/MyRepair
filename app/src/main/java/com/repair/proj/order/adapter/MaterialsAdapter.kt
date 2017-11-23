@@ -32,12 +32,10 @@ class MaterialsAdapter(datas: ArrayList<MaterialsEntity>, activity: Activity, ac
         normalHeader.num.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (s != null && s.isNotEmpty()) {
-                    var result=0f
-                    ( 0 until datas.size)
-                            .map { datas[it]}
-                            .map { it.num.toFloat()*it.price.toFloat() }
-                            .map { result+=it }
-                    action(result)
+                    var count = datas
+                            .map { it.num.toFloat() * it.price.toFloat() }
+                            .sum()
+                    action(count)
                 }
             }
 
@@ -64,7 +62,7 @@ class MaterialsAdapter(datas: ArrayList<MaterialsEntity>, activity: Activity, ac
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         holder.let {
             if (holder!!.itemViewType == TYPE_NORMAL) {
-                var poi=position-1
+                var poi = position - 1
                 var normalHolder = holder as MaterialsViewHolder
                 normalHolder.name.text = datas[poi].name
                 normalHolder.unit.text = datas[poi].unit
