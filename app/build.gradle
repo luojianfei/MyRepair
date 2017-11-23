@@ -13,6 +13,11 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                GETUI_APP_ID : "nG6Kumbtih7aZkonBLPrk1",
+                GETUI_APP_KEY : "6lDksmOboS6aotLXZ32Sb4",
+                GETUI_APP_SECRET : "fG8WdsHG9b8qIeNo7uNlf4"
+        ]
     }
 
     //kotlin中使用databinding 配置
@@ -75,4 +80,8 @@ dependencies {
     //图片选择框架
     implementation 'me.iwf.photopicker:PhotoPicker:0.9.10@aar'
     implementation 'com.nineoldandroids:library:2.4.0'
+//    implementation files('libs/GetuiSDK2.11.1.0.jar')
+    //个推
+    compile 'com.getui:sdk:2.11.1.0'
+//    implementation files('libs/android-support-v4.jar')
 }

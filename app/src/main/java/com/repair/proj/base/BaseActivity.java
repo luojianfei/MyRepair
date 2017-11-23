@@ -13,12 +13,15 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.igexin.sdk.PushManager;
 import com.repair.proj.R;
 import com.repair.proj.nbase.GenericHelper;
 import com.repair.proj.nbase.NPresenter;
 import com.repair.proj.utils.ConstantUtil;
 import com.repair.proj.utils.Res;
 import com.repair.proj.utils.ScreenUtils;
+import com.sdk.getui.GTPushService;
+import com.sdk.getui.PushService;
 import com.zhy.autolayout.AutoFrameLayout;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
@@ -89,6 +92,7 @@ public abstract class BaseActivity<T extends NPresenter, G extends ViewDataBindi
         if (!isTop) {
             parentView.setFitsSystemWindows(true);
         }
+        initPush() ;
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(parentView);
         inflater = LayoutInflater.from(context);
@@ -100,6 +104,11 @@ public abstract class BaseActivity<T extends NPresenter, G extends ViewDataBindi
         initView();
         initData();
         initListener();
+    }
+
+    private void initPush() {
+        PushManager.getInstance().initialize(this.getApplicationContext(), PushService.class);
+        PushManager.getInstance().registerPushIntentService(this.getApplicationContext(), GTPushService.class);
     }
 
     @Override
