@@ -12,6 +12,7 @@ import com.repair.proj.R;
 import com.repair.proj.base.BaseFragmentActivity;
 import com.repair.proj.databinding.ActivityWorkerMainBinding;
 import com.repair.proj.databinding.LayoutWorkerMainBottomItemBinding;
+import com.repair.proj.order.OrderRecordActivity;
 import com.repair.proj.user.InviteRewardActivity;
 import com.repair.proj.user.MessageActivity;
 import com.repair.proj.user.MoreSettingActivity;
@@ -72,6 +73,9 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
         switch (view.getId()) {
             case R.id.iv_right:
                 viewBinding.mdDrawerLeft.openDrawer(Gravity.RIGHT);
+                break;
+            case R.id.md_side_oder_record://订单记录
+                startActivity(OrderRecordActivity.class);
                 break;
             case R.id.md_side_master://我的师傅
                 startActivity(MyWorkerActivity.class);

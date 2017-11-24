@@ -132,6 +132,7 @@
             android:name=".order.MarkOrderActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
+        <activity android:name=".order.OrderRecordActivity" />
     </application>
 
 </manifest>

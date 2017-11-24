@@ -15,6 +15,7 @@ import com.repair.proj.R
 import com.repair.proj.base.Common
 import com.repair.proj.databinding.ActivityUserDetailBinding
 import com.repair.proj.nbase.NActivity
+import com.repair.proj.order.OrderRecordActivity
 import com.repair.proj.order.SureOrderActivity
 import com.repair.proj.user.adapter.RepairTypeAdapter
 import com.repair.proj.user.adapter.SelectPictureAdapter
@@ -114,6 +115,9 @@ class UserDetailActivity : NActivity<UserDetailPresenter,
         }
         binding.layoutDrawer!!.clickListener = View.OnClickListener { v ->
             when(v!!.id){
+                R.id.md_side_oder_record ->{
+                    startActivity<OrderRecordActivity>()
+                }
                 R.id.md_side_master ->{//我的师傅
                     startActivity<MyWorkerActivity>()
                 }
