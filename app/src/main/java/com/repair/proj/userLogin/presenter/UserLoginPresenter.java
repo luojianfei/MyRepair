@@ -11,7 +11,7 @@ import com.repair.proj.userLogin.model.UserLoginModel;
  * Created by HX·罗 on 2017/10/23.
  */
 
-public class UserLoginPresenter extends NPresenter<NContract.View,UserLoginModel> implements UserLoginContract.Presenter {
+public class UserLoginPresenter extends NPresenter<UserLoginContract.View,UserLoginModel> implements UserLoginContract.Presenter {
     @Override
     public void method() {
 

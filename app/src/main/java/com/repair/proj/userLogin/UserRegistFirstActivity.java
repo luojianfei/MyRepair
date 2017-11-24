@@ -30,6 +30,7 @@ public class UserRegistFirstActivity extends BaseActivity<UserRegistFirstPresent
 
     @Override
     public void initData() {
+        viewBinding.setValidateShow("获取验证码");
         viewBinding.layoutTitle.setTitle("注册");
     }
 
@@ -55,10 +56,29 @@ public class UserRegistFirstActivity extends BaseActivity<UserRegistFirstPresent
             case R.id.iv_back:
                 finish();
                 break;
+            case R.id.btn_validate:
+                presenter.requestValidateCode();
+                break;
             case R.id.btn_next:
                 ActivityUtils.startActivityIntent(context,UserRegistSecondActivity.class);
                 break;
 
         }
+    }
+
+    @Override
+    public void startTimeDown() {
+        viewBinding.btnValidate.setEnabled(false);
+    }
+
+    @Override
+    public void setTimeDown(int time) {
+        viewBinding.setValidateShow(time+"s重新获取");
+    }
+
+    @Override
+    public void endTimeDown() {
+        viewBinding.btnValidate.setEnabled(true);
+        viewBinding.setValidateShow("获取验证码");
     }
 }

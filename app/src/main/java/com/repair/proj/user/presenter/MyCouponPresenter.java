@@ -10,5 +10,5 @@ import com.repair.proj.user.model.MyCouponModel;
  * 创建时间 2017/11/20 12:03
  */
 
-public class MyCouponPresenter extends NPresenter<NContract.View,MyCouponModel> implements MyCouponContract.Presenter {
+public class MyCouponPresenter extends NPresenter<MyCouponContract.View,MyCouponModel> implements MyCouponContract.Presenter {
 }

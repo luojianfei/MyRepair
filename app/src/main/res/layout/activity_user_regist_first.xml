@@ -9,6 +9,9 @@
             name="validateCode"
             type="String"/>
         <variable
+            name="validateShow"
+            type="String"/>
+        <variable
             name="clickListener"
             type="android.view.View.OnClickListener"/>
     </data>
@@ -90,8 +93,10 @@
                     android:layout_gravity="center_vertical"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
+                    android:id="@+id/btn_validate"
+                    android:onClick="@{clickListener}"
                     android:background="@drawable/selector_radiu_juice_btn"
-                    android:text="获取验证码"
+                    android:text="@{validateShow}"
                     />
             </LinearLayout>
             <Button

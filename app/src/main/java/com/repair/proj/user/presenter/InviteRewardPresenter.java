@@ -10,5 +10,5 @@ import com.repair.proj.user.model.InviteRewardModel;
  * 创建时间 2017/11/20 16:02
  */
 
-public class InviteRewardPresenter extends NPresenter<NContract.View,InviteRewardModel> implements InviteRewardContract.Presenter {
+public class InviteRewardPresenter extends NPresenter<InviteRewardContract.View,InviteRewardModel> implements InviteRewardContract.Presenter {
 }

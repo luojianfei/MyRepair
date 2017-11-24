@@ -10,5 +10,5 @@ import com.repair.proj.user.model.MessageModel;
  * 创建时间 2017/11/20 14:34
  */
 
-public class MessagePresenter extends NPresenter<NContract.View,MessageModel> implements MessageContract.Presenter {
+public class MessagePresenter extends NPresenter<MessageContract.View,MessageModel> implements MessageContract.Presenter {
 }

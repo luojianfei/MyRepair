@@ -9,5 +9,5 @@ import com.repair.proj.workerMain.model.CompleteModel;
  * Created by HX·罗 on 2017/11/1.
  */
 
-public class CompletePresenter extends NPresenter<NContract.View,CompleteModel> implements CompleteContract.Presenter {
+public class CompletePresenter extends NPresenter<CompleteContract.View,CompleteModel> implements CompleteContract.Presenter {
 }

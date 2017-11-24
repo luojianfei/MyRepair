@@ -9,5 +9,5 @@ import com.repair.proj.workerMain.model.OrderManageModel;
  * Created by HX·罗 on 2017/10/31.
  */
 
-public class OrderManagePresenter extends NPresenter<NContract.View,OrderManageModel> implements OrderManageContract.Presenter {
+public class OrderManagePresenter extends NPresenter<OrderManageContract.View,OrderManageModel> implements OrderManageContract.Presenter {
 }

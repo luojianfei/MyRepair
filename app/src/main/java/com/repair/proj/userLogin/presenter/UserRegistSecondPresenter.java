@@ -13,5 +13,5 @@ import com.repair.proj.userLogin.model.UserRegistSecondModel;
  * Created by HX·罗 on 2017/10/23.
  */
 
-public class UserRegistSecondPresenter extends NPresenter<NContract.View,UserRegistSecondModel> implements UserRegistSecondContract.Presenter {
+public class UserRegistSecondPresenter extends NPresenter<UserRegistSecondContract.View,UserRegistSecondModel> implements UserRegistSecondContract.Presenter {
 }

@@ -9,7 +9,7 @@ import com.repair.proj.nbase.NPresenter;
  * Created by HX·罗 on 2017/10/23.
  */
 
-public class LoginPresenter extends NPresenter<NContract.View,LoginModel> implements LoginContract.Presenter {
+public class LoginPresenter extends NPresenter<LoginContract.View,LoginModel> implements LoginContract.Presenter {
     @Override
     public void method() {
 

@@ -9,5 +9,5 @@ import com.repair.proj.workerMain.model.CancelModel;
  * Created by HX·罗 on 2017/11/1.
  */
 
-public class CancelPresenter extends NPresenter<NContract.View,CancelModel> implements CancelContract.Presenter {
+public class CancelPresenter extends NPresenter<CancelContract.View,CancelModel> implements CancelContract.Presenter {
 }

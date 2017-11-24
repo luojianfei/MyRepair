@@ -10,5 +10,5 @@ import com.repair.proj.user.model.MyWorkerModel;
  * 创建时间 2017/11/20 11:29
  */
 
-public class MyWorkerPresenter extends NPresenter<NContract.View,MyWorkerModel> implements MyWorkerContract.Presenter {
+public class MyWorkerPresenter extends NPresenter<MyWorkerContract.View,MyWorkerModel> implements MyWorkerContract.Presenter {
 }

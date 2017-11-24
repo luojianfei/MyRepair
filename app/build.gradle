@@ -13,6 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
         manifestPlaceholders = [
                 GETUI_APP_ID : "nG6Kumbtih7aZkonBLPrk1",
                 GETUI_APP_KEY : "6lDksmOboS6aotLXZ32Sb4",
@@ -40,6 +41,9 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
 }
 
 dependencies {
@@ -59,6 +63,11 @@ dependencies {
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
     implementation "org.jetbrains.anko:anko-sdk25:$anko_version"
     implementation "org.jetbrains.anko:anko-coroutines:$anko_version"
+
+    //RxJava
+    compile "io.reactivex:rxjava:1.1.5"
+    compile "io.reactivex:rxandroid:1.2.0"
+
     //百度地图
     //glide
     implementation 'com.github.bumptech.glide:glide:4.1.1'
@@ -80,8 +89,8 @@ dependencies {
     //图片选择框架
     implementation 'me.iwf.photopicker:PhotoPicker:0.9.10@aar'
     implementation 'com.nineoldandroids:library:2.4.0'
-//    implementation files('libs/GetuiSDK2.11.1.0.jar')
     //个推
     compile 'com.getui:sdk:2.11.1.0'
-//    implementation files('libs/android-support-v4.jar')
+
+    compile 'com.android.support:multidex:1.0.1'
 }

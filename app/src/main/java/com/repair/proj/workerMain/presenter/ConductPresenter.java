@@ -9,5 +9,5 @@ import com.repair.proj.workerMain.model.ConductModel;
  * Created by HX·罗 on 2017/11/1.
  */
 
-public class ConductPresenter extends NPresenter<NContract.View,ConductModel> implements ConductContract.Presenter {
+public class ConductPresenter extends NPresenter<ConductContract.View,ConductModel> implements ConductContract.Presenter {
 }

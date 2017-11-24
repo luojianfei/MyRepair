@@ -11,6 +11,12 @@ public interface RegistFirstContract {
         String getPhoneNo();
 
         String getValidateCode();
+
+        void startTimeDown();
+
+        void endTimeDown();
+
+        void setTimeDown(int time);
     }
 
     interface Presenter extends NContract.Presenter{
