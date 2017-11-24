@@ -9,6 +9,9 @@
             name="pwd"
             type="String"/>
         <variable
+            name="eyeState"
+            type="int"/>
+        <variable
             name="clickListener"
             type="android.view.View.OnClickListener"/>
     </data>
@@ -52,6 +55,8 @@
                 android:layout_width="320dp"
                 android:layout_height="56dp"
                 android:hint="手机号"
+                android:paddingLeft="8dp"
+                android:paddingRight="16dp"
                 android:textCursorDrawable="@drawable/shape_cursor"
                 android:inputType="phone"
                 android:layout_marginTop="63dp"
@@ -65,6 +70,8 @@
             <LinearLayout
                 android:layout_width="320dp"
                 android:layout_height="56dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="16dp"
                 android:background="@drawable/layer_stroke_bottom"
                 android:orientation="horizontal"
                 >
@@ -72,6 +79,7 @@
                     android:layout_width="0dp"
                     android:layout_height="56dp"
                     android:layout_weight="1"
+                    android:id="@+id/et_pwd"
                     android:inputType="textPassword"
                     android:drawableLeft="@drawable/icon_pwd"
                     android:drawablePadding="8dp"
@@ -89,7 +97,7 @@
                     android:scaleType="centerInside"
                     android:id="@+id/iv_eye"
                     android:onClick="@{clickListener}"
-                    android:src="@drawable/icon_eye_p"
+                    android:src="@{eyeState==0?@drawable/icon_close_eye:@drawable/icon_open_eye}"
                     />
             </LinearLayout>
             <Button
