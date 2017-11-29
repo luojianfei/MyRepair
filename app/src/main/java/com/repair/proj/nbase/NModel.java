@@ -7,7 +7,7 @@ package com.repair.proj.nbase;
 public class NModel {
 
     public static String createUrlString(String url){
-        return "" ;
+        return String.format("%s%s",ModelConfig.BASE_SERVER_ADDRESS,url) ;
     }
 
 }

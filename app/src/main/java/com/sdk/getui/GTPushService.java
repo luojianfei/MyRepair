@@ -6,6 +6,7 @@ import android.util.Log;
 import com.igexin.sdk.GTIntentService;
 import com.igexin.sdk.message.GTCmdMessage;
 import com.igexin.sdk.message.GTTransmitMessage;
+import com.repair.proj.utils.SPUtils;
 
 /**
  * 创建人 LEO
@@ -25,6 +26,7 @@ public class GTPushService extends GTIntentService {
 
     @Override
     public void onReceiveClientId(Context context, String clientid) {
+        SPUtils.put(context,"ClientInfo","clientId",clientid);//保存clientid
         Log.e(TAG, "onReceiveClientId -> " + "clientid = " + clientid);
     }
 
