@@ -4,6 +4,9 @@ import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TabHost;
@@ -20,6 +23,7 @@ import com.repair.proj.user.MyCouponActivity;
 import com.repair.proj.user.MyWorkerActivity;
 import com.repair.proj.user.ServiceCenterActivity;
 import com.repair.proj.utils.Res;
+import com.repair.proj.utils.TextUtil;
 
 /**
  * Created by HX·罗 on 2017/10/31.
@@ -59,7 +63,6 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
 
     @Override
     public void initData() {
-
     }
 
     @Override
@@ -74,14 +77,14 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
             case R.id.iv_right:
                 viewBinding.mdDrawerLeft.openDrawer(Gravity.RIGHT);
                 break;
-            case R.id.md_side_oder_record://订单记录
-                startActivity(OrderRecordActivity.class);
+            case R.id.md_side_user_evaluate://用户评价
+//                startActivity(OrderRecordActivity.class);
                 break;
-            case R.id.md_side_master://我的师傅
-                startActivity(MyWorkerActivity.class);
+            case R.id.md_side_financial_data://财务数据
+//                startActivity(MyWorkerActivity.class);
                 break;
-            case R.id.md_side_ticket://修修券
-                startActivity(MyCouponActivity.class);
+            case R.id.md_side_stock://库存查看
+//                startActivity(MyCouponActivity.class);
                 break;
             case R.id.md_side_mail://收件箱
                 startActivity(MessageActivity.class);
@@ -89,8 +92,8 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
             case R.id.md_side_service://客服中心
                 startActivity(ServiceCenterActivity.class);
                 break;
-            case R.id.md_side_rewards://邀请有奖
-                startActivity(InviteRewardActivity.class);
+            case R.id.md_side_material_purchase://材料进货
+//                startActivity(InviteRewardActivity.class);
                 break;
             case R.id.md_side_setting://更多设置
                 startActivity(MoreSettingActivity.class);

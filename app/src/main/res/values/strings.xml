@@ -65,4 +65,6 @@
     <string name="mih_price">价格</string>
     <string name="mih_num">数量</string>
     <string name="opa_unit">￥</string>
+    <string name="str_purch">确认收货</string>
+    <string name="str_have">确认出售</string>
 </resources>

@@ -6,6 +6,12 @@
         <variable
             name="clickListener"
             type="android.view.View.OnClickListener"/>
+        <variable
+            name="orderNum"
+            type="String"/>
+        <variable
+            name="orderPrice"
+            type="String"/>
     </data>
     <LinearLayout
         android:layout_width="270dp"
@@ -15,28 +21,120 @@
         android:orientation="vertical"
         android:background="@color/color_ffffff">
 
-
-        <com.repair.proj.customView.CircleImageView
-            android:id="@+id/civ_head"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            app:civ_border_color="#C3C3C3"
-            app:civ_border_width="1dp"
-            android:layout_gravity="center"
-            android:src="@drawable/header"
-            android:layout_marginTop="112px"/>
-
-        <TextView
-            android:id="@+id/md_side_phone_number"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30px"
-            android:gravity="center"
-            android:text="15378183400"
-            android:textSize="14sp" />
+            android:paddingTop="44dp"
+            android:background="#F4D70B"
+            android:layout_height="219dp">
+            <com.repair.proj.customView.CircleImageView
+                android:id="@+id/civ_head"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:src="@drawable/header"
+                app:civ_border_color="#C3C3C3"
+                app:civ_border_width="1dp" />
+            <TextView
+                android:id="@+id/md_side_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/civ_head"
+                android:textColor="#000000"
+                android:layout_marginTop="34px"
+                android:gravity="center"
+                android:text="153****3400"
+                android:textSize="14sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="13dp"
+                android:layout_below="@id/md_side_phone_number"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom"
+                            android:text="20"
+                            android:textColor="#F0870F"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="单"
+                            android:textColor="#F0870F"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                        android:textColor="#F0870F"
+                        android:text="今日有效订单"
+                        />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#E5E5E5"
+                    />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom"
+                            android:text="500"
+                            android:textColor="#F0870F"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="元"
+                            android:textColor="#F0870F"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                        android:textColor="#F0870F"
+                        android:text="今日订单收入"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
 
         <TextView
-            android:id="@+id/md_side_oder_record"
+            android:id="@+id/md_side_user_evaluate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{clickListener}"
@@ -44,12 +142,12 @@
             android:drawableRight="@drawable/icon_contacts"
             android:gravity="right|center_vertical"
             android:paddingRight="22px"
-            android:text="@string/md_side_oder_record"
-            android:layout_marginTop="82px"
+            android:text="用户评价"
+            android:layout_marginTop="56px"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/md_side_master"
+            android:id="@+id/md_side_financial_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="40px"
@@ -57,12 +155,12 @@
             android:drawableRight="@drawable/icon_contacts"
             android:gravity="right|center_vertical"
             android:paddingRight="22px"
-            android:text="@string/md_side_master"
+            android:text="财务数据"
             android:layout_marginTop="50px"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/md_side_ticket"
+            android:id="@+id/md_side_stock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="40px"
@@ -70,7 +168,7 @@
             android:drawableRight="@drawable/icon_contacts"
             android:gravity="right|center_vertical"
             android:paddingRight="22px"
-            android:text="@string/md_side_ticket"
+            android:text="库存查看"
             android:layout_marginTop="50px"
             android:textSize="14sp" />
 
@@ -102,7 +200,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/md_side_rewards"
+            android:id="@+id/md_side_material_purchase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="40px"
@@ -110,7 +208,7 @@
             android:drawableRight="@drawable/icon_contacts"
             android:gravity="right|center_vertical"
             android:paddingRight="22px"
-            android:text="@string/md_side_rewards"
+            android:text="材料进货"
             android:layout_marginTop="50px"
             android:textSize="14sp" />
 

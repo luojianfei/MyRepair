@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.repair.proj.workerMain.adapter.MaterialAdapter"/>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="type"
+            type="int"/>
+        <variable
+            name="matrialInfo"
+            type="com.repair.proj.entity.MaterialInfo"/>
+        <variable
+            name="num"
+            type="String"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_stroke"
+        android:orientation="vertical"
+        android:padding="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="#FEF2E7"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="#"
+                android:textColor="#111"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="98765432"
+                android:textColor="#111"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:visibility="@{type == MaterialAdapter.TYPE_MATERIAL_HAVE?View.VISIBLE:View.INVISIBLE}"
+                android:text="剩余20个"
+                android:textColor="#8F8F8F"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:text="点击查看"
+                android:textColor="@color/app_second_color"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingBottom="12dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="24dp">
+
+            <ImageView
+                android:id="@+id/iv_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_air_switch" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxEms="7"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/iv_img"
+                android:text="某某某牌空气开关"
+                android:textColor="#111"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="24dp"
+                android:text="@{matrialInfo.getFormatPrice(type)}"
+                android:textColor="#111"
+                android:textSize="16sp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_alignBottom="@id/iv_img"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/iv_img"
+                android:visibility="@{type == MaterialAdapter.TYPE_MATERIAL_HAVE?View.VISIBLE:View.GONE}"
+                android:orientation="horizontal"
+                >
+                <Button
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:id="@+id/btn_plus"
+                    android:onClick="@{clickListener}"
+                    android:textSize="14sp"
+                    android:background="@drawable/selector_count_change"
+                    android:text="－"
+                    />
+                <EditText
+                    android:layout_width="48dp"
+                    android:layout_height="24dp"
+                    android:gravity="center"
+                    android:id="@+id/et_count"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    android:layout_marginLeft="4dp"
+                    android:background="@drawable/shape_stroke"
+                    android:text="@={num}"/>
+                <Button
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginLeft="4dp"
+                    android:id="@+id/btn_add"
+                    android:textStyle="bold"
+                    android:onClick="@{clickListener}"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:background="@drawable/selector_count_change"
+                    android:text="＋"
+                    />
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/iv_img"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/iv_img"
+                android:visibility="@{type == MaterialAdapter.TYPE_MATERIAL_HAVE?View.GONE:View.VISIBLE}"
+                android:text="数量20"
+                android:textColor="#111"
+                android:textSize="14sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:gravity="center"
+                android:layout_alignBottom="@id/iv_img"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/tv_price"
+                android:layout_marginTop="4dp"
+                android:visibility="@{type == MaterialAdapter.TYPE_MATERIAL_SALE?View.GONE:View.VISIBLE}"
+                android:background="@drawable/selector_radiu_juice_btn"
+                android:text="@{type == MaterialAdapter.TYPE_MATERIAL_HAVE?@string/str_have:@string/str_purch}"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>

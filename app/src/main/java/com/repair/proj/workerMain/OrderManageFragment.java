@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import com.repair.proj.R;
 import com.repair.proj.base.BaseFragment;
 import com.repair.proj.databinding.FragmentOrderManageBinding;
-import com.repair.proj.workerMain.adapter.CustomFragmentPagerAdapter;
+import com.repair.proj.workerMain.adapter.CustomOrderManFragmentPagerAdapter;
 import com.repair.proj.workerMain.contract.OrderManageContract;
 import com.repair.proj.workerMain.presenter.OrderManagePresenter;
 
@@ -16,12 +16,12 @@ import com.repair.proj.workerMain.presenter.OrderManagePresenter;
 
 public class OrderManageFragment extends BaseFragment<OrderManagePresenter,FragmentOrderManageBinding> implements OrderManageContract.View {
 
-    private CustomFragmentPagerAdapter pagerAdapter;
+    private CustomOrderManFragmentPagerAdapter pagerAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pagerAdapter = new CustomFragmentPagerAdapter(getChildFragmentManager());
+        pagerAdapter = new CustomOrderManFragmentPagerAdapter(getChildFragmentManager());
     }
 
     @Override

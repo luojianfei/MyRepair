@@ -12,11 +12,11 @@ import com.repair.proj.workerMain.childFragment.ConductFragment;
  * Created by HX·罗 on 2017/11/1.
  */
 
-public class CustomFragmentPagerAdapter extends FragmentStatePagerAdapter {
+public class CustomOrderManFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     private String tabTitles[] = new String[]{"进行中","已完成","已取消"} ;
 
-    public CustomFragmentPagerAdapter(FragmentManager fm) {
+    public CustomOrderManFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

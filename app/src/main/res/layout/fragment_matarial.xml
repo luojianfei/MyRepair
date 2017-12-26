@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:background="#F0F0F0"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#F0F0F0"
+            >
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textSize="14sp"
+                android:textCursorDrawable="@drawable/shape_cursor"
+                android:hint="搜索材料商城..."
+                android:background="@drawable/shape_et_bg"
+                />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/search"
+                />
+        </LinearLayout>
+        <com.repair.proj.customView.CustomRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rcv_list"
+            ></com.repair.proj.customView.CustomRecyclerView>
+    </LinearLayout>
+
+</layout>
