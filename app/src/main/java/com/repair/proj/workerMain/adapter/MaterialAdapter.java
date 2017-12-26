@@ -84,32 +84,11 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.MyHold
             this.view = itemView;
             binding = DataBindingUtil.bind(itemView);
             binding.setType(materialType);
-            binding.setNum("1");
             initListener();
         }
 
         private void initListener() {
             binding.setClickListener(this);
-            binding.etCount.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    if(TextUtil.isEmpty(s.toString())){
-                        binding.setNum("0");
-                        binding.etCount.clearFocus();
-                        KeyBoardUtils.closeKeybord(binding.etCount,context);
-                    }
-                }
-            });
         }
 
         private int getRealPosition() {
@@ -122,25 +101,10 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.MyHold
 
         @Override
         public void onClick(View view) {
-            int num;
             switch (view.getId()) {
                 case R.id.btn_sure:
                     if (callBack != null) {
                         callBack.callBack(getRealPosition());
-                    }
-                    break;
-                case R.id.btn_add:
-                    binding.etCount.clearFocus();
-                    KeyBoardUtils.closeKeybord(binding.etCount,context);
-                    num = Integer.parseInt(binding.getNum());
-                    binding.setNum(num + 1 + "");
-                    break;
-                case R.id.btn_plus:
-                    binding.etCount.clearFocus();
-                    KeyBoardUtils.closeKeybord(binding.etCount,context);
-                    num = Integer.parseInt(binding.getNum());
-                    if (num > 0) {
-                        binding.setNum(num - 1 + "");
                     }
                     break;
             }

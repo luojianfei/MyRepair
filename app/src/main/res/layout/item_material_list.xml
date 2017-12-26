@@ -106,52 +106,14 @@
                 android:text="@{matrialInfo.getFormatPrice(type)}"
                 android:textColor="#111"
                 android:textSize="16sp" />
-            <LinearLayout
+            <com.repair.proj.customView.SelectCountView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
                 android:layout_alignBottom="@id/iv_img"
                 android:layout_marginLeft="12dp"
                 android:layout_toRightOf="@id/iv_img"
                 android:visibility="@{type == MaterialAdapter.TYPE_MATERIAL_HAVE?View.VISIBLE:View.GONE}"
-                android:orientation="horizontal"
-                >
-                <Button
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:textColor="#FFFFFF"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:id="@+id/btn_plus"
-                    android:onClick="@{clickListener}"
-                    android:textSize="14sp"
-                    android:background="@drawable/selector_count_change"
-                    android:text="－"
-                    />
-                <EditText
-                    android:layout_width="48dp"
-                    android:layout_height="24dp"
-                    android:gravity="center"
-                    android:id="@+id/et_count"
-                    android:textSize="14sp"
-                    android:inputType="number"
-                    android:layout_marginLeft="4dp"
-                    android:background="@drawable/shape_stroke"
-                    android:text="@={num}"/>
-                <Button
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginLeft="4dp"
-                    android:id="@+id/btn_add"
-                    android:textStyle="bold"
-                    android:onClick="@{clickListener}"
-                    android:gravity="center"
-                    android:textSize="14sp"
-                    android:background="@drawable/selector_count_change"
-                    android:text="＋"
-                    />
-            </LinearLayout>
+                ></com.repair.proj.customView.SelectCountView>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

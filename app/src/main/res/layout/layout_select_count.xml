@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener"/>
+        <variable
+            name="num"
+            type="String"/>
+    </data>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:id="@+id/btn_plus"
+            android:onClick="@{clickListener}"
+            android:textSize="14sp"
+            android:background="@drawable/selector_count_change"
+            android:text="－"
+            />
+        <EditText
+            android:layout_width="48dp"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:id="@+id/et_count"
+            android:textSize="14sp"
+            android:inputType="number"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/shape_stroke"
+            android:text="@={num}"/>
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="4dp"
+            android:id="@+id/btn_add"
+            android:textStyle="bold"
+            android:onClick="@{clickListener}"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:background="@drawable/selector_count_change"
+            android:text="＋"
+            />
+    </LinearLayout>
+
+</layout>
