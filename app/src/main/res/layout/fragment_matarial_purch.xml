@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener"/>
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,13 +24,16 @@
             android:orientation="horizontal"
             android:background="#F0F0F0"
             >
-            <EditText
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="36dp"
                 android:layout_weight="1"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
+                android:gravity="center_vertical"
                 android:textSize="14sp"
+                android:id="@+id/tv_search"
+                android:onClick="@{clickListener}"
                 android:textCursorDrawable="@drawable/shape_cursor"
                 android:hint="搜索材料商城..."
                 android:background="@drawable/shape_et_bg"
@@ -38,7 +43,7 @@
                 android:layout_height="24dp"
                 android:layout_marginLeft="8dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/search"
+                android:src="@drawable/icon_search"
                 />
         </LinearLayout>
         <com.repair.proj.customView.CustomRecyclerView

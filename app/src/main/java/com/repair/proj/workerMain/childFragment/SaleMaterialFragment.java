@@ -8,7 +8,6 @@ import android.view.View;
 import com.repair.proj.R;
 import com.repair.proj.base.BaseFragment;
 import com.repair.proj.databinding.FragmentCompleteBinding;
-import com.repair.proj.databinding.FragmentMatarialBinding;
 import com.repair.proj.databinding.FragmentMatarialSaleBinding;
 import com.repair.proj.entity.MaterialInfo;
 import com.repair.proj.entity.OrderInfo;
@@ -58,5 +57,10 @@ public class SaleMaterialFragment extends BaseFragment<CompletePresenter,Fragmen
     @Override
     public void callBack(int position) {
 //        ActivityUtils.startActivityIntent(getContext(), SureOrderActivity.class);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

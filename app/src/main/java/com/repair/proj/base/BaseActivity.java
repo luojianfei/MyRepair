@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * Created by Leo on 2016/8/2 0002.
  */
-public abstract class BaseActivity<T extends NPresenter, G extends ViewDataBinding> extends Activity implements View.OnClickListener {
+public abstract class BaseActivity<P extends NPresenter, G extends ViewDataBinding> extends Activity implements View.OnClickListener {
 
     /**
      * 设置activity布局
@@ -69,7 +69,7 @@ public abstract class BaseActivity<T extends NPresenter, G extends ViewDataBindi
     public View parentView;
     public LayoutInflater inflater;
     public G viewBinding;
-    public T presenter;
+    public P presenter;
     public CustomApplication app;
     public boolean fullScreen = false;
 

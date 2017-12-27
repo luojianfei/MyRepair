@@ -18,7 +18,7 @@ import com.repair.proj.nbase.NPresenter;
  * 作者: Administrator on 2016-11-01 14:31.
  */
 
-public abstract class BaseFragment<T extends NPresenter,G extends ViewDataBinding> extends Fragment {
+public abstract class BaseFragment<T extends NPresenter,G extends ViewDataBinding> extends Fragment implements View.OnClickListener{
 
     /**
      * 贴附的activity

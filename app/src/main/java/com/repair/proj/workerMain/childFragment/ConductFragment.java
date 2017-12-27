@@ -53,4 +53,9 @@ public class ConductFragment extends BaseFragment<ConductPresenter,FragmentCondu
     public void callBack(int position) {
 //        ActivityUtils.startActivityIntent(getContext(), SureOrderActivity.class);
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }

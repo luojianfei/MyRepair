@@ -40,6 +40,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
         android:supportsRtl="true">
         <meta-data
             android:name="design_width"
@@ -133,6 +134,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
         <activity android:name=".order.OrderRecordActivity" />
+        <activity android:name=".material.SearchFragmentActivity"/>
     </application>
 
 </manifest>

@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.repair.proj.R;
+import com.repair.proj.nbase.GenericHelper;
+import com.repair.proj.nbase.NPresenter;
 import com.repair.proj.utils.ActivityUtils;
 import com.repair.proj.utils.ConstantUtil;
 import com.repair.proj.utils.Res;
@@ -27,7 +29,9 @@ import java.util.List;
 /**
  * Created by Leo on 2016/8/2 0002.
  */
-public abstract class BaseFragmentActivity<G extends ViewDataBinding> extends FragmentActivity implements View.OnClickListener {
+public abstract class BaseFragmentActivity<P extends NPresenter,G extends ViewDataBinding> extends FragmentActivity implements View.OnClickListener {
+
+    private P presenter;
 
     /**
      * 设置activity布局
@@ -79,6 +83,7 @@ public abstract class BaseFragmentActivity<G extends ViewDataBinding> extends Fr
         parentView = View.inflate(context, setContentView(), null);
         try {
             viewBinding = DataBindingUtil.bind(parentView);
+            presenter = GenericHelper.newPresenter(this);
         } catch (Exception e) {
             e.printStackTrace();
         }

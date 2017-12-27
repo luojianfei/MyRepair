@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:background="#8F8F8F"
+            android:gravity="center"
+            android:text="广告位" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="#CCCACC"
+                android:gravity="center"
+                android:text="广告位" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="#575557"
+                android:gravity="center"
+                android:text="广告位" />
+        </LinearLayout>
+        <com.repair.proj.customView.CustomRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/rcv_list"
+            ></com.repair.proj.customView.CustomRecyclerView>
+    </LinearLayout>
+
+</layout>

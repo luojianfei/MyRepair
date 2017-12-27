@@ -13,6 +13,7 @@ import android.widget.TabHost;
 
 import com.repair.proj.R;
 import com.repair.proj.base.BaseFragmentActivity;
+import com.repair.proj.base.BasePresenter;
 import com.repair.proj.databinding.ActivityWorkerMainBinding;
 import com.repair.proj.databinding.LayoutWorkerMainBottomItemBinding;
 import com.repair.proj.order.OrderRecordActivity;
@@ -29,12 +30,13 @@ import com.repair.proj.utils.TextUtil;
  * Created by HX·罗 on 2017/10/31.
  */
 
-public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBinding> {
+public class WorkMainActivity extends BaseFragmentActivity {
 
     private String tabNames[] = {"订单管理", "材料管理"};//tab名字
     private Class fragmentArray[] = {OrderManageFragment.class, MaterialManageFragment.class};
     private Drawable[] tabDrawable;
     private FragmentTabHost mTabHost;
+    private ActivityWorkerMainBinding viewBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +49,8 @@ public class WorkMainActivity extends BaseFragmentActivity<ActivityWorkerMainBin
     }
     @Override
     public void initView() {
-        mTabHost = findView(android.R.id.tabhost);
-
+        viewBinding = DataBindingUtil.bind(parentView);
+        mTabHost = findViewById(android.R.id.tabhost);
         tabDrawable = new Drawable[]{Res.getDrawableRes(R.drawable.icon_material, context),
                 Res.getDrawableRes(R.drawable.icon_material, context)};
         mTabHost.setup(context, getSupportFragmentManager(), R.id.fl_content);

@@ -33,6 +33,7 @@
             android:gravity="center"
             android:id="@+id/et_count"
             android:textSize="14sp"
+            android:textColor="#111"
             android:inputType="number"
             android:layout_marginLeft="4dp"
             android:background="@drawable/shape_stroke"

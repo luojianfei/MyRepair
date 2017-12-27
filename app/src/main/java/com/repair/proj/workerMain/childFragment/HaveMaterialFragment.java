@@ -7,10 +7,9 @@ import android.view.View;
 
 import com.repair.proj.R;
 import com.repair.proj.base.BaseFragment;
-import com.repair.proj.databinding.FragmentCompleteBinding;
-import com.repair.proj.databinding.FragmentMatarialBinding;
+import com.repair.proj.databinding.FragmentMatarialHaveBinding;
+import com.repair.proj.databinding.FragmentMatarialPurchBinding;
 import com.repair.proj.entity.MaterialInfo;
-import com.repair.proj.entity.OrderInfo;
 import com.repair.proj.order.SureOrderActivity;
 import com.repair.proj.utils.ActivityUtils;
 import com.repair.proj.workerMain.adapter.MaterialAdapter;
@@ -24,12 +23,12 @@ import java.util.ArrayList;
  * Created by HX·罗 on 2017/11/1.
  */
 
-public class HaveMaterialFragment extends BaseFragment<CompletePresenter,FragmentMatarialBinding> implements CompleteContract.View ,OrderListAdapter.CallBack{
+public class HaveMaterialFragment extends BaseFragment<CompletePresenter,FragmentMatarialHaveBinding> implements CompleteContract.View ,OrderListAdapter.CallBack{
     private MaterialAdapter listAdapter;
 
     @Override
     protected int setLayoutResouceId() {
-        return R.layout.fragment_matarial ;
+        return R.layout.fragment_matarial_have;
     }
 
     @Override
@@ -57,5 +56,10 @@ public class HaveMaterialFragment extends BaseFragment<CompletePresenter,Fragmen
     @Override
     public void callBack(int position) {
         ActivityUtils.startActivityIntent(getContext(), SureOrderActivity.class);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

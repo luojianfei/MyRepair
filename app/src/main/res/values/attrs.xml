@@ -6,7 +6,9 @@
         <attr name="civ_border_overlay" format="boolean" />
         <attr name="civ_fill_color" format="color" />
     </declare-styleable>
-
+    <declare-styleable name="MaterialTypeView">
+        <attr name="title" format="string"/>
+    </declare-styleable>
     <declare-styleable name="RatingBar">
         <!--尺寸值-->
         <attr name="starImageSize" format="dimension" />

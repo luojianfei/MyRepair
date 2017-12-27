@@ -2,6 +2,7 @@ package com.repair.proj.workerMain;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.repair.proj.R;
 import com.repair.proj.base.BaseFragment;
@@ -42,5 +43,10 @@ public class OrderManageFragment extends BaseFragment<OrderManagePresenter,Fragm
 
     @Override
     public void initListener() {
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
