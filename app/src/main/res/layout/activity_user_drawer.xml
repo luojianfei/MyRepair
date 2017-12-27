@@ -14,29 +14,36 @@
         android:clickable="true"
         android:orientation="vertical">
 
-
-        <ImageView
-            android:id="@+id/md_side_header"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="112px" />
-
-        <TextView
-            android:id="@+id/md_side_phone_number"
+        <com.zhy.autolayout.AutoRelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30px"
-            android:gravity="center"
-            android:text="15378183400"
-            android:textSize="14sp" />
+            android:paddingTop="44dp"
+            android:background="#F4D70B"
+            android:layout_height="180dp">
+
+            <ImageView
+                android:id="@+id/md_side_header"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/md_side_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_below="@id/md_side_header"
+                android:gravity="center"
+                android:text="15378183400"
+                android:textSize="14sp" />
+        </com.zhy.autolayout.AutoRelativeLayout>
 
         <TextView
             android:id="@+id/md_side_oder_record"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{clickListener}"
-            android:layout_marginTop="82px"
+            android:layout_marginTop="56px"
             android:drawablePadding="40px"
             android:drawableRight="@drawable/icon_contacts"
             android:gravity="right|center_vertical"
