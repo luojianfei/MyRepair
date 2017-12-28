@@ -25,6 +25,7 @@ public class MaterialTypeView extends LinearLayout {
     private Context context;
     private LayoutMaterialTypeBinding binding;
     private String title;
+    private String items[] = null;
 
     public MaterialTypeView(Context context) {
         this(context, null);
@@ -48,24 +49,36 @@ public class MaterialTypeView extends LinearLayout {
         binding = DataBindingUtil.bind(view);
         if (!TextUtil.isEmpty(title))
             binding.setTitle(title);
-        binding.llContent.addView(createChildView());
-        binding.llContent.addView(getHorizontalDivider());
-        binding.llContent.addView(createChildView());
     }
 
-    private View createChildView() {
+    private View createChildView(String firstStr, String secondStr) {
+        TextView firstView = null;
+        TextView secondView = null;
+        if (!TextUtil.isEmpty(firstStr)) {
+            firstView = getItemView(firstStr);
+        }
+        if (!TextUtil.isEmpty(secondStr)) {
+            secondView = getItemView(secondStr);
+        }
+        if (firstView == null && secondView == null) {
+            return null;
+        }
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 100));
         linearLayout.setBackgroundColor(Color.WHITE);
         linearLayout.setOrientation(HORIZONTAL);
-        linearLayout.addView(getItemView("淋浴器"));
+        linearLayout.addView(getItemView(firstStr));
         linearLayout.addView(getVerticalDivider());
-        linearLayout.addView(getItemView("升降花洒"));
+        linearLayout.addView(getItemView(secondStr));
         return linearLayout;
     }
 
     private TextView getItemView(String content) {
         TextView tv = new TextView(context);
+        if (TextUtil.isEmpty(content)) {
+            tv.setVisibility(View.INVISIBLE);
+            content = "";
+        }
         tv.setLayoutParams(new LayoutParams(0, LayoutParams.MATCH_PARENT, 1.0f));
         tv.setBackgroundColor(Color.parseColor("#EBEBEB"));
         tv.setTextSize(14);
@@ -73,6 +86,36 @@ public class MaterialTypeView extends LinearLayout {
         tv.setGravity(Gravity.CENTER);
         tv.setText(content);
         return tv;
+    }
+
+    /**
+     * 设置item内容
+     *
+     * @param strings
+     */
+    public void setItem(String[] strings) {
+        if (strings != null) {
+            this.items = strings;
+            binding.llContent.removeAllViews();
+            updateItem();
+        }
+    }
+
+    /**
+     * 更新数据
+     */
+    private void updateItem() {
+        for (int i = 0; i < items.length; i += 2) {
+            String firstStr = items[i];
+            String secondStr = null;
+            if (i + 1 < items.length) {
+                secondStr = items[i + 1];
+            }
+            binding.llContent.addView(createChildView(firstStr, secondStr));
+            if (i + 2 < items.length) {
+                binding.llContent.addView(getHorizontalDivider());
+            }
+        }
     }
 
     /**

@@ -38,7 +38,10 @@ public class MaterialTypeFragment extends BaseFragment<MaterialTypePresenter,Fra
 
     @Override
     public void initData(Bundle arguments) {
-
+        viewBinding.tv1.setItem(new String[]{"手持花洒","淋浴器","淋雨龙头","升降花洒"});
+        viewBinding.tv2.setItem(new String[]{"手持花洒1","淋浴器1","淋雨龙头1"});
+        viewBinding.tv3.setItem(new String[]{"手持花洒2","淋浴器2"});
+        viewBinding.tv4.setItem(new String[]{"手持花洒3"});
     }
 
     @Override

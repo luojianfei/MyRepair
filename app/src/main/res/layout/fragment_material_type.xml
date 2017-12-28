@@ -14,6 +14,7 @@
             <com.repair.proj.customView.MaterialTypeView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/tv_1"
                 app:title="水电">
 
             </com.repair.proj.customView.MaterialTypeView>
@@ -21,6 +22,7 @@
             <com.repair.proj.customView.MaterialTypeView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/tv_2"
                 app:title="漆工">
 
             </com.repair.proj.customView.MaterialTypeView>
@@ -28,6 +30,7 @@
             <com.repair.proj.customView.MaterialTypeView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/tv_3"
                 app:title="木工">
 
             </com.repair.proj.customView.MaterialTypeView>
@@ -35,6 +38,7 @@
             <com.repair.proj.customView.MaterialTypeView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/tv_4"
                 app:title="泥工">
 
             </com.repair.proj.customView.MaterialTypeView>
