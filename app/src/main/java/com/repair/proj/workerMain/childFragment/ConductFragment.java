@@ -30,7 +30,7 @@ public class ConductFragment extends BaseFragment<ConductPresenter,FragmentCondu
 
     @Override
     public void initView() {
-        listAdapter = new OrderListAdapter(getContext(),new ArrayList<OrderInfo>(),this);
+        listAdapter = new OrderListAdapter(getContext(),OrderListAdapter.TYPE_ORDER_CONDUCT,new ArrayList<OrderInfo>(),this);
         viewBinding.rcvList.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {

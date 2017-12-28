@@ -29,7 +29,7 @@ public class CancelFragment extends BaseFragment<CancelPresenter,FragmentCancelB
 
     @Override
     public void initView() {
-        listAdapter = new OrderListAdapter(getContext(),new ArrayList<OrderInfo>(),null);
+        listAdapter = new OrderListAdapter(getContext(),OrderListAdapter.TYPE_ORDER_CANCEL,new ArrayList<OrderInfo>(),null);
         viewBinding.rcvList.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {

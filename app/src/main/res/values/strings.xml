@@ -67,4 +67,6 @@
     <string name="opa_unit">￥</string>
     <string name="str_purch">确认收货</string>
     <string name="str_have">确认出售</string>
+    <string name="str_order_complete">修理完成</string>
+    <string name="str_order_cancel">已取消</string>
 </resources>

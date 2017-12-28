@@ -2,9 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <import type="com.repair.proj.workerMain.adapter.OrderListAdapter"/>
+        <import type="android.view.View"/>
         <variable
             name="clickListener"
             type="android.view.View.OnClickListener"/>
+        <variable
+            name="type"
+            type="int"/>
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,7 +64,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="修理完成"
+                android:visibility="@{type == OrderListAdapter.TYPE_ORDER_CONDUCT?View.GONE:View.VISIBLE}"
+                android:text="@{type==OrderListAdapter.TYPE_ORDER_CANCEL?@string/str_order_cancel:@string/str_order_complete}"
                 android:layout_marginLeft="2dp"
                 android:textColor="@color/app_second_color"
                 android:textSize="14sp"
@@ -81,17 +87,29 @@
                 android:text="李爸爸"
                 android:textColor="#111"
                 />
-            <TextView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:layout_marginTop="4dp"
-                android:gravity="bottom"
-                android:drawablePadding="4dp"
-                android:text="138888888888"
-                android:drawableLeft="@drawable/icon_telephone_juice"
-                android:textColor="@color/app_second_color"
-                />
+                android:layout_marginTop="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_tellphone"
+                    android:drawableLeft="@drawable/icon_telephone_juice"
+                    android:drawablePadding="4dp"
+                    android:gravity="bottom"
+                    android:text="138888888888"
+                    android:textColor="@color/app_second_color"
+                    android:textSize="12sp" />
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_alignBottom="@id/tv_tellphone"
+                    android:scaleType="centerInside"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_paper_fly"
+                    />
+            </RelativeLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -158,6 +176,7 @@
                 android:layout_gravity="right"
                 android:layout_marginTop="24dp"
                 android:text="确认订单"
+                android:visibility="@{type==OrderListAdapter.TYPE_ORDER_CANCEL?View.GONE:View.VISIBLE}"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:id="@+id/btn_sure"
