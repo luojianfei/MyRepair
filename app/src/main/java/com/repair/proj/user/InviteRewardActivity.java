@@ -1,5 +1,6 @@
 package com.repair.proj.user;
 
+import android.content.Context;
 import android.view.View;
 
 import com.repair.proj.R;
@@ -50,5 +51,15 @@ public class InviteRewardActivity extends BaseActivity<InviteRewardPresenter,Act
             default:
                 break ;
         }
+    }
+
+    @Override
+    public Context context() {
+        return context;
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        showShortToast(msg);
     }
 }

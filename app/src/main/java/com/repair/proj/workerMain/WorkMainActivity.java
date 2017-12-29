@@ -16,6 +16,7 @@ import com.repair.proj.base.BaseFragmentActivity;
 import com.repair.proj.base.BasePresenter;
 import com.repair.proj.databinding.ActivityWorkerMainBinding;
 import com.repair.proj.databinding.LayoutWorkerMainBottomItemBinding;
+import com.repair.proj.material.SearchFragmentActivity;
 import com.repair.proj.order.OrderRecordActivity;
 import com.repair.proj.user.InviteRewardActivity;
 import com.repair.proj.user.MessageActivity;
@@ -95,7 +96,7 @@ public class WorkMainActivity extends BaseFragmentActivity {
                 startActivity(ServiceCenterActivity.class);
                 break;
             case R.id.md_side_material_purchase://材料进货
-//                startActivity(InviteRewardActivity.class);
+                startActivity(SearchFragmentActivity.class);
                 break;
             case R.id.md_side_setting://更多设置
                 startActivity(MoreSettingActivity.class);

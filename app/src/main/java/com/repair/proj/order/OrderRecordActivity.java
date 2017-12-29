@@ -1,5 +1,6 @@
 package com.repair.proj.order;
 
+import android.content.Context;
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -60,5 +61,15 @@ public class OrderRecordActivity extends BaseActivity<OrderRecordPresenter,Activ
             default:
                 break ;
         }
+    }
+
+    @Override
+    public Context context() {
+        return context;
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        showShortToast(msg);
     }
 }

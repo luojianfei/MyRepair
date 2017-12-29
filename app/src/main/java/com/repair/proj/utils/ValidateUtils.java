@@ -36,7 +36,7 @@ public class ValidateUtils {
 	 */
 	public static boolean isValidCode(String validateCode) {
 
-		String reg = "^[0-9]{4}$";
+		String reg = "^[0-9]{6}$";
 		if (TextUtil.isEmpty(validateCode))
 			return false;
 		else

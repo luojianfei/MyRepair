@@ -12,8 +12,9 @@ import org.json.JSONObject;
 
 public abstract class BaseResponse {
 
-    public int error;
-    public String info;
+    public String code;
+    public String msg;
+    public String data;
 
     public void parseJson(String json) {
         Log.e("json", "json --- " + json);
@@ -22,20 +23,20 @@ public abstract class BaseResponse {
                 return;
             }
             JSONObject object = new JSONObject(json);
-            error = object.optInt("error");
-            if (error == 0) {
+            code = object.optString("code");
+            if ("200".equals(code)) {//请求成功
                 String info;
-                if (object.optJSONObject("info") != null) {
-                    info = object.optJSONObject("info").toString();
+                if (object.optJSONObject("data") != null) {
+                    info = object.optJSONObject("data").toString();
                     parseInfo(info);
-                } else if (object.optJSONArray("info") != null) {
-                    info = object.optJSONArray("info").toString();
+                } else if (object.optJSONArray("data") != null) {
+                    info = object.optJSONArray("data").toString();
                     parseInfo(info);
                 } else {
-                    this.info = object.optString("info");
+                    this.data = object.optString("data");
                 }
             } else {
-                info = object.optString("info");
+                msg = object.optString("msg");
             }
         } catch (JSONException e) {
             Log.e("BaseResponse", "json格式有误:" + json );

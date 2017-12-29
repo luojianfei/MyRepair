@@ -1,5 +1,6 @@
 package com.repair.proj.material.childFragment;
 
+import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -56,6 +57,16 @@ public class MaterialTypeFragment extends BaseFragment<MaterialTypePresenter,Fra
 
     @Override
     public void onClick(View v) {
+
+    }
+
+    @Override
+    public Context context() {
+        return getContext();
+    }
+
+    @Override
+    public void showMsg(String msg) {
 
     }
 }

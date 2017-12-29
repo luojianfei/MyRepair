@@ -1,5 +1,6 @@
 package com.repair.proj.order
 
+import android.content.Context
 import com.baidu.mapapi.map.offline.MKOfflineMapListener
 import com.repair.proj.R
 import com.repair.proj.databinding.ActivityMatchLocationBinding
@@ -27,6 +28,13 @@ import org.jetbrains.anko.startActivity
  */
 
 class MatchLocationActivity : NActivity<MatchLocationPresenter, ActivityMatchLocationBinding>(), MatchLocationContract.View, AnkoLogger, MKOfflineMapListener {
+    override fun showMsg(msg: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun context(): Context {
+        return this
+    }
 
     private val format = "mm:ss"
     var timer = Timer()

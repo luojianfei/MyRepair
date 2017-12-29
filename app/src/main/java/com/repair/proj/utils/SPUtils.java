@@ -62,9 +62,12 @@ public class SPUtils
      * @param defaultObject
      * @return
      */
-    public static Object get(Context context, String key, Object defaultObject)
+    public static Object get(Context context,String spName, String key, Object defaultObject)
     {
-        SharedPreferences sp = context.getSharedPreferences(DEFAULT_FILE_NAME,
+        if(TextUtil.isEmpty(spName)){
+            spName = DEFAULT_FILE_NAME ;
+        }
+        SharedPreferences sp = context.getSharedPreferences(spName,
                 Context.MODE_PRIVATE);
 
         if (defaultObject instanceof String)

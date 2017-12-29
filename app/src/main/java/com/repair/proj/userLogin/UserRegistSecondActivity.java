@@ -1,5 +1,6 @@
 package com.repair.proj.userLogin;
 
+import android.content.Context;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -22,6 +23,9 @@ import com.repair.proj.utils.ActivityUtils;
  */
 
 public class UserRegistSecondActivity extends BaseActivity<UserRegistSecondPresenter,ActivityUserRegistSecondBinding> implements UserRegistSecondContract.View {
+
+    private String vallidateCode;
+
     @Override
     public int setContentView() {
         return R.layout.activity_user_regist_second ;
@@ -34,6 +38,7 @@ public class UserRegistSecondActivity extends BaseActivity<UserRegistSecondPrese
 
     @Override
     public void initData() {
+        vallidateCode = getIntent().getStringExtra("validateCode");
         viewBinding.setEyeState(1);
         viewBinding.setEyeState1(1);
         viewBinding.layoutTitle.setTitle("注册");
@@ -78,9 +83,40 @@ public class UserRegistSecondActivity extends BaseActivity<UserRegistSecondPrese
                 }
                 break;
             case R.id.btn_login:
-                ActivityUtils.startActivityIntent(context,UserLoginActivity.class);
+                presenter.startCompleteRegist();
+//                ActivityUtils.startActivityIntent(context,UserLoginActivity.class);
                 break;
 
         }
+    }
+
+    @Override
+    public Context context() {
+        return context;
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        showShortToast(msg);
+    }
+
+    @Override
+    public String getUsername() {
+        return viewBinding.getUsername() ;
+    }
+
+    @Override
+    public String getPwd() {
+        return viewBinding.getPwd() ;
+    }
+
+    @Override
+    public String getSurePwd() {
+        return viewBinding.getPwdSure() ;
+    }
+
+    @Override
+    public String getValidateCode() {
+        return vallidateCode ;
     }
 }

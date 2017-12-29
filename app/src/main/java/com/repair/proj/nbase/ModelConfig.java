@@ -6,7 +6,9 @@ package com.repair.proj.nbase;
  */
 
 public class ModelConfig {
-    public static final String BASE_SERVER_ADDRESS = "http://www.xinshangzx.com/api.php/User/" ;
-    public static final String ADDRESS_USER_REGIST = "userregist" ;//用户注册
-    public static final String ADDRESS_USER_LOGIN = "login" ;//用户登录
+    public static final String BASE_SERVER_ADDRESS = "http://www.xinshangzx.com/api.php/" ;
+    public static final String ADDRESS_USER_REGIST = "User/userregist" ;//用户注册
+    public static final String ADDRESS_USER_GET_VALIDATE = "User/smscode" ;//获取验证码
+    public static final String ADDRESS_USER_REQUEST_TO_VALIDATE = "User/" ;//验证接口
+    public static final String ADDRESS_USER_LOGIN = "User/login" ;//用户登录
 }

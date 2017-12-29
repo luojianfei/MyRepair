@@ -116,7 +116,6 @@ public class DialogUtils {
                 }
             }
         });
-        dialog.setCancelable(false);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
         dialog.show();
         dialog.setContentView(view);

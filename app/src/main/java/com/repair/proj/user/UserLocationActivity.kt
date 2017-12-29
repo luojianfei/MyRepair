@@ -1,6 +1,7 @@
 package com.repair.proj.user
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.text.TextUtils
 import android.view.inputmethod.EditorInfo
@@ -31,6 +32,13 @@ import org.jetbrains.anko.error
  */
 
 class UserLocationActivity : NActivity<UserLocationPresenter, ActivityUserLocationBinding>(), UserLocationContract.View, AnkoLogger, OnGetSuggestionResultListener {
+    override fun showMsg(msg: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun context(): Context {
+        return this
+    }
 
     override val loggerTag: String
         get() = "ttttt"

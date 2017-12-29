@@ -1,5 +1,6 @@
 package com.repair.proj.workerMain;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -47,6 +48,16 @@ public class OrderManageFragment extends BaseFragment<OrderManagePresenter,Fragm
 
     @Override
     public void onClick(View v) {
+
+    }
+
+    @Override
+    public Context context() {
+        return getContext();
+    }
+
+    @Override
+    public void showMsg(String msg) {
 
     }
 }

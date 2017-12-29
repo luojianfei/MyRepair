@@ -1,5 +1,6 @@
 package com.repair.proj.login;
 
+import android.content.Context;
 import android.view.View;
 
 import com.repair.proj.R;
@@ -76,5 +77,15 @@ public class RegistFirstActivity extends BaseActivity<RegistFirstPresenter,Activ
     public void endTimeDown() {
         viewBinding.btnValidate.setEnabled(true);
         viewBinding.setValidateShow("获取验证码");
+    }
+
+    @Override
+    public Context context() {
+        return context;
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        showShortToast(msg);
     }
 }

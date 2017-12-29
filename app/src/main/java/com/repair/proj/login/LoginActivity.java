@@ -1,5 +1,6 @@
 package com.repair.proj.login;
 
+import android.content.Context;
 import android.text.InputType;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -78,5 +79,15 @@ public class LoginActivity extends BaseActivity<LoginPresenter, ActivityLoginBin
                 ActivityUtils.startActivityIntent(context, RegistFirstActivity.class);
                 break;
         }
+    }
+
+    @Override
+    public Context context() {
+        return context;
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        showShortToast(msg);
     }
 }

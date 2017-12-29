@@ -1,5 +1,8 @@
 package com.repair.proj.userLogin;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 
 import com.repair.proj.R;
@@ -60,7 +63,7 @@ public class UserRegistFirstActivity extends BaseActivity<UserRegistFirstPresent
                 presenter.requestValidateCode();
                 break;
             case R.id.btn_next:
-                ActivityUtils.startActivityIntent(context,UserRegistSecondActivity.class);
+                presenter.next();
                 break;
 
         }
@@ -80,5 +83,22 @@ public class UserRegistFirstActivity extends BaseActivity<UserRegistFirstPresent
     public void endTimeDown() {
         viewBinding.btnValidate.setEnabled(true);
         viewBinding.setValidateShow("获取验证码");
+    }
+
+    @Override
+    public Context context() {
+        return context;
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        showShortToast(msg);
+    }
+
+    @Override
+    public void validateSuccess() {
+        Bundle bundle = new Bundle() ;
+        bundle.putString("validateCode",getValidateCode());
+        ActivityUtils.startActivityIntent(context,UserRegistSecondActivity.class,bundle);
     }
 }

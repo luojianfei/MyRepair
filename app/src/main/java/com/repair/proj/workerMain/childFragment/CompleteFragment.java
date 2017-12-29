@@ -1,5 +1,6 @@
 package com.repair.proj.workerMain.childFragment;
 
+import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -58,6 +59,16 @@ public class CompleteFragment extends BaseFragment<CompletePresenter,FragmentCom
 
     @Override
     public void onClick(View v) {
+
+    }
+
+    @Override
+    public Context context() {
+        return getContext();
+    }
+
+    @Override
+    public void showMsg(String msg) {
 
     }
 }

@@ -1,6 +1,7 @@
 package com.repair.proj.workerMain.childFragment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -66,5 +67,15 @@ public class PurchasingFragment extends BaseFragment<CompletePresenter,FragmentM
                 ActivityUtils.startActivityIntent(getContext(), SearchFragmentActivity.class);
                 break;
         }
+    }
+
+    @Override
+    public Context context() {
+        return context();
+    }
+
+    @Override
+    public void showMsg(String msg) {
+
     }
 }

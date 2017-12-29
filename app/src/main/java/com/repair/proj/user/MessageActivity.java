@@ -1,5 +1,6 @@
 package com.repair.proj.user;
 
+import android.content.Context;
 import android.view.View;
 
 import com.repair.proj.R;
@@ -55,5 +56,15 @@ public class MessageActivity extends BaseActivity<MessagePresenter,ActivityMessa
             default:
                 break ;
         }
+    }
+
+    @Override
+    public Context context() {
+        return context;
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        showShortToast(msg);
     }
 }

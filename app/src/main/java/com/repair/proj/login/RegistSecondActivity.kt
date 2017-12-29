@@ -1,5 +1,6 @@
 package com.repair.proj.login
 
+import android.content.Context
 import android.graphics.Typeface
 import android.support.v7.widget.LinearLayoutManager
 import com.repair.proj.R
@@ -19,6 +20,14 @@ import org.jetbrains.anko.startActivity
  * Created by Mwh on 2017/10/25.
  */
 class RegistSecondActivity : NActivity<RegistSecondPresenter, ActivityRegistSecondBinding>(), RegistSecondContract.View, AnkoLogger {
+    override fun showMsg(msg: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun context(): Context {
+        return this ;
+    }
+
     var se = SecondEnitity()
     override fun beforeSetContentView() {
         super.beforeSetContentView()

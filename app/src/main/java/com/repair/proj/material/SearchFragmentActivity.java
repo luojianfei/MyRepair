@@ -1,5 +1,6 @@
 package com.repair.proj.material;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -53,5 +54,15 @@ public class SearchFragmentActivity extends BaseFragmentActivity<SearchPresenter
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public Context context() {
+        return context;
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        showShortToast(msg);
     }
 }

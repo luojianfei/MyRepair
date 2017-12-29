@@ -1,5 +1,6 @@
 package com.repair.proj.userLogin;
 
+import android.content.Context;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -76,5 +77,15 @@ public class UserLoginActivity extends BaseActivity<UserLoginPresenter,ActivityU
     @Override
     public String getPwd() {
         return null;
+    }
+
+    @Override
+    public Context context() {
+        return context;
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        showShortToast(msg);
     }
 }

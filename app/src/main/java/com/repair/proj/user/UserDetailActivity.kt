@@ -1,5 +1,6 @@
 package com.repair.proj.user
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.net.Uri
@@ -40,6 +41,13 @@ import pub.devrel.easypermissions.EasyPermissions
 
 class UserDetailActivity : NActivity<UserDetailPresenter,
         ActivityUserDetailBinding>(), UserDetailContract.View, AnkoLogger, View.OnClickListener, EasyPermissions.PermissionCallbacks {
+    override fun showMsg(msg: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun context(): Context {
+        return this
+    }
 
     private val tabItems = arrayOf("水电", "漆工", "木工", "泥工", "疏通")//tablayout项目
     private val layoutList = arrayOf(R.drawable.md_sd, R.drawable.md_qg, R.drawable.md_mg, R.drawable.md_ng, R.drawable.md_st)//viewpager图标

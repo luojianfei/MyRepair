@@ -1,6 +1,7 @@
 package com.repair.proj.login
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
@@ -52,6 +53,14 @@ import java.io.File
  */
 
 class RegistThreeActivity : NActivity<RegistThreePresenter, ActivityRegistThreeBinding>(), RegistThreeContract.View, EasyPermissions.PermissionCallbacks,View.OnClickListener {
+    override fun showMsg(msg: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun context(): Context {
+        return this
+    }
+
     private lateinit var ppu:PhotoPickerUtil
     private lateinit var options:RequestOptions
     private var backList= arrayListOf<String>()

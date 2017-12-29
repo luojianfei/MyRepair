@@ -1,5 +1,6 @@
 package com.repair.proj.order
 
+import android.content.Context
 import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -20,6 +21,14 @@ import org.jetbrains.anko.error
  */
 
 class MarkOrderActivity : NActivity<MarkOrderPresenter, ActivityOrderMarkBinding>(), MarkOrderContract.View, AnkoLogger {
+    override fun showMsg(msg: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun context(): Context {
+        return this ;
+    }
+
     override fun getContentId(): Int {
         return R.layout.activity_order_mark
     }
