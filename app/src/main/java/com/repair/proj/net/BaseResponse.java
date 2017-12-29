@@ -3,6 +3,8 @@ package com.repair.proj.net;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.repair.proj.utils.TextUtil;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,6 +39,9 @@ public abstract class BaseResponse {
                 }
             } else {
                 msg = object.optString("msg");
+                if(TextUtil.isEmpty(msg)){
+                    msg = "访问服务器失败，请稍后再试" ;
+                }
             }
         } catch (JSONException e) {
             Log.e("BaseResponse", "json格式有误:" + json );

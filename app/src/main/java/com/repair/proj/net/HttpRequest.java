@@ -65,7 +65,6 @@ public class HttpRequest<T extends BaseResponse> {
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .client(client)
                 .build();
-
         return retrofit.create(HttpService.class);
     }
 

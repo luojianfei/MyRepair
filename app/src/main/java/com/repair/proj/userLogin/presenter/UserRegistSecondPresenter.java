@@ -2,6 +2,7 @@ package com.repair.proj.userLogin.presenter;
 
 import android.app.Activity;
 
+import com.repair.proj.base.ActivityManager;
 import com.repair.proj.base.CustomApplication;
 import com.repair.proj.login.contract.RegistFirstContract;
 import com.repair.proj.login.model.RegistFirstModel;
@@ -9,8 +10,11 @@ import com.repair.proj.nbase.NContract;
 import com.repair.proj.nbase.NPresenter;
 import com.repair.proj.net.DataResponse;
 import com.repair.proj.net.HttpRequest;
+import com.repair.proj.userLogin.UserRegistFirstActivity;
 import com.repair.proj.userLogin.contract.UserRegistSecondContract;
 import com.repair.proj.userLogin.model.UserRegistSecondModel;
+import com.repair.proj.utils.ActivityUtils;
+import com.repair.proj.utils.MD5;
 import com.repair.proj.utils.SPUtils;
 import com.repair.proj.utils.TextUtil;
 import com.repair.proj.utils.ValidateUtils;
@@ -26,16 +30,19 @@ public class UserRegistSecondPresenter extends NPresenter<UserRegistSecondContra
         if(validateData()){
             showDialog();
             model.requestUserRegist(context, createTreeMap(new String[]{"username","password","cid","smscode"},
-                    new String[]{view.getUsername(),view.getPwd(), CustomApplication.getClientId(context),view.getValidateCode()}),
+                    new String[]{view.getUsername(), MD5.Md5(view.getPwd()), CustomApplication.getClientId(context),view.getValidateCode()}),
                     new HttpRequest.OnNetworkListener<DataResponse>() {
                         @Override
                         public void onSuccess(DataResponse response) {
                             closeDialog();
+                            ActivityManager.getInstance().finishActivityForClass(UserRegistFirstActivity.class);
+                            view.registSuccess();
                         }
 
                         @Override
                         public void onFail(String message) {
                             closeDialog() ;
+                            view.showMsg(message);
                         }
                     });
         }

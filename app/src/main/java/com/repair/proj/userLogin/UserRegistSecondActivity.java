@@ -119,4 +119,9 @@ public class UserRegistSecondActivity extends BaseActivity<UserRegistSecondPrese
     public String getValidateCode() {
         return vallidateCode ;
     }
+
+    @Override
+    public void registSuccess() {
+        finish();
+    }
 }

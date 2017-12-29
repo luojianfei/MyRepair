@@ -25,6 +25,8 @@ public interface UserRegistSecondContract {
         String getSurePwd();
 
         String getValidateCode();
+
+        void registSuccess();
     }
 
     interface Presenter extends NContract.Presenter {
