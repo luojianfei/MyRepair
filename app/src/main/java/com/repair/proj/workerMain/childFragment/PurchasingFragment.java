@@ -71,7 +71,7 @@ public class PurchasingFragment extends BaseFragment<CompletePresenter,FragmentM
 
     @Override
     public Context context() {
-        return context();
+        return getContext();
     }
 
     @Override
