@@ -20,7 +20,7 @@ public class NModel {
      * @param dataResponse
      * @param listener
      */
-    public static void requestData(Context context,String apiCode, TreeMap<String,String> treeMap, DataResponse dataResponse,
+    protected static void requestData(Context context,String apiCode, TreeMap<String,String> treeMap, DataResponse dataResponse,
                                    HttpRequest.OnNetworkListener<DataResponse> listener){
         try{
             new HttpRequest<DataResponse>()
