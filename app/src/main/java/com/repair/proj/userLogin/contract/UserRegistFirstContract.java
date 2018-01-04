@@ -21,12 +21,12 @@ public interface UserRegistFirstContract {
 
         void startTimeDown();
 
-        void setTimeDown(int time);
+        void setTimeDown(int time,String format);
 
         void endTimeDown();
         Context context() ;
         void showMsg(String msg);
-        void validateSuccess() ;
+        void validateSuccess(String tel) ;
     }
 
     interface Presenter extends NContract.Presenter{

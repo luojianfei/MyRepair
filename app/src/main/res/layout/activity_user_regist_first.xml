@@ -79,7 +79,7 @@
                     android:layout_width="0dp"
                     android:layout_height="56dp"
                     android:layout_weight="1"
-                    android:inputType="textPassword"
+                    android:inputType="number"
                     android:drawableLeft="@drawable/icon_pwd"
                     android:drawablePadding="8dp"
                     android:hint="请输入验证码"

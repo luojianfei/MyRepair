@@ -59,7 +59,8 @@ public class UserLoginActivity extends BaseActivity<UserLoginPresenter,ActivityU
                 }
                 break;
             case R.id.btn_login://登录
-                ActivityUtils.startActivityIntent(context, UserDetailActivity.class);
+                presenter.login();
+//                ActivityUtils.startActivityIntent(context, UserDetailActivity.class);
                 break;
             case R.id.tv_fogot://忘记密码
                 break;
@@ -71,12 +72,12 @@ public class UserLoginActivity extends BaseActivity<UserLoginPresenter,ActivityU
 
     @Override
     public String getUserName() {
-        return null;
+        return viewBinding.getPhoneNo();
     }
 
     @Override
     public String getPwd() {
-        return null;
+        return viewBinding.getPwd();
     }
 
     @Override

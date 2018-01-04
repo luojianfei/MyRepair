@@ -2,6 +2,7 @@ package com.repair.proj.userLogin.presenter;
 
 import android.app.AlertDialog;
 
+import com.repair.proj.entity.ValidateInfo;
 import com.repair.proj.login.contract.RegistFirstContract;
 import com.repair.proj.login.model.RegistFirstModel;
 import com.repair.proj.nbase.NContract;
@@ -29,16 +30,21 @@ public class UserRegistFirstPresenter extends NPresenter<UserRegistFirstContract
         implements UserRegistFirstContract.Presenter, HttpRequest.OnNetworkListener<DataResponse> {
 
 
+    private String telPhone = "";
+    private ValidateInfo validateInfo = null;
+
     @Override
     public void requestValidateCode() {
-        if (ValidateUtils.isMobileNO(view.getPhoneNo())) {
-            model.getValidateCode(view.context(), view.getPhoneNo(), this);
+        telPhone = view.getPhoneNo();
+        if (ValidateUtils.isMobileNO(telPhone)) {
+            showDialog("");
+            model.getValidateCode(view.context(), telPhone, this);
         } else {
             view.showMsg("手机号码错误");
         }
     }
 
-    private void setValidateCodeShow(int time) {
+    private void setValidateCodeShow(int time, final String format) {
         RxCountdown.countdown(time)
                 .doOnSubscribe(new Action0() {
                     @Override
@@ -59,59 +65,68 @@ public class UserRegistFirstPresenter extends NPresenter<UserRegistFirstContract
 
                     @Override
                     public void onNext(Integer integer) {
-                        view.setTimeDown(integer);
+                        view.setTimeDown(integer, format);
                     }
                 });
     }
 
     @Override
     public void next() {
-        view.validateSuccess();
+        if (isValid()) {
+            showDialog("请求数据中");
+            String id = validateInfo != null?validateInfo.getId():"" ;
+            model.requestToValidate(context, createTreeMap(new String[]{"code", "tel","id"},
+                    new String[]{view.getValidateCode(), view.getPhoneNo(),id}),
+                    new HttpRequest.OnNetworkListener<DataResponse>() {
+                        @Override
+                        public void onSuccess(DataResponse response) {
+                            closeDialog();
+                            view.validateSuccess(telPhone);
+                        }
 
-//        if(isValid()){
-//            showDialog();
-//            model.requestToValidate(context, createTreeMap(new String[]{"", ""}, new String[]{"", ""}),
-//                    new HttpRequest.OnNetworkListener<DataResponse>() {
-//                @Override
-//                public void onSuccess(DataResponse response) {
-//                    closeDialog();
-//                    view.validateSuccess();
-//                }
-//
-//                @Override
-//                public void onFail(String message) {
-//                    if(TextUtil.isEmpty(message))
-//                        message = "验证失败" ;
-//                    closeDialog();
-//                    view.showMsg(message);
-//                }
-//            });
-//        }
+                        @Override
+                        public void onFail(String message) {
+                            if (TextUtil.isEmpty(message))
+                                message = "验证失败";
+                            closeDialog();
+                            view.showMsg(message);
+                        }
+                    });
+        }
     }
 
     /**
      * 验证数据是否合法
+     *
      * @return
      */
-    private boolean isValid(){
-        if(!ValidateUtils.isMobileNO(view.getPhoneNo())){
+    private boolean isValid() {
+        if (!ValidateUtils.isMobileNO(view.getPhoneNo())) {
             view.showMsg("手机号错误");
-        }else if(!ValidateUtils.isValidCode(view.getValidateCode())){
+        } else if (!ValidateUtils.isValidCode(view.getValidateCode())) {
             view.showMsg("验证码格式不对");
-        }else{
-            return true ;
+        } else {
+            return true;
         }
-        return false ;
+        return false;
     }
+
     @Override
     public void onSuccess(DataResponse response) {
-        setValidateCodeShow(60);
+        try {
+            this.validateInfo = (ValidateInfo) response.info;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        closeDialog();
+        setValidateCodeShow(60, "%ds重新获取");
         view.showMsg("获取验证码成功，请及时使用");
     }
 
     @Override
     public void onFail(String message) {
-        setValidateCodeShow(3);
+        closeDialog();
+        setValidateCodeShow(3, "获取失败(%ds)");
         view.showMsg("获取验证码失败");
     }
 }

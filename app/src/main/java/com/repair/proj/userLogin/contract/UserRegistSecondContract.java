@@ -24,7 +24,7 @@ public interface UserRegistSecondContract {
 
         String getSurePwd();
 
-        String getValidateCode();
+        String getTelPhone();
 
         void registSuccess();
     }

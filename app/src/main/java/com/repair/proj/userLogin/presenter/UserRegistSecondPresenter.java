@@ -28,9 +28,9 @@ public class UserRegistSecondPresenter extends NPresenter<UserRegistSecondContra
     @Override
     public void startCompleteRegist() {
         if(validateData()){
-            showDialog();
-            model.requestUserRegist(context, createTreeMap(new String[]{"username","password","cid","smscode"},
-                    new String[]{view.getUsername(), MD5.Md5(view.getPwd()), CustomApplication.getClientId(context),view.getValidateCode()}),
+            showDialog("请求数据中");
+            model.requestUserRegist(context, createTreeMap(new String[]{"username","password","cid","tel"},
+                    new String[]{view.getUsername(), MD5.Md5(view.getPwd()), CustomApplication.getClientId(context),view.getTelPhone()}),
                     new HttpRequest.OnNetworkListener<DataResponse>() {
                         @Override
                         public void onSuccess(DataResponse response) {

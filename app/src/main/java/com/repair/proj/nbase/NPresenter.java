@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 
 import com.repair.proj.utils.DialogUtils;
+import com.repair.proj.utils.TextUtil;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -29,10 +30,12 @@ public class NPresenter<T extends NContract.View, E extends NContract.Model> {
     /**
      * 打开请求dialog
      */
-    public void showDialog(){
+    public void showDialog(String msg){
         try{
             if (dialog == null) {
-                dialog = DialogUtils.showDialog(view.context(), "请求数据中", null);
+                if(TextUtil.isEmpty(msg))
+                    msg = "请求数据中" ;
+                dialog = DialogUtils.showDialog(view.context(), msg, null);
             } else {
                 dialog.show();
             }

@@ -84,6 +84,7 @@ public class MaterialTypeView extends LinearLayout {
         tv.setTextSize(14);
         tv.setTextColor(Color.parseColor("#000000"));
         tv.setGravity(Gravity.CENTER);
+//        setTag();
         tv.setText(content);
         return tv;
     }

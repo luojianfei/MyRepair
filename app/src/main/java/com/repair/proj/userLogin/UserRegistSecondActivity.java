@@ -7,24 +7,18 @@ import android.view.View;
 
 import com.repair.proj.R;
 import com.repair.proj.base.BaseActivity;
-import com.repair.proj.databinding.ActivityRegistFirstBinding;
 import com.repair.proj.databinding.ActivityUserRegistSecondBinding;
-import com.repair.proj.login.RegistSecondActivity;
-import com.repair.proj.login.contract.RegistFirstContract;
-import com.repair.proj.login.contract.RegistSecondContract;
-import com.repair.proj.login.presenter.RegistFirstPresenter;
-import com.repair.proj.login.presenter.RegistSecondPresenter;
 import com.repair.proj.userLogin.contract.UserRegistSecondContract;
 import com.repair.proj.userLogin.presenter.UserRegistSecondPresenter;
-import com.repair.proj.utils.ActivityUtils;
 
 /**
  * Created by HX·罗 on 2017/10/23.
  */
 
-public class UserRegistSecondActivity extends BaseActivity<UserRegistSecondPresenter,ActivityUserRegistSecondBinding> implements UserRegistSecondContract.View {
+public class UserRegistSecondActivity extends BaseActivity<UserRegistSecondPresenter,ActivityUserRegistSecondBinding>
+        implements UserRegistSecondContract.View {
 
-    private String vallidateCode;
+    private String tel;
 
     @Override
     public int setContentView() {
@@ -38,7 +32,7 @@ public class UserRegistSecondActivity extends BaseActivity<UserRegistSecondPrese
 
     @Override
     public void initData() {
-        vallidateCode = getIntent().getStringExtra("validateCode");
+        tel = getIntent().getStringExtra("tel");
         viewBinding.setEyeState(1);
         viewBinding.setEyeState1(1);
         viewBinding.layoutTitle.setTitle("注册");
@@ -116,8 +110,8 @@ public class UserRegistSecondActivity extends BaseActivity<UserRegistSecondPrese
     }
 
     @Override
-    public String getValidateCode() {
-        return vallidateCode ;
+    public String getTelPhone() {
+        return tel;
     }
 
     @Override

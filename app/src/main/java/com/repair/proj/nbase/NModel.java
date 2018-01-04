@@ -2,6 +2,7 @@ package com.repair.proj.nbase;
 
 import android.content.Context;
 
+import com.repair.proj.entity.ValidateInfo;
 import com.repair.proj.net.DataResponse;
 import com.repair.proj.net.HttpRequest;
 
@@ -41,7 +42,7 @@ public class NModel {
     public void getValidateCode(Context context,String telephone, HttpRequest.OnNetworkListener<DataResponse> listener) {
         TreeMap<String,String> params = new TreeMap<>() ;
         params.put("tel",telephone) ;
-        requestData(context,ModelConfig.ADDRESS_USER_GET_VALIDATE,params,new DataResponse(),listener);
+        requestData(context,ModelConfig.ADDRESS_USER_GET_VALIDATE,params,new DataResponse<ValidateInfo>().init(ValidateInfo.class),listener);
     }
 
 }

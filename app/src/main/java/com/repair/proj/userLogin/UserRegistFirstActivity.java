@@ -20,7 +20,8 @@ import com.repair.proj.utils.ActivityUtils;
  * Created by HX·罗 on 2017/10/23.
  */
 
-public class UserRegistFirstActivity extends BaseActivity<UserRegistFirstPresenter,ActivityUserRegistFirstBinding> implements UserRegistFirstContract.View {
+public class UserRegistFirstActivity extends BaseActivity<UserRegistFirstPresenter,ActivityUserRegistFirstBinding>
+        implements UserRegistFirstContract.View {
     @Override
     public int setContentView() {
         return R.layout.activity_user_regist_first ;
@@ -75,8 +76,8 @@ public class UserRegistFirstActivity extends BaseActivity<UserRegistFirstPresent
     }
 
     @Override
-    public void setTimeDown(int time) {
-        viewBinding.setValidateShow(time+"s重新获取");
+    public void setTimeDown(int time,String format) {
+        viewBinding.setValidateShow(String.format(format,time));
     }
 
     @Override
@@ -96,9 +97,9 @@ public class UserRegistFirstActivity extends BaseActivity<UserRegistFirstPresent
     }
 
     @Override
-    public void validateSuccess() {
+    public void validateSuccess(String tel) {
         Bundle bundle = new Bundle() ;
-        bundle.putString("validateCode",getValidateCode());
+        bundle.putString("tel",tel);
         ActivityUtils.startActivityIntent(context,UserRegistSecondActivity.class,bundle);
     }
 }

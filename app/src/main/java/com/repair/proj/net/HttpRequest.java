@@ -10,11 +10,17 @@ import com.repair.proj.nbase.ModelConfig;
 import com.repair.proj.nbase.NModel;
 import com.repair.proj.utils.MD5;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -58,6 +64,20 @@ public class HttpRequest<T extends BaseResponse> {
                 .connectTimeout(readTimeout, TimeUnit.SECONDS)
                 .writeTimeout(writeTimeout, TimeUnit.SECONDS)
                 .readTimeout(readTimeout, TimeUnit.SECONDS)
+//                .cookieJar(new CookieJar() {
+//                    private final HashMap<HttpUrl, List<Cookie>> cookieStore = new HashMap<>();
+//
+//                    @Override
+//                    public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
+//                        cookieStore.put(url, cookies);
+//                    }
+//
+//                    @Override
+//                    public List<Cookie> loadForRequest(HttpUrl url) {
+//                        List<Cookie> cookies = cookieStore.get(url);
+//                        return cookies != null ? cookies : new ArrayList<Cookie>();
+//                    }
+//                })
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -147,7 +167,6 @@ public class HttpRequest<T extends BaseResponse> {
      * @return
      */
     public String getPostToken1(TreeMap<String,String> params){
-
         StringBuilder stringBuilder = new StringBuilder();
         Iterator<Map.Entry<String, String>> iterator = params.entrySet().iterator();
         while (iterator.hasNext()) {
