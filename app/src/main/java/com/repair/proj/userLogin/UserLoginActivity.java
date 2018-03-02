@@ -59,8 +59,8 @@ public class UserLoginActivity extends BaseActivity<UserLoginPresenter,ActivityU
                 }
                 break;
             case R.id.btn_login://登录
-                presenter.login();
-//                ActivityUtils.startActivityIntent(context, UserDetailActivity.class);
+//                presenter.login();
+                ActivityUtils.startActivityIntent(context, UserDetailActivity.class);
                 break;
             case R.id.tv_fogot://忘记密码
                 break;

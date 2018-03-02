@@ -127,6 +127,6 @@ public class UserRegistFirstPresenter extends NPresenter<UserRegistFirstContract
     public void onFail(String message) {
         closeDialog();
         setValidateCodeShow(3, "获取失败(%ds)");
-        view.showMsg("获取验证码失败");
+        view.showMsg(message);
     }
 }
