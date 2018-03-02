@@ -37,25 +37,19 @@ class OrderPayActivity : AppCompatActivity() ,AnkoLogger{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order_pay)
 
-        val adapter = CompleteAdapter(searchDatas, this)
-        opa_materials_search.setAdapter(adapter)
-        opa_materials_search.setOnItemClickListener { parent, view, position, id ->
-            datas.add(searchDatas[position])
-            adapter2.notifyDataSetChanged()
-            opa_materials_search.setText("")
-        }
-        opa_materials_search.threshold=1
+
         var layoutManager = LinearLayoutManager(this)
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
+
         adapter2 = MaterialsAdapter(datas, this){
             opa_order_pay_num.text = it.toString()
         }
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
+
         opa_materials_list.layoutManager = layoutManager
         opa_materials_list.adapter = adapter2
 
         var draw = resources.getDrawable(R.drawable.search)
         draw.setBounds(0, 0, 64, 64)
-        opa_materials_search.setCompoundDrawables(null, null, draw, null)
         opa_sure_pay.setOnClickListener { startActivity<MarkOrderActivity>() }
     }
 }

@@ -29,21 +29,7 @@ class MaterialsAdapter(datas: ArrayList<MaterialsEntity>, activity: Activity, ac
         }
         var normalView = activity.layoutInflater.inflate(R.layout.materials_item, parent, false)
         var normalHeader = MaterialsViewHolder(normalView)
-        normalHeader.num.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                if (s != null && s.isNotEmpty()) {
-                    var count = datas
-                            .map { it.num.toFloat() * it.price.toFloat() }
-                            .sum()
-                    action(count)
-                }
-            }
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
-
-        })
         return normalHeader
     }
 

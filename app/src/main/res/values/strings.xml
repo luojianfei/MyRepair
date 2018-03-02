@@ -61,8 +61,8 @@
     <string name="opa_order_materials_price">查看材料价格表</string>
     <string name="opa_sure_pay">支付费用</string>
     <string name="mih_unit">单位</string>
-    <string name="mih_name">名称</string>
-    <string name="mih_price">价格</string>
+    <string name="mih_name">材料名称</string>
+    <string name="mih_price">优惠价(元)</string>
     <string name="mih_num">数量</string>
     <string name="opa_unit">￥</string>
     <string name="str_purch">确认收货</string>
